@@ -35,4 +35,12 @@ open string 6 E2 440.0000 / 2 ^ ( 29 / 12 ) = 82.4069 Hz
 
 ## sensor references
 
+## FAQ
+ALSA Library : sound driver ; get data from sound card(Linux)
+
+arecord : can read the source, it`s helpful to write our own driver
+
+FFtw 3 lib : FFT Processing library
+
+display: recommended use QT 
  
