@@ -13,10 +13,9 @@ We run our software on **Raspberry Pi MOdel 4b**, and connect **a I2S microphone
 
 ## References
 
-use standard microphone get the real-time voice singnal of guitar，
-help guitar users to calibrate the tones of each string
+Use standard microphone get the real-time voice singnal of guitar，it help guitar users to calibrate the tones of each string.
 
-according to Equal temperament(12 Equal temperament(12-TET)), we use 440Hz as our reference pitch, we got open tunings of each string.
+According to Equal temperament(12 Equal temperament(12-TET)), we use 440Hz as our reference pitch, we got open tunings of each string.
 ![](standardTuning.PNG)
 
 calculation Method:
