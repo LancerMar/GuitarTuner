@@ -1,14 +1,14 @@
 # GuitarTuner
-Tune the each open string of Guitar to standard pitch
+Tune the each open string of Guitar to standard pitch.
 
 ## Introduction
-After using guitar for a long time, the string of the guitar will easily to loose.The loosen strings will cause the guitar string to be out of tune. In that way, we need a tuner to help us to redjust the string of each String
+After using guitar for a long time, the string of the guitar will easily to be loose.The loose strings will cause the guitar string to be out of tune. In that way, we need a tuner to help us to redjust the string of each string.
 
-The most convenient way to retune the guit is to adjust each string when they are open. the standard frequency of each string is in the references
+The most convenient way to retune the guitar is to adjust each string when they are open. The standard frequency of each string is presented.
 
-we can run our software on **raspberry pi**, and connect **a I2S microphone** on it. In that way we can receive the sound of Guitar and analyse them in real-time.  
+We run our software on **Raspberry Pi MOdel 4b**, and connect **a I2S microphone** on it. In that way we can receive the sound of guitar and analyse them in real-time.  
 
-## flow chart
+## Flow chart
 
 
 ## References
