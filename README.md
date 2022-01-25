@@ -6,7 +6,7 @@ After using guitar for a long time, the string of the guitar will easily to loos
 
 The most convenient way to retune the guit is to adjust each string when they are open. the standard frequency of each string is in the references
 
-we can run our software on raspberry pi, and connect a microphone on it. In that way we can coloct the voice of Guitar and analyse them in real-time.  
+we can run our software on **raspberry pi**, and connect **a I2S microphone** on it. In that way we can receive the sound of Guitar and analyse them in real-time.  
 
 ## flow chart
 
