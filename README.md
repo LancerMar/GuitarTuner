@@ -33,6 +33,7 @@ Open string 5 A2 440.0000 / 2 ^ ( 24 / 12 ) = 110.0000 Hz
 Open string 6 E2 440.0000 / 2 ^ ( 29 / 12 ) = 82.4069 Hz
 
 ## Sensor References
+https://www.sparkfun.com/datasheets/BreakoutBoards/I2SBUS.pdf
 
 ## FAQ
 ALSA Library : sound driver ; get data from sound card(Linux)
