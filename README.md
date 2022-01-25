@@ -1,5 +1,5 @@
 # GuitarTuner
-tune the each open string of Guitar to standard pitch
+Tune the each open string of Guitar to standard pitch
 
 ## Introduction
 After using guitar for a long time, the string of the guitar will easily to loose.The loosen strings will cause the guitar string to be out of tune. In that way, we need a tuner to help us to redjust the string of each String
