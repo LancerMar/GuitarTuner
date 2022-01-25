@@ -18,21 +18,21 @@ Use standard microphone get the real-time voice singnal of guitar，it help guit
 According to Equal temperament(12 Equal temperament(12-TET)), we use 440Hz as our reference pitch, we got open tunings of each string.
 ![](standardTuning.PNG)
 
-calculation Method:
+Calculation Method:
 
-open string 1 E4 440.0000 / 2 ^ ( 5 / 12 ) = 329.6276 Hz
+Open string 1 E4 440.0000 / 2 ^ ( 5 / 12 ) = 329.6276 Hz
 
-open string 2 B3 440.0000 / 2 ^ ( 10 / 12 ) = 246.9417 Hz
+Open string 2 B3 440.0000 / 2 ^ ( 10 / 12 ) = 246.9417 Hz
 
-open string 3 G3 440.0000 / 2 ^ ( 14 / 12 ) = 195.9977 Hz
+Open string 3 G3 440.0000 / 2 ^ ( 14 / 12 ) = 195.9977 Hz
 
-open string 4 D3 440.0000 / 2 ^ ( 19 / 12 ) = 146.8324 Hz
+Open string 4 D3 440.0000 / 2 ^ ( 19 / 12 ) = 146.8324 Hz
 
-open string 5 A2 440.0000 / 2 ^ ( 24 / 12 ) = 110.0000 Hz
+Open string 5 A2 440.0000 / 2 ^ ( 24 / 12 ) = 110.0000 Hz
 
-open string 6 E2 440.0000 / 2 ^ ( 29 / 12 ) = 82.4069 Hz
+Open string 6 E2 440.0000 / 2 ^ ( 29 / 12 ) = 82.4069 Hz
 
-## sensor references
+## Sensor References
 
 ## FAQ
 ALSA Library : sound driver ; get data from sound card(Linux)
