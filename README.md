@@ -34,6 +34,7 @@ Open string 6 E2 440.0000 / 2 ^ ( 29 / 12 ) = 82.4069 Hz
 
 ## Sensor References
 https://www.sparkfun.com/datasheets/BreakoutBoards/I2SBUS.pdf
+
 https://cdn-learn.adafruit.com/downloads/pdf/adafruit-i2s-mems-microphone-breakout.pdf
 
 ## FAQ
