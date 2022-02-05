@@ -11,8 +11,7 @@ Then get the driver
 ```
 cd ~
 sudo pip3 install --upgrade adafruit-python-shell
-wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/
-master/i2smic.py
+wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/i2smic.py
 sudo python3 i2smic.py
 ```
 You can choose to auto-load module and then reboot machine now. 
