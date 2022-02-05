@@ -1,8 +1,21 @@
 # Installation
 
-"""
-sudo apt-get install libasound2-dev
-"""
+```
+sudo apt-get -y update
+sudo apt-get -y upgrade
+
+sudo apt-get install libasound2-dev python3-pip
+```
+Then get the driver
+
+```
+cd ~
+sudo pip3 install --upgrade adafruit-python-shell
+wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/
+master/i2smic.py
+sudo python3 i2smic.py
+```
+You can choose to auto-load module and then reboot machine now. 
 
 # GuitarTuner
 tune the each open string of Guitar to standard pitch
