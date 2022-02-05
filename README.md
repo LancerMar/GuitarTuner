@@ -1,3 +1,9 @@
+# Installation
+
+"""
+sudo apt-get install libasound2-dev
+"""
+
 # GuitarTuner
 tune the each open string of Guitar to standard pitch
 
