@@ -4,7 +4,7 @@
 sudo apt-get -y update
 sudo apt-get -y upgrade
 
-sudo apt-get install libasound2-dev python3-pip
+sudo apt-get install libasound2-dev python3-pip libboost-test-dev
 ```
 Then get the driver
 
