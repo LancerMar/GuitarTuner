@@ -63,4 +63,5 @@ arecord : can read the source, it`s helpful to write our own driver
 FFtw 3 lib : FFT Processing library
 
 display: recommended use QT 
- 
+
+install "Doxygen" :literate programme tool 
