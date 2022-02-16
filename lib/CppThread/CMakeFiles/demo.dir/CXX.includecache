@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/pi/GuitarTuner/lib/cppThread/CppThread.h
+thread
+-
+
+/home/pi/GuitarTuner/lib/cppThread/DemoThread.cpp
+DemoThread.h
+/home/pi/GuitarTuner/lib/cppThread/DemoThread.h
+stdio.h
+-
+chrono
+-
+thread
+-
+
+/home/pi/GuitarTuner/lib/cppThread/DemoThread.h
+CppThread.h
+/home/pi/GuitarTuner/lib/cppThread/CppThread.h
+
+/home/pi/GuitarTuner/lib/cppThread/demo.cpp
+stdio.h
+-
+DemoThread.h
+/home/pi/GuitarTuner/lib/cppThread/DemoThread.h
+

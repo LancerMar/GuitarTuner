@@ -1,10 +1,16 @@
+/*
+
+This example reads from the default PCM device
+and writes to standard output for 5 seconds of data.
+
+*/
+
 /* Use the newer ALSA API */
 #define ALSA_PCM_NEW_HW_PARAMS_API
 
-#include "record.h"
+#include <alsa/asoundlib.h>
 
-
-void record_start() {
+int main() {
   long loops;
   int rc;
   int size;
@@ -83,13 +89,12 @@ void record_start() {
   /* Use a buffer large enough to hold one period */
   snd_pcm_hw_params_get_period_size(params,
                                       &frames, &dir);
-  size = frames * 4; /* 4 bytes/sample, 1 channels */ /* 32 samples/period */
+  size = frames * 4; /* 4 bytes/sample, 1 channels */
   buffer = (char *) malloc(size);
   /* We want to loop for 5 seconds */
   snd_pcm_hw_params_get_period_time(params,
-                                         &val, &dir); /* return val as approximate peroid duration in us */
+                                         &val, &dir); /* return val as approximate peroid in us */
   loops = 5000000 / val;
-
   while (loops > 0) {
     loops--;
     rc = snd_pcm_readi(handle, buffer, frames);
@@ -106,7 +111,7 @@ void record_start() {
     }
 
     rc = write(1, buffer, size);
-    printf("\n");
+    printf("%p\n", buffer);
     if (rc != size)
       fprintf(stderr,
               "short write: wrote %d bytes\n", rc);
@@ -116,4 +121,5 @@ void record_start() {
   snd_pcm_close(handle);
   free(buffer);
 
+  return 0;
 }
