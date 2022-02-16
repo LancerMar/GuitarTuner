@@ -1,3 +1,0 @@
-/home/pi/GuitarTuner/lib/CppThread/CMakeFiles/rebuild_cache.dir
-/home/pi/GuitarTuner/lib/CppThread/CMakeFiles/MyThread.dir
-/home/pi/GuitarTuner/lib/CppThread/CMakeFiles/edit_cache.dir
