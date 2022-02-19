@@ -4,7 +4,8 @@
 #include "record.h"
 
 
-void record_start() {
+
+int main() {
   long loops;
   int rc;
   int size;
