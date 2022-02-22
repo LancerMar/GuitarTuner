@@ -1,17 +1,8 @@
-#ifndef MY_THREAD_H
-#define MY_THREAD_H
+#include <stdio.h>
 
-#include "CppThread.h"
+#include "../lib/CppThread/MyThread.h"
 
-class MyThread : public CppThread {
-
-    public:
-        MyThread() {
-        
-        }
-        
-    private:
-        void run;
-};
-
-#endif
+int main() {
+    MyThread demoThread1()
+    
+}

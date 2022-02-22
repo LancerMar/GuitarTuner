@@ -5,7 +5,7 @@
 
 
 
-int main() {
+void Record::record_start(){
   long loops;
   int rc;
   int size;

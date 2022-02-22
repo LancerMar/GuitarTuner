@@ -1,10 +1,10 @@
-#include "processing.h":q
+#include "processing.h"
 #include "record.h"
 
 
 void processing(char *buffer) {
     while(true){
-        int *buffertemp;
+        char *buffertemp;
         buffertemp = buffer;
         int data = *buffer;
         printf("%d", data);
