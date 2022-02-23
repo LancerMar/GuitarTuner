@@ -33,6 +33,7 @@
 
 /.vs/
 /x64/
+/build/
 
 # CMake
 CMakeLists.txt.user

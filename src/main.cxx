@@ -1,8 +1,6 @@
-#include <stdio.h>
-
-#include "../lib/CppThread/MyThread.h"
+#include "record.h"
 
 int main() {
-    MyThread demoThread1()
-    
+    Record record;
+    record.record_start();
 }

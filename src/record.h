@@ -5,16 +5,9 @@
 
 class Record {
 
-
-
 public:
 
-    Record();
-
     void record_start();
-
-
-    
 };
 
 #endif

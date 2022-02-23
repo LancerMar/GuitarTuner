@@ -4,8 +4,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 project(GuitarTuner)
 
-# add header files 
+set(SRC
+    src/main.cxx
+    src/record.cpp)
 
-add_subdirectory(${PROJECT_SOURCE_DIR}/lib/CppThread)
+add_executable(guitartuner ${SRC})
 
-include_directories(${PROJECT_SOURCE_DIR}/src)
+target_link_libraries(guitartuner asound)
