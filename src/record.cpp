@@ -20,7 +20,7 @@ void Record::record_start(){
   snd_pcm_info_alloca(&info);
 
   /* Open PCM device for recording (capture). */
-  rc = snd_pcm_open(&handle, "plughw:2",
+  rc = snd_pcm_open(&handle, "plughw:0",
                     SND_PCM_STREAM_CAPTURE, 0); /* checked but not sure about open_mode */
   if (rc < 0) {
     fprintf(stderr,
