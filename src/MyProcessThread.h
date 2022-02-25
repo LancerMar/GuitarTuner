@@ -1,7 +1,7 @@
 #ifndef PROCESS_THREAD_H
 #define PROCESS_THREAD_H
 
-#include "../lib/CppThread/CppThread.h"
+#include "../lib/cppThread/CppThread.h" 
 
 class MyProcessThread : public CppThread{
 
@@ -10,6 +10,7 @@ public:
         offset = _offset;
     }
 
+    void testRun();
 private:
     void run();
 

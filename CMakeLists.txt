@@ -13,5 +13,7 @@ set(SRC
     src/MyProcessThread.cpp)
 
 add_executable(guitartuner ${SRC})
-
-target_link_libraries(guitartuner asound)
+find_package (Threads)
+target_link_libraries(guitartuner 
+                        asound 
+                        ${CMAKE_THREAD_LIBS_INIT})
