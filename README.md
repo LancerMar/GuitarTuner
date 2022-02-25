@@ -18,6 +18,10 @@ You can choose to auto-load module and then reboot machine now.
 
 # compile
 Release mode and Debug mode can be used to complie this project
+## Installation
+before compile this project you should :
+
+1. Install [FFTW](http://www.fftw.org/download.html) manually
 ## Release
 you can compile the release version of our project by using following command on RaspberryPi
 ``` linux
