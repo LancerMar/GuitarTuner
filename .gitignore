@@ -31,9 +31,12 @@
 *.out
 *.app
 
+# Executable Folder
 /.vs/
 /x64/
 /build/
+/debug/
+/release/
 
 # CMake
 CMakeLists.txt.user
@@ -47,3 +50,6 @@ install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
 _deps
+
+#Others
+*.dat
