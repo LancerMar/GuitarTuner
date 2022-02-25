@@ -1,0 +1,6 @@
+[submodule "lib/qcustomplotdemo"]
+	path = lib/qcustomplotdemo
+	url = https://github.com/berndporr/qcustomplotdemo.git
+[submodule "lib/cppThread"]
+	path = lib/cppThread
+	url = https://github.com/berndporr/cppThread.git

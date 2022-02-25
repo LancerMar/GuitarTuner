@@ -7,13 +7,24 @@ set(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
 
 project(GuitarTuner)
 
+find_package(FFTW3)
+find_package(Threads)
+
 set(SRC
     src/main.cxx
     src/record.cpp
     src/MyProcessThread.cpp)
 
 add_executable(guitartuner ${SRC})
-find_package (Threads)
+
+if(FFTW3_FOUND)
+    include_directories(${FFTW3_INCLUDE_DIRS})
+    link_directories(${FFTW3_LIBRARY_DIRS})
+    target_link_libraries(guitartuner fftw3)
+else(FFTW3_FOUND)
+    message(FATAL_ERROR "FFTW3 not found")
+endif(FFTW3_FOUND)
+
 target_link_libraries(guitartuner 
                         asound 
                         ${CMAKE_THREAD_LIBS_INIT})
