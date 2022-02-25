@@ -16,6 +16,35 @@ sudo python3 i2smic.py
 ```
 You can choose to auto-load module and then reboot machine now. 
 
+# compile
+Release mode and Debug mode can be used to complie this project
+## Release
+you can compile the release version of our project by using following command on RaspberryPi
+``` linux
+mkdir release
+cd release/
+cmake -DCMAKE_BUILD_TYPE=Release ..
+make
+```
+the **guitartuner** is the excutable file 
+
+## Debug
+you can compile the debug version of our project by using following command on RaspberryPi
+``` linux
+mkdir debug
+cd debug/
+cmake -DCMAKE_BUILD_TYPE=Debug ..
+make
+```
+the **guitartuner** is the excutable file 
+
+you can use
+``` linux
+gdb -tui guitartuner
+```
+to debug this program 
+
+
 # GuitarTuner
 Tune the each open string of Guitar to standard pitch.
 

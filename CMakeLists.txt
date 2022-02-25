@@ -9,7 +9,8 @@ project(GuitarTuner)
 
 set(SRC
     src/main.cxx
-    src/record.cpp)
+    src/record.cpp
+    src/MyProcessThread.cpp)
 
 add_executable(guitartuner ${SRC})
 
