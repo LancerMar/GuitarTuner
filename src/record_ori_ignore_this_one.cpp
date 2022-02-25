@@ -8,21 +8,19 @@ and writes to standard output for 5 seconds of data.
 /* Use the newer ALSA API */
 #define ALSA_PCM_NEW_HW_PARAMS_API
 
-#include <alsa/asoundlib.h>
+#include "record_ori.h"
 
-int main() {
+void Record::record_start() {
   long loops;
   int rc;
   int size;
   snd_pcm_t *handle;
   snd_pcm_hw_params_t *params;
-  snd_pcm_info_t *info;
   unsigned int val;
   int dir;
   snd_pcm_uframes_t frames;
   char *buffer;
   
-  snd_pcm_info_alloca(&info);
 
   /* Open PCM device for recording (capture). */
   rc = snd_pcm_open(&handle, "plughw:2",
@@ -121,5 +119,4 @@ int main() {
   snd_pcm_close(handle);
   free(buffer);
 
-  return 0;
 }
