@@ -37,6 +37,7 @@
 /build/
 /debug/
 /release/
+/.vscode/
 
 # CMake
 CMakeLists.txt.user
