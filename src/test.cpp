@@ -1,4 +1,8 @@
 #include <fstream>
+#include <cstdlib>
+#include <iostream>
+#include <cmath>
+#include <complex>
 #include <fftw3.h>
 
 int main()
@@ -11,7 +15,7 @@ int main()
     fftw_complex *out;
     fftw_plan p;
 
-    int N=3000;
+    const int N=3000;
     in = (fftw_complex*)fftw_malloc(sizeof(float)*N);
     out = (fftw_complex*)fftw_malloc(sizeof(float)*N);
     std::ifstream file("testdata.dat",std::ios::in | std::ios::binary);
