@@ -72,8 +72,8 @@ void I2Smic::set_params(void) {
 
     /* Use a buffer large enough to hold period */
     snd_pcm_hw_params_get_period_size(params, &frames, 0); 
-
-    buffer = (char *) malloc(frames * 4);/* 4 bytes/sample, 1 channels */  
+    size = frames * 4;
+    buffer = (char *) malloc(size);/* 4 bytes/sample, 1 channels */  
     snd_pcm_hw_params_get_period_time(params, &val, 0);
     
     
@@ -105,11 +105,10 @@ void I2Smic::record_start(){
             fprintf(stderr, "short read, read %d frames\n", rc);
         }
 
-        rc = write(fptr, buffer, size);
-        printf("%d\n", loops);
+        rc = write(1, buffer, size);
         if (rc != size)
             fprintf(stderr,
-                "short write: wrote %d bytes\n", rc);
+                "short write: wrote %d bytes\n", rc); 
     }
     
     close_pcm();
