@@ -1,14 +1,14 @@
-#include "MyProcessThread.h"
+#include "MyDataProcessThread.h"
 
 #include <iostream>
 #include <fstream>
 
-void MyProcessThread::run(){
+void MyDataProcessThread::run(){
     //for test
-    std::cout<<"hello MyProcessThread test"<<std::endl;
+    std::cout<<"hello MyDataProcessThread test"<<std::endl;
 };
 
-void MyProcessThread::testRun(){
+void MyDataProcessThread::testRun(){
     std::cout<<" this is just for debuging the run functions"<< std::endl;
 
     //=============generate the ramdon number for test==============

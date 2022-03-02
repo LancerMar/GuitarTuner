@@ -4,10 +4,15 @@
 
 #include <fftw3.h>
 
-class MyProcessThread : public CppThread{
+class DataProcessCallback{
+public:
+    virtual void hassample(int32_t &samples, int length) = 0;
+};
+
+class MyDataProcessThread : public CppThread{
 
 public:
-    MyProcessThread(int _offset) {
+    MyDataProcessThread(int _offset) {
         offset = _offset;
     }
 

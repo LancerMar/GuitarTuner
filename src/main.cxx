@@ -1,5 +1,5 @@
 #include "record.h"
-#include "MyProcessThread.h"
+#include "MyDataProcessThread.h"
 
 #include <iostream>
 
@@ -8,7 +8,7 @@ int main() {
     // dataProcess.start();
     // dataProcess.join();
 
-    MyProcessThread dataProcess(0);
+    MyDataProcessThread dataProcess(0);
     dataProcess.testRun();
     
     // Record record;
