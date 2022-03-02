@@ -1,9 +1,11 @@
 #include <stdio.h>
 
-#include "record.h"
+#include "i2s_mems_mic.h"
 
 int main() {
-    Record rec;
+    I2Smic rec;
+    rec.open_pcm();
+    rec.set_params();
     rec.record_start();
     return 0;   
 }

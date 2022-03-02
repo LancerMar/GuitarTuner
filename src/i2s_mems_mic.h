@@ -12,7 +12,6 @@ static int open_mode = 0;
 static snd_pcm_stream_t stream = SND_PCM_STREAM_CAPTURE;
 static char const* pcm_name = "plughw:2";
 static snd_pcm_uframes_t frames = 32; // to be modified
-static snd_pcm_uframes_t chunk_size = 1024; //to be decided
 static unsigned int val;
 
 static struct params{
@@ -39,7 +38,8 @@ private:
     snd_pcm_hw_params_t *params;
     snd_pcm_info_t *info;
     char *buffer;
-    int rc;   
+    int rc;
+
 };
 
 #endif

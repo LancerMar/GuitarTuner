@@ -1,7 +1,9 @@
 /* Use the newer ALSA API */
+#include <cmath>
 #define ALSA_PCM_NEW_HW_PARAMS_API
 
 #include "i2s_mems_mic.h"
+int fptr;
 
 void I2Smic::open_pcm(){
     rc = snd_pcm_open(&handle, pcm_name,
@@ -21,6 +23,7 @@ void I2Smic::set_params(void) {
     int err;
     unsigned int rate;
     
+    snd_pcm_hw_params_alloca(&params); 
     err = snd_pcm_hw_params_any(handle, params);
     if (err < 0) {
         fprintf(stderr,
@@ -68,19 +71,18 @@ void I2Smic::set_params(void) {
     }
 
     /* Use a buffer large enough to hold period */
-    snd_pcm_hw_params_get_period_size(params, &chunk_size, 0); 
+    snd_pcm_hw_params_get_period_size(params, &frames, 0); 
 
-    buffer = (char *) malloc(chunk_size * 4);/* 4 bytes/sample, 1 channels */  
-
+    buffer = (char *) malloc(frames * 4);/* 4 bytes/sample, 1 channels */  
     snd_pcm_hw_params_get_period_time(params, &val, 0);
+    
+    
+    fptr = open("./sound.raw", O_RDWR);
 }
 
 void I2Smic::record_start(){
     int loops;
     
-    open_pcm();
-    set_params();
-
     loops = 5000000 / val;
 
     while (loops > 0) {
@@ -94,7 +96,7 @@ void I2Smic::record_start(){
         if (rc == -EPIPE) {
             /* EPIPE means overrun */
             fprintf(stderr, "overrun occurred\n");
-        snd_pcm_prepare(handle);
+            snd_pcm_prepare(handle);
         } else if (rc < 0) {
             fprintf(stderr,
                 "error from read: %s\n",
@@ -103,12 +105,13 @@ void I2Smic::record_start(){
             fprintf(stderr, "short read, read %d frames\n", rc);
         }
 
-        rc = write(1, buffer, size);
-        printf("\n");
+        rc = write(fptr, buffer, size);
+        printf("%d\n", loops);
         if (rc != size)
             fprintf(stderr,
                 "short write: wrote %d bytes\n", rc);
     }
+    
     close_pcm();
 
 }
