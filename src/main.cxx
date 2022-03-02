@@ -7,5 +7,6 @@ int main() {
     rec.open_pcm();
     rec.set_params();
     rec.record_start();
-    return 0;   
+    
+    return 0;
 }
