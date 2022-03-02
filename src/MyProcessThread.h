@@ -1,7 +1,8 @@
 #ifndef PROCESS_THREAD_H
 #define PROCESS_THREAD_H
-
 #include "../lib/cppThread/CppThread.h" 
+
+#include <fftw3.h>
 
 class MyProcessThread : public CppThread{
 
@@ -16,6 +17,8 @@ private:
 
 private:
     int offset;
+    double *in;
+    fftw_complex *out;
 };
 
 

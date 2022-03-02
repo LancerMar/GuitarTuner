@@ -11,6 +11,6 @@ int main() {
     MyProcessThread dataProcess(0);
     dataProcess.testRun();
     
-    Record record;
-    record.record_start();
+    // Record record;
+    // record.record_start();
 }
