@@ -6,7 +6,7 @@
 
 class DataProcessCallback{
 public:
-    virtual void hassample(int32_t &samples, int length) = 0;
+    virtual void hasSamples(int32_t &samples, int length) = 0;
 };
 
 class MyDataProcessThread : public CppThread{
