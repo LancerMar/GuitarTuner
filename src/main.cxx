@@ -8,8 +8,8 @@ int main() {
     // dataProcess.start();
     // dataProcess.join();
 
-    MyDataProcessThread dataProcess(0);
-    dataProcess.testRun();
+    //MyDataProcessThread dataProcess(0);
+    //dataProcess.testRun();
     
     // Record record;
     // record.record_start();

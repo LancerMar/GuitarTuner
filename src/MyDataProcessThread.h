@@ -3,11 +3,7 @@
 #include "../lib/cppThread/CppThread.h" 
 
 #include <fftw3.h>
-
-class DataProcessCallback{
-public:
-    virtual void hasSamples(int32_t &samples, int length) = 0;
-};
+#include "record.h"
 
 class MyDataProcessThread : public CppThread{
 
