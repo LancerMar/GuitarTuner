@@ -3,7 +3,13 @@
 
 #include "record.h"
 
+void Record::registercallback(DataProcessCallback* dp){
+  data_process_callback = dp;
+}
 
+void Record::unregistercallback(){
+   data_process_callback =nullptr;
+}
 
 void Record::record_start(){
   long loops;

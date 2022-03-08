@@ -3,17 +3,14 @@
 #include "../lib/cppThread/CppThread.h" 
 
 #include <fftw3.h>
-
-class DataProcessCallback{
-public:
-    virtual void hassample(int32_t &samples, int length) = 0;
-};
+#include "record.h"
 
 class MyDataProcessThread : public CppThread{
 
 public:
-    MyDataProcessThread(int _offset) {
+    MyDataProcessThread(int _offset,Record record) {
         offset = _offset;
+        record_Process = record;
     }
 
     void testRun();
@@ -22,8 +19,7 @@ private:
 
 private:
     int offset;
-    double *in;
-    fftw_complex *out;
+    Record record_Process;
 };
 
 
