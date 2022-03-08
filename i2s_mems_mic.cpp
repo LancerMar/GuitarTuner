@@ -17,11 +17,15 @@ void I2Smic::open_pcm(){
     
 }
 
+void I2Smic::registerCallback(I2Scallback* cb) {
+    i2scallback = cb;
+}
+
+
 void I2Smic::set_params(void) {
     snd_pcm_hw_params_t *params;
     snd_pcm_hw_params_alloca(&params);
     int err;
-    unsigned int rate;
     
     snd_pcm_hw_params_alloca(&params); 
     err = snd_pcm_hw_params_any(handle, params);
@@ -57,7 +61,6 @@ void I2Smic::set_params(void) {
         exit(1);
     }
     
-    rate = hwparams.rate;
     err = snd_pcm_hw_params_set_rate_near(handle, params, &hwparams.rate, 0);
     assert(err >= 0);//dont understand it
 
@@ -80,7 +83,7 @@ void I2Smic::set_params(void) {
     fptr = open("./sound.raw", O_RDWR);
 }
 
-void I2Smic::record_start(){
+void I2Smic::run(){
     int loops;
     
     loops = 5000000 / val;
@@ -89,10 +92,8 @@ void I2Smic::record_start(){
         loops--;
         rc = snd_pcm_readi(handle, buffer, frames);
 
-        /* call back */
       
         /* end of call back */;
-
         if (rc == -EPIPE) {
             /* EPIPE means overrun */
             fprintf(stderr, "overrun occurred\n");
@@ -105,16 +106,26 @@ void I2Smic::record_start(){
             fprintf(stderr, "short read, read %d frames\n", rc);
         }
 
-        rc = write(1, buffer, size);
+        const float value = (*buffer | 0xffff);
+        /*
+         added data conversion here
+
+         */
+
+        if (nullptr != i2scallback){
+            i2scallback->hasSample(value);
+        }
+        //rc = write(1, buffer, size);
         if (rc != size)
             fprintf(stderr,
                 "short write: wrote %d bytes\n", rc); 
     }
     
-    close_pcm();
-
 }
 
+void I2Smic::start() {
+    dacthread = new std::thread(exec, this);
+}
 void I2Smic::close_pcm() {
     snd_pcm_drain(handle);
     snd_pcm_close(handle);
