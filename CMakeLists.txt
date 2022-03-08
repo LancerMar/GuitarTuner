@@ -10,9 +10,16 @@ project(I2S_Lib VERSION 1.0.0 LANGUAGES CXX)
 find_package(FFTW3)
 find_package(Threads)
 
+<<<<<<< HEAD
 set(LIBSRC
     i2s_mems_mic.cpp
     )
+=======
+set(SRC
+    src/main.cxx
+    #src/record.cpp
+    src/MyProcessThread.cpp)
+>>>>>>> b25ea266f8f12b4576088f66c2e20d7a2b5a469e
 
 set(LIBINCLUDE i2s_mems_mic.h)
 

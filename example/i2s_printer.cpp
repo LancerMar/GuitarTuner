@@ -19,6 +19,6 @@ int main() {
     i2smic.registerCallback(&i2sprintercallback);
     i2smic.set_params();
     i2smic.start();
-    //i2smic.close_pcm();   
+    i2smic.close_pcm();   
     return 0;
 }
