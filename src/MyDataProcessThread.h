@@ -1,13 +1,16 @@
 #ifndef PROCESS_THREAD_H
 #define PROCESS_THREAD_H
-
 #include "../lib/cppThread/CppThread.h" 
 
-class MyProcessThread : public CppThread{
+#include <fftw3.h>
+#include "record.h"
+
+class MyDataProcessThread : public CppThread{
 
 public:
-    MyProcessThread(int _offset) {
+    MyDataProcessThread(int _offset,Record record) {
         offset = _offset;
+        record_Process = record;
     }
 
     void testRun();
@@ -16,6 +19,7 @@ private:
 
 private:
     int offset;
+    Record record_Process;
 };
 
 
