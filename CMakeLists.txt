@@ -12,7 +12,7 @@ find_package(Threads)
 
 set(SRC
     src/main.cxx
-    src/MyProcessThread.cpp
+    src/MyDataProcessThread.cpp
     src/DataProcess.cpp)
 
 add_executable(guitartuner ${SRC})

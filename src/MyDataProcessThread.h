@@ -20,6 +20,8 @@ private:
 private:
     int offset;
     I2Smic i2smic_Process;
+    int32_t* samples_processing;
+    int samples_length;
 };
 
 

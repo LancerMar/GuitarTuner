@@ -8,8 +8,9 @@ int main() {
     // dataProcess.start();
     // dataProcess.join();
 
-    //MyDataProcessThread dataProcess(0);
-    //dataProcess.testRun();
+    I2Smic i2smic;
+    MyDataProcessThread dataProcess(0,i2smic);
+    dataProcess.testRun();
     
     // Record record;
     // record.record_start();

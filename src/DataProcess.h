@@ -3,5 +3,11 @@
 
 class DataProcess{
 public:
-    void process(I2Smic i2wmic);
+    void registerI2smicCallback(I2Smic i2wmic);
+    void process();
+
+public:
+    static int32_t* buffer_samples;
+    static int length;
+
 };

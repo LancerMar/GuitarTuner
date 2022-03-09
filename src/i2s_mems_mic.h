@@ -27,7 +27,7 @@ public:
      * It needs to be implemented in a derived 
      * class.
      **/
-    virtual void hasSample(int32_t samples, int length) = 0;
+    virtual void hasSample(int32_t* samples, int length) = 0;
 };
 
 static struct params{
@@ -66,6 +66,10 @@ public:
      * Register the callback which is called whenever there is a sample.
      **/
     void registerCallback(I2Scallback* cb);
+
+public:
+    //store state of the processing  
+    static bool data_process_start;
 
 private:
 
