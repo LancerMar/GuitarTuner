@@ -8,7 +8,7 @@
 class MyDataProcessThread : public CppThread{
 
 public:
-    MyDataProcessThread(int _offset,I2Smic i2smic) {
+    MyDataProcessThread(int _offset,I2Smic* i2smic) {
         offset = _offset;
         i2smic_Process = i2smic;
     }
@@ -19,9 +19,7 @@ private:
 
 private:
     int offset;
-    I2Smic i2smic_Process;
-    int32_t* samples_processing;
-    int samples_length;
+    I2Smic* i2smic_Process;
 };
 
 

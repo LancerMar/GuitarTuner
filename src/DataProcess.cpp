@@ -13,9 +13,9 @@ class DataProcessSoundDataCallback : public I2Scallback{
         
 };
 
-void DataProcess::registerI2smicCallback(I2Smic i2wmic){
+void DataProcess::registerI2smicCallback(I2Smic* i2wmic){
     DataProcessSoundDataCallback dataProcCallback;
-    i2wmic.registerCallback(&dataProcCallback);
+    i2wmic->registerCallback(&dataProcCallback);
 }
 
 

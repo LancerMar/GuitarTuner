@@ -13,12 +13,16 @@ void MyDataProcessThread::run(){
     data_process.registerI2smicCallback(i2smic_Process);
     while(true){
         //locker
-        while(i2smic_Process.data_process_start){}
+        while(i2smic_Process->data_process_start){}
         data_process.process();
     }
 
 };
 
+
+
+
+//test code
 void MyDataProcessThread::testRun()
 {
     std::cout<<" this is just for debuging the run functions"<< std::endl;

@@ -8,7 +8,7 @@ int main() {
     // dataProcess.start();
     // dataProcess.join();
 
-    I2Smic i2smic;
+    I2Smic* i2smic;
     MyDataProcessThread dataProcess(0,i2smic);
     dataProcess.testRun();
     
