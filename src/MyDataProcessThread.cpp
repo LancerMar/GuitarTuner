@@ -9,7 +9,7 @@ void MyDataProcessThread::run(){
     std::cout<<"hello MyDataProcessThread test"<<std::endl;
 
     DataProcess data_process;
-    data_process.process(record_Process);
+    data_process.process(i2smic_Process);
 };
 
 // void MyDataProcessThread::testRun()

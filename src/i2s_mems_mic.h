@@ -27,7 +27,7 @@ public:
      * It needs to be implemented in a derived 
      * class.
      **/
-    virtual void hasSample(float sample) = 0;
+    virtual void hasSample(int32_t samples, int length) = 0;
 };
 
 static struct params{

@@ -4,8 +4,8 @@
 #include "DataProcess.h"
 
 
-class DataProcessSoundDataCallback : public DataProcessCallback{
-    virtual void hasSamples(int32_t &samples, int length)
+class DataProcessSoundDataCallback : public I2Scallback{
+    virtual void hasSample(int32_t samples, int length)
     {
         double *in;
         fftw_complex *out;
@@ -48,7 +48,7 @@ class DataProcessSoundDataCallback : public DataProcessCallback{
     }
 };
 
-void DataProcess::process(Record record){
-    DataProcessSoundDataCallback dataProcessSoundDataCallback;
-    record.registercallback(&dataProcessSoundDataCallback);
+void DataProcess::process(I2Smic i2wmic){
+    DataProcessSoundDataCallback dataProcCallback;
+    i2wmic.registerCallback(&dataProcCallback);
 }

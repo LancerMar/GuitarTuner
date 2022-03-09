@@ -1,4 +1,4 @@
-#include "record.h"
+
 #include "MyDataProcessThread.h"
 
 #include <iostream>

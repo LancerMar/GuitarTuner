@@ -12,8 +12,8 @@ find_package(Threads)
 
 set(SRC
     src/main.cxx
-    #src/record.cpp
-    src/MyProcessThread.cpp)
+    src/MyProcessThread.cpp
+    src/DataProcess.cpp)
 
 add_executable(guitartuner ${SRC})
 

@@ -3,14 +3,14 @@
 #include "../lib/cppThread/CppThread.h" 
 
 #include <fftw3.h>
-#include "record.h"
+#include "i2s_mems_mic.h"
 
 class MyDataProcessThread : public CppThread{
 
 public:
-    MyDataProcessThread(int _offset,Record record) {
+    MyDataProcessThread(int _offset,I2Smic i2smic) {
         offset = _offset;
-        record_Process = record;
+        i2smic_Process = i2smic;
     }
 
     void testRun();
@@ -19,7 +19,7 @@ private:
 
 private:
     int offset;
-    Record record_Process;
+    I2Smic i2smic_Process;
 };
 
 
