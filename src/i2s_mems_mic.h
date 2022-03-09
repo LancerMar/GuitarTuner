@@ -8,13 +8,6 @@
 
 #define WAV_FORMAT SND_PCM_FORMAT_S32_LE
 
-static snd_pcm_t *handle;
-static int open_mode = 0;
-static snd_pcm_stream_t stream = SND_PCM_STREAM_CAPTURE;
-static char const* pcm_name = "plughw:2";
-static snd_pcm_uframes_t frames = 32; // to be modified
-static unsigned int val;
-
 /**
  * Callback for new samples which needs to be implemented by main
  * program. The function hasSample needs to be overloaded in the main
@@ -66,21 +59,30 @@ public:
      * Register the callback which is called whenever there is a sample.
      **/
     void registerCallback(I2Scallback* cb);
+    void run();
 
 private:
+
+    snd_pcm_t *handle;
+    const int open_mode = 0;
+    const snd_pcm_stream_t stream = SND_PCM_STREAM_CAPTURE;
+    char const* pcm_name = "plughw:2";
+    snd_pcm_uframes_t frames = 32; 
+    unsigned int val;
 
     int size;
     std::thread* dacthread = nullptr;
     snd_pcm_hw_params_t *params;
     snd_pcm_info_t *info;
-    char *buffer;
-    void run();
+    /*
     static void exec(I2Smic* i2smic) {
         i2smic->run();
     }
+    */
     int rc;
     I2Scallback* i2scallback = nullptr;
-
+    int32_t buffer[2][32];/* 4 bytes/sample, 1 channels */ 
+    unsigned currentBufIdx = 0;
 };
 
 #endif

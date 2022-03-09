@@ -46,7 +46,7 @@ void I2Smic::set_params(void) {
     }
 
     /* format */
-    /* Signed 32-bit little-endian format */
+    /* Signed 32-bit big-endian format */
     err = snd_pcm_hw_params_set_format(handle, params,
                                 hwparams.format);
     if (err < 0) {
@@ -76,7 +76,7 @@ void I2Smic::set_params(void) {
     /* Use a buffer large enough to hold period */
     snd_pcm_hw_params_get_period_size(params, &frames, 0); 
     size = frames * 4;
-    buffer = (char *) malloc(size);/* 4 bytes/sample, 1 channels */  
+ 
     snd_pcm_hw_params_get_period_time(params, &val, 0);
     
     
@@ -85,15 +85,13 @@ void I2Smic::set_params(void) {
 
 void I2Smic::run(){
     int loops;
-    
+       
     loops = 5000000 / val;
 
     while (loops > 0) {
         loops--;
-        rc = snd_pcm_readi(handle, buffer, frames);
+        rc = snd_pcm_readi(handle, buffer[currentBufIdx], frames);
 
-      
-        /* end of call back */;
         if (rc == -EPIPE) {
             /* EPIPE means overrun */
             fprintf(stderr, "overrun occurred\n");
@@ -106,28 +104,21 @@ void I2Smic::run(){
             fprintf(stderr, "short read, read %d frames\n", rc);
         }
 
-        const float value = (*buffer | 0xffff);
-        /*
-         added data conversion here
-         */
-
-        if (nullptr != i2scallback){
-            i2scallback->hasSample(value);
-        }
-        //rc = write(1, buffer, size);
+        rc = write(1, buffer[currentBufIdx], size); // callback
+        currentBufIdx = !currentBufIdx;
         if (rc != size)
             fprintf(stderr,
                 "short write: wrote %d bytes\n", rc); 
+        
     }
     
 }
-
+/* 
 void I2Smic::start() {
     dacthread = new std::thread(exec, this);
 }
+*/
 void I2Smic::close_pcm() {
     snd_pcm_drain(handle);
     snd_pcm_close(handle);
-    free(buffer);
-
 }
