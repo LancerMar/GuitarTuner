@@ -3,10 +3,7 @@
 
 #include <iostream>
 
-int main() {
-    // MyProcessThread dataProcess(0);
-    // dataProcess.start();
-    // dataProcess.join();
+int main(int argc, char *argv[]) {
 
     I2Smic* i2smic;
     MyDataProcessThread dataProcess(0,i2smic);
