@@ -7,6 +7,9 @@ set(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
 
 project(GuitarTuner)
 
+add_subdirectory(test)
+enable_testing()
+
 find_package(FFTW3)
 find_package(Threads)
 
