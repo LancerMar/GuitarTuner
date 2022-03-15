@@ -3,21 +3,10 @@
 
 #include "DataProcess.h"
 
-
-class DataProcessSoundDataCallback : public I2Scallback{
-    virtual void hasSample(int32_t* samples, int length)
-    {
-        DataProcess::buffer_samples=samples;
-        DataProcess::length=length;
-    }
-        
-};
-
-void DataProcess::registerI2smicCallback(I2Smic* i2wmic){
-    DataProcessSoundDataCallback dataProcCallback;
-    i2wmic->registerCallback(&dataProcCallback);
+void DataProcess::hasSample(int32_t* buff, int len){
+    buffer_samples = buff;
+    length=len;
 }
-
 
 void DataProcess::process(){
     double *in;

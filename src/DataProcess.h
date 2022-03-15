@@ -1,13 +1,13 @@
 
 #include "i2s_mems_mic.h"
 
-class DataProcess{
+class DataProcess:public I2Smic{
 public:
-    void registerI2smicCallback(I2Smic* i2wmic);
+    virtual void hasSample(int32_t* , int);
     void process();
 
-public:
-    static int32_t* buffer_samples;
-    static int length;
+private:
+    int32_t* buffer_samples;
+    int length;
 
 };
