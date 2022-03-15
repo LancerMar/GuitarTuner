@@ -5,23 +5,9 @@
 #include <alsa/pcm.h>
 #include <errno.h>
 #include <thread>
+#include <mutex>
 
-#define WAV_FORMAT SND_PCM_FORMAT_S32_LE
-
-/**
- * Callback for new samples which needs to be implemented by main
- * program. The function hasSample needs to be overloaded in the main
- * program.
- **/
-class I2Scallback {
-public:
-    /**
-     * Called when a sample is avaliable.
-     * It needs to be implemented in a derived 
-     * class.
-     **/
-    virtual void hasSample(float sample) = 0;
-};
+#define WAV_FORMAT SND_PCM_FORMAT_S32_BE
 
 static struct params{
     snd_pcm_format_t format = WAV_FORMAT;
@@ -33,7 +19,11 @@ class I2Smic {
 
 public:
     
-   
+    /* directlly add abstract callback method in driver class, 
+     * called when a buffer is avaliable
+     */
+    virtual void hasSample(int32_t* , int) = 0;
+    
     /*
      * open PCM device
      */
@@ -55,10 +45,9 @@ public:
      **/
     void close_pcm();
     
-    /**
-     * Register the callback which is called whenever there is a sample.
-     **/
-    void registerCallback(I2Scallback* cb);
+    /*
+     * start to obtain sound sample
+     */
     void run();
 
 private:
@@ -79,8 +68,9 @@ private:
         i2smic->run();
     }
     */
+
+    std::mutex readoutMtx;
     int rc;
-    I2Scallback* i2scallback = nullptr;
     int32_t buffer[2][32];/* 4 bytes/sample, 1 channels */ 
     unsigned currentBufIdx = 0;
 };

@@ -17,10 +17,6 @@ void I2Smic::open_pcm(){
     
 }
 
-void I2Smic::registerCallback(I2Scallback* cb) {
-    i2scallback = cb;
-}
-
 
 void I2Smic::set_params(void) {
     snd_pcm_hw_params_t *params;
@@ -104,12 +100,20 @@ void I2Smic::run(){
             fprintf(stderr, "short read, read %d frames\n", rc);
         }
 
-        rc = write(1, buffer[currentBufIdx], size); // callback
-        currentBufIdx = !currentBufIdx;
+        //callback here
+        hasSample(buffer[currentBufIdx], frames);
+
+        /* rc = write(1, buffer[currentBufIdx], size); // write to stdout
         if (rc != size)
             fprintf(stderr,
-                "short write: wrote %d bytes\n", rc); 
+                "short write: wrote %d bytes\n", rc); */
         
+        /*
+         * switching buffer
+         */
+        readoutMtx.lock();
+        currentBufIdx = !currentBufIdx;
+        readoutMtx.unlock();
     }
     
 }

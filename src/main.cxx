@@ -1,16 +1,20 @@
-#include "record.h"
-#include "MyDataProcessThread.h"
+#include "window.h"
 
 #include <iostream>
+#include <qwindowdefs.h>
 
-int main() {
-    // MyProcessThread dataProcess(0);
-    // dataProcess.start();
-    // dataProcess.join();
+int main(int argc, char *argv[]) {
+    QApplication app(argc, argv);
 
-    //MyDataProcessThread dataProcess(0);
-    //dataProcess.testRun();
-    
-    // Record record;
-    // record.record_start();
+    //create the window
+    Window window;
+    window.show();
+
+    window.run();
+
+    window.startTimer(40);
+
+    return app.exec();
+
+
 }
