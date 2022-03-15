@@ -90,7 +90,7 @@ https://cdn-learn.adafruit.com/downloads/pdf/adafruit-i2s-mems-microphone-breako
 
 # Diagram
 ## sequence diagram for data transfer
-![materies/sequenceDiagram.PNG]
+![](materies/sequenceDiagram.PNG)
 
 ## FAQ
 ALSA Library : sound driver ; get data from sound card(Linux)
