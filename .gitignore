@@ -38,6 +38,7 @@
 /debug/
 /release/
 /.vscode/
+/.cache/
 
 # CMake
 CMakeLists.txt.user
