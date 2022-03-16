@@ -3,10 +3,16 @@
 
 #include "DataProcess.h"
 
-void DataProcess::hasSample(int32_t* buff, int len){
-    buffer_samples = buff;
-    length=len;
-}
+
+class I2SmicHasSample : public I2Smic{
+    virtual void hasSample(int32_t* buff, int len)
+    {   
+        DataProcess::buffer_samples = buff;
+        DataProcess::length = len;
+    }
+};
+
+
 
 void DataProcess::process(){
     double *in;

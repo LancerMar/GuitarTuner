@@ -1,7 +1,6 @@
-#include "MyDataProcessThread.h"
-
 #include <iostream>
 
+#include "MyDataProcessThread.h"
 #include "DataProcess.h"
 
 void MyDataProcessThread::run(){
@@ -10,10 +9,11 @@ void MyDataProcessThread::run(){
 
 
     DataProcess data_process;
-    data_process.registerI2smicCallback(i2smic_Process);
+    // data_process.registerI2smicCallback(i2smic_Process);
     while(true){
         //locker
-        while(i2smic_Process->data_process_start){}
+        while(!i2smic_Process->data_process_start){}
+        i2smic_Process->data_process_start = false;
         data_process.process();
     }
 

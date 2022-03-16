@@ -7,6 +7,8 @@
 #include <thread>
 #include <mutex>
 
+#include "DataProcess.h"
+
 #define WAV_FORMAT SND_PCM_FORMAT_S32_BE
 
 static struct params{
@@ -15,6 +17,7 @@ static struct params{
     unsigned int rate = 44100;
 } hwparams;
 
+
 class I2Smic {
 
 public:
@@ -22,7 +25,7 @@ public:
     /* directlly add abstract callback method in driver class, 
      * called when a buffer is avaliable
      */
-    virtual void hasSample(int32_t* , int) = 0;
+    virtual void hasSample(int32_t* buff_samples, int sample_length) = 0;
     
     /*
      * open PCM device
@@ -77,6 +80,15 @@ private:
     int rc;
     int32_t buffer[2][32];/* 4 bytes/sample, 1 channels */ 
     unsigned currentBufIdx = 0;
+};
+
+
+class I2SmicHasSample : public I2Smic{
+    virtual void hasSample(int32_t* buff, int len)
+    {   
+        DataProcess::buffer_samples = buff;
+        DataProcess::length = len;
+    }
 };
 
 #endif
