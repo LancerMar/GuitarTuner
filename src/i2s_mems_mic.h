@@ -83,11 +83,11 @@ private:
 };
 
 
-class I2SmicHasSample : public I2Smic{
+class I2SmicHasSample : public I2Smic {
     virtual void hasSample(int32_t* buff, int len)
     {   
-        DataProcess::buffer_samples = buff;
-        DataProcess::length = len;
+        // DataProcess::buffer_samples = buff;
+        // DataProcess::length = len;
     }
 };
 

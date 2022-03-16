@@ -3,6 +3,7 @@
 #define ALSA_PCM_NEW_HW_PARAMS_API
 
 #include "i2s_mems_mic.h"
+
 int fptr;
 
 void I2Smic::open_pcm(){
@@ -100,9 +101,16 @@ void I2Smic::run(){
             fprintf(stderr, "short read, read %d frames\n", rc);
         }
 
+
+        DataProcess dataprocess;
+        dataprocess.buffer_samples = buffer[currentBufIdx];
+        dataprocess.length = frames;
+
+        dataprocess.process();
+
         //callback here
-        hasSample(buffer[currentBufIdx], frames);
-        data_process_start = true;
+        // hasSample(buffer[currentBufIdx], frames);
+        // data_process_start = true;
 
         /* rc = write(1, buffer[currentBufIdx], size); // write to stdout
         if (rc != size)
