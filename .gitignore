@@ -15,7 +15,7 @@
 *.so
 *.dylib
 *.dll
-
+*.so.*
 # Fortran module files
 *.mod
 *.smod
@@ -31,6 +31,27 @@
 *.out
 *.app
 
+# Executable Folder
 /.vs/
 /x64/
+/build/
+/debug/
+/release/
+/.vscode/
+/.cache/
 
+# CMake
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps
+
+#Others
+*.dat
