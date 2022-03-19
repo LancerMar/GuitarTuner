@@ -12,8 +12,6 @@ class I2SmicHasSample : public I2Smic{
     }
 };
 
-
-
 void DataProcess::process(){
     double *in;
     fftw_complex *out;

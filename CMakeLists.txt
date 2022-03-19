@@ -14,9 +14,8 @@ find_package(FFTW3)
 find_package(Threads)
 
 set(SRC
-    src/main.cxx
-    src/MyDataProcessThread.cpp
-    src/DataProcess.cpp)
+    src/test_condiVariable.cpp
+    src/worker.cpp)
 
 add_executable(guitartuner ${SRC})
 
