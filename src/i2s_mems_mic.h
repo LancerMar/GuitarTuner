@@ -7,6 +7,7 @@
 #include <thread>
 #include <mutex>
 
+#include "Global.h"
 #include "DataProcess.h"
 
 #define WAV_FORMAT SND_PCM_FORMAT_S32_BE
@@ -53,10 +54,6 @@ public:
      */
     void run();
 
-public:
-    //store state of the processing  
-    static bool data_process_start;
-
 private:
 
     snd_pcm_t *handle;
@@ -86,8 +83,11 @@ private:
 class I2SmicHasSample : public I2Smic{
     virtual void hasSample(int32_t* buff, int len)
     {   
-        DataProcess::buffer_samples = buff;
-        DataProcess::length = len;
+        global_pending_proc_audio_data = buff;
+        len_global_pending_proc_audio_data = len;
+        
+        global_data_ready = true;
+        globale_data_process_cv.notify_all();
     }
 };
 

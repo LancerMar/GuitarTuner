@@ -102,7 +102,6 @@ void I2Smic::run(){
 
         //callback here
         hasSample(buffer[currentBufIdx], frames);
-        data_process_start = true;
 
         /* rc = write(1, buffer[currentBufIdx], size); // write to stdout
         if (rc != size)

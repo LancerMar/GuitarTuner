@@ -14,10 +14,19 @@ enable_testing()
 find_package(FFTW3)
 find_package(Threads)
 
+# set(SRC
+#     src/test_condiVariable.cpp
+#     src/worker.cpp
+#     src/Global.cpp)
+
 set(SRC
-    src/test_condiVariable.cpp
-    src/worker.cpp
-    src/Global.cpp)
+    src/main.cxx
+    src/Global.cpp
+    src/DataProcess.cpp
+    src/i2s_mems_mic.cpp
+    src/MyDataProcessThread.cpp
+    src/MyI2sMicThread.cpp
+    src/DataProcess.cpp)
 
 add_executable(guitartuner ${SRC})
 

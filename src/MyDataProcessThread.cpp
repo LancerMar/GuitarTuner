@@ -1,22 +1,24 @@
+#include "MyDataProcessThread.h"
+
 #include <iostream>
 
-#include "MyDataProcessThread.h"
+#include <fftw3.h>
+
 #include "DataProcess.h"
 
 void MyDataProcessThread::run(){
     //for test
     std::cout<<"hello MyDataProcessThread test"<<std::endl;
+    DataProcess dataprocess;
 
-
-    DataProcess data_process;
-    // data_process.registerI2smicCallback(i2smic_Process);
-    while(true){
-        //locker
-        while(!i2smic_Process->data_process_start){}
-        i2smic_Process->data_process_start = false;
-        data_process.process();
+    while(!global_program_exit){
+    std::unique_lock<std::mutex> lock(global_data_process_mutex);
+    globale_data_process_cv.wait(lock,[]{return global_data_ready;});
+    {
+        dataprocess.process();
+        global_data_ready = false;
     }
-
+    }
 };
 
 

@@ -2,22 +2,15 @@
 #include <iostream>
 
 #include "DataProcess.h"
-
-
-class I2SmicHasSample : public I2Smic{
-    virtual void hasSample(int32_t* buff, int len)
-    {   
-        DataProcess::buffer_samples = buff;
-        DataProcess::length = len;
-    }
-};
+#include "Global.h"
 
 void DataProcess::process(){
     double *in;
     fftw_complex *out;
     int32_t *buffer_tmp;
-    buffer_tmp = buffer_samples;
-    int num_samples=length;
+    buffer_tmp = global_pending_proc_audio_data;
+    int num_samples=len_global_pending_proc_audio_data;
+    
     in = (double*)fftw_malloc(sizeof(double)*num_samples);
     for(int i=0;i<num_samples;i++){
         double buffer_num=(double)*buffer_tmp;

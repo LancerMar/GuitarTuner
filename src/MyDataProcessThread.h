@@ -2,15 +2,11 @@
 #define PROCESS_THREAD_H
 #include "../lib/cppThread/CppThread.h" 
 
-#include <fftw3.h>
-#include "i2s_mems_mic.h"
-
 class MyDataProcessThread : public CppThread{
 
 public:
-    MyDataProcessThread(int _offset,I2Smic* i2smic) {
+    MyDataProcessThread(int _offset) {
         offset = _offset;
-        i2smic_Process = i2smic;
     }
 
     void testRun();
@@ -19,7 +15,6 @@ private:
 
 private:
     int offset;
-    I2Smic* i2smic_Process;
 };
 
 
