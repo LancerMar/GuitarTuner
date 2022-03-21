@@ -4,7 +4,6 @@
 
 #include "Global.h"
 
-
 void worker::worker_thread(){
     std::unique_lock<std::mutex> lock(m);
     cv.wait(lock,[]{return ready;});

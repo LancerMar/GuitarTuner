@@ -4,6 +4,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_BUILD_TYPE "Debug")
 set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g2 -ggdb")
 set(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 
 project(GuitarTuner VERSION 1.0.0 LANGUAGES CXX)
 
@@ -15,7 +16,8 @@ find_package(Threads)
 
 set(SRC
     src/test_condiVariable.cpp
-    src/worker.cpp)
+    src/worker.cpp
+    src/Global.cpp)
 
 add_executable(guitartuner ${SRC})
 
