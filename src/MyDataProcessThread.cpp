@@ -12,12 +12,12 @@ void MyDataProcessThread::run(){
     DataProcess dataprocess;
 
     while(!global_program_exit){
-    std::unique_lock<std::mutex> lock(global_data_process_mutex);
-    globale_data_process_cv.wait(lock,[]{return global_data_ready;});
-    {
-        dataprocess.process();
-        global_data_ready = false;
-    }
+        std::unique_lock<std::mutex> lock(global_data_process_mutex);
+        globale_data_process_cv.wait(lock,[]{return global_data_ready;});
+        {
+            dataprocess.process();
+            global_data_ready = false;
+        }
     }
 };
 

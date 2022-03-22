@@ -42,7 +42,6 @@ void I2Smic::set_params(void) {
     }
 
     /* format */
-    /* Signed 32-bit big-endian format */
     err = snd_pcm_hw_params_set_format(handle, params,
                                 hwparams.format);
     if (err < 0) {
@@ -59,7 +58,8 @@ void I2Smic::set_params(void) {
     
     err = snd_pcm_hw_params_set_rate_near(handle, params, &hwparams.rate, 0);
     assert(err >= 0);//dont understand it
-
+    
+    frames = frames_number;
     err = snd_pcm_hw_params_set_period_size_near(handle, params, &frames, 0);
     assert(err >= 0);
 
@@ -71,22 +71,14 @@ void I2Smic::set_params(void) {
 
     /* Use a buffer large enough to hold period */
     snd_pcm_hw_params_get_period_size(params, &frames, 0); 
-    size = frames * 4;
  
     snd_pcm_hw_params_get_period_time(params, &val, 0);
-    
-    
-    fptr = open("./sound.raw", O_RDWR);
+
 }
 
 void I2Smic::run(){
-    int loops;
-       
-    loops = 5000000 / val;
-
-    while (loops > 0) {
-        loops--;
-        rc = snd_pcm_readi(handle, buffer[currentBufIdx], frames);
+    while (true) {
+        rc = snd_pcm_readi(handle, buffer, frames);
 
         if (rc == -EPIPE) {
             /* EPIPE means overrun */
@@ -103,26 +95,25 @@ void I2Smic::run(){
         //callback here
         hasSample(buffer[currentBufIdx], frames);
 
-        /* rc = write(1, buffer[currentBufIdx], size); // write to stdout
-        if (rc != size)
-            fprintf(stderr,
-                "short write: wrote %d bytes\n", rc); */
+        // rc = write(1, buffer, size); // write to stdout
+        // if (rc != size)
+        //     fprintf(stderr,
+        //         "short write: wrote %d bytes\n", rc); 
         
         /*
          * switching buffer
          */
+        
         readoutMtx.lock();
         currentBufIdx = !currentBufIdx;
         readoutMtx.unlock();
+       
     }
     
 }
-/* 
-void I2Smic::start() {
-    dacthread = new std::thread(exec, this);
-}
-*/
+
 void I2Smic::close_pcm() {
     snd_pcm_drain(handle);
     snd_pcm_close(handle);
+    free(buffer);
 }
