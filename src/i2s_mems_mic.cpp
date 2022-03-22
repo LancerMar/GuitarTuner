@@ -1,4 +1,5 @@
 /* Use the newer ALSA API */
+#include "appcallback.h"
 #include <cmath>
 #define ALSA_PCM_NEW_HW_PARAMS_API
 
@@ -42,7 +43,6 @@ void I2Smic::set_params(void) {
     }
 
     /* format */
-    /* Signed 32-bit big-endian format */
     err = snd_pcm_hw_params_set_format(handle, params,
                                 hwparams.format);
     if (err < 0) {
@@ -59,7 +59,8 @@ void I2Smic::set_params(void) {
     
     err = snd_pcm_hw_params_set_rate_near(handle, params, &hwparams.rate, 0);
     assert(err >= 0);//dont understand it
-
+    
+    frames = frames_number;
     err = snd_pcm_hw_params_set_period_size_near(handle, params, &frames, 0);
     assert(err >= 0);
 
@@ -71,12 +72,13 @@ void I2Smic::set_params(void) {
 
     /* Use a buffer large enough to hold period */
     snd_pcm_hw_params_get_period_size(params, &frames, 0); 
-    size = frames * 4;
+    size = frames * sizeof(samp_t);
+    buffer = (char *)malloc(size);
  
     snd_pcm_hw_params_get_period_time(params, &val, 0);
     
     
-    fptr = open("./sound.raw", O_RDWR);
+    //fptr = open("./sound.raw", O_RDWR);
 }
 
 void I2Smic::run(){
@@ -86,7 +88,7 @@ void I2Smic::run(){
 
     while (loops > 0) {
         loops--;
-        rc = snd_pcm_readi(handle, buffer[currentBufIdx], frames);
+        rc = snd_pcm_readi(handle, buffer, frames);
 
         if (rc == -EPIPE) {
             /* EPIPE means overrun */
@@ -103,19 +105,25 @@ void I2Smic::run(){
         //callback here
         hasSample(buffer[currentBufIdx], frames);
 
-        /* rc = write(1, buffer[currentBufIdx], size); // write to stdout
+        rc = write(1, buffer, size); // write to stdout
         if (rc != size)
             fprintf(stderr,
-                "short write: wrote %d bytes\n", rc); */
+                "short write: wrote %d bytes\n", rc); 
         
         /*
          * switching buffer
          */
+        /*
         readoutMtx.lock();
         currentBufIdx = !currentBufIdx;
         readoutMtx.unlock();
+        */
     }
     
+}
+
+void I2Smic::registercallback(Appcallback* cb) {
+    this->callback = cb;
 }
 /* 
 void I2Smic::start() {
@@ -125,4 +133,5 @@ void I2Smic::start() {
 void I2Smic::close_pcm() {
     snd_pcm_drain(handle);
     snd_pcm_close(handle);
+    free(buffer);
 }

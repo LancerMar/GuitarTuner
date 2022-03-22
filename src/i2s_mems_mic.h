@@ -1,29 +1,34 @@
-#ifndef RECORD_H
-#define RECORD_H
+#ifndef I2S_H
+#define I2S_H
+
+#define ALSA_PCM_NEW_HW_PARAMS_API
+
+#define SAMPLE_RATE 8000
 
 #include <alsa/asoundlib.h>
 #include <alsa/pcm.h>
+#include <cstdint>
 #include <errno.h>
 #include <thread>
 #include <mutex>
 
-#define WAV_FORMAT SND_PCM_FORMAT_S32_BE
+//#include "DataProcess.h"
+#include "appcallback.h"
 
-static struct params{
-    snd_pcm_format_t format = WAV_FORMAT;
+#define frames_number 1024
+typedef int32_t samp_t;
+
+static struct snd_params{
+    snd_pcm_format_t format = SND_PCM_FORMAT_S32_LE;
     unsigned int channels = 1;
-    unsigned int rate = 44100;
+    unsigned int rate = SAMPLE_RATE;
 } hwparams;
 
 class I2Smic {
 
 public:
     
-    /* directlly add abstract callback method in driver class, 
-     * called when a buffer is avaliable
-     */
-    virtual void hasSample(int32_t* , int) = 0;
-    
+   
     /*
      * open PCM device
      */
@@ -34,12 +39,6 @@ public:
      *
      **/
     void set_params(void);
-    
-    /**
-     * start data aquistion
-     **/
-    void start();
-    
     /**
      * close PCM device
      **/
@@ -49,6 +48,11 @@ public:
      * start to obtain sound sample
      */
     void run();
+    
+    /*
+     * register callback
+     */
+    void registercallback(Appcallback* cb);
 
 private:
 
@@ -56,11 +60,11 @@ private:
     const int open_mode = 0;
     const snd_pcm_stream_t stream = SND_PCM_STREAM_CAPTURE;
     char const* pcm_name = "plughw:2";
-    snd_pcm_uframes_t frames = 32; 
+    snd_pcm_uframes_t frames; //should be 1000 samples
     unsigned int val;
+    
 
     int size;
-    std::thread* dacthread = nullptr;
     snd_pcm_hw_params_t *params;
     snd_pcm_info_t *info;
     /*
@@ -68,10 +72,11 @@ private:
         i2smic->run();
     }
     */
-
-    std::mutex readoutMtx;
+    
+    Appcallback* callback;
+    //std::mutex readoutMtx;
     int rc;
-    int32_t buffer[2][32];/* 4 bytes/sample, 1 channels */ 
+    char *buffer;/* 4 bytes/sample, 1 channels */ 
     unsigned currentBufIdx = 0;
 };
 
