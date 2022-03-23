@@ -16,6 +16,7 @@ void DataProcess::process(){
         double buffer_num=(double)*buffer_tmp;
         buffer_tmp++;
         in[i]=buffer_num;
+        //std::cout<<*buffer_tmp<<std::endl;
     }
     int n_out = ((num_samples/2)+1);
     out = (fftw_complex*)fftw_malloc(sizeof(fftw_complex) * n_out);
@@ -24,12 +25,12 @@ void DataProcess::process(){
     fftw_execute(plan_forward);
     fftw_destroy_plan ( plan_forward );
     //print the result
-    std::cout<<"input number:"<<std::endl;
+    //std::cout<<"input number:"<<std::endl;
     for(int i=0;i<num_samples;i++)
     {
-        std::cout<<in[i]<<std::endl;
+        //std::cout<<in[i]<<std::endl;
     }
-    std::cout<<"output number:"<<std::endl;
+    //std::cout<<"output number:"<<std::endl;
     for(int i=0;i<n_out;i++)
     {
         std::cout<<out[i][0]<<std::endl;

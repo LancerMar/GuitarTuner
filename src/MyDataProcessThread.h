@@ -2,11 +2,14 @@
 #define PROCESS_THREAD_H
 #include "../lib/cppThread/CppThread.h" 
 
+#include <fstream>
+
 class MyDataProcessThread : public CppThread{
 
 public:
     MyDataProcessThread(int _offset) {
         offset = _offset;
+        out.open("test.txt");
     }
 
     void testRun();
@@ -15,6 +18,7 @@ private:
 
 private:
     int offset;
+    std::ofstream out;
 };
 
 

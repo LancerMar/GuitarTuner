@@ -78,8 +78,11 @@ void I2Smic::set_params(void) {
 
 void I2Smic::run(){
     while (true) {
-        rc = snd_pcm_readi(handle, buffer, frames);
-
+        rc = snd_pcm_readi(handle, buffer[currentBufIdx], frames);
+        // for(int i=0;i<frames_number;i++){
+        //     buffer[0][i]=1;
+        //     buffer[1][i]=2;
+        // }
         if (rc == -EPIPE) {
             /* EPIPE means overrun */
             fprintf(stderr, "overrun occurred\n");
@@ -93,9 +96,10 @@ void I2Smic::run(){
         }
 
         //callback here
-        hasSample(buffer[currentBufIdx], frames);
+        hasSample(&(buffer[currentBufIdx][0]), frames);
+        //hasSample(buffer[currentBufIdx], frames);
 
-        // rc = write(1, buffer, size); // write to stdout
+        //rc = write(1, buffer, size); // write to stdout
         // if (rc != size)
         //     fprintf(stderr,
         //         "short write: wrote %d bytes\n", rc); 
@@ -103,7 +107,6 @@ void I2Smic::run(){
         /*
          * switching buffer
          */
-        
         readoutMtx.lock();
         currentBufIdx = !currentBufIdx;
         readoutMtx.unlock();

@@ -17,6 +17,13 @@ void MyDataProcessThread::run(){
         {
             dataprocess.process();
             global_data_ready = false;
+
+            int32_t *buffer_tmp;
+            buffer_tmp = global_pending_proc_audio_data;
+            for(int i=0;i<len_global_pending_proc_audio_data;i++){
+                out << *buffer_tmp << std::endl;
+                buffer_tmp++;
+            }
         }
     }
 };
