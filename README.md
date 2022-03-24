@@ -4,7 +4,8 @@
 sudo apt-get -y update
 sudo apt-get -y upgrade
 
-sudo apt-get install libasound2-dev python3-pip libboost-test-dev libfftw3-dev
+sudo apt-get install libasound2-dev python3-pip libboost-test-dev libfftw3-dev qtdeclarative5-dev-tools libqwt-qt5-dev qtmultimedia5-dev
+
 ```
 Then get the driver
 
