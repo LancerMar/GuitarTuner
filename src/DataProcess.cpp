@@ -2,6 +2,7 @@
 
 #include "DataProcess.h"
 #include "Global.h"
+#include <math.h>
 
 void DataProcess::fft_trans(){
     buffer_tmp = global_pending_proc_audio_data;
@@ -39,11 +40,16 @@ void DataProcess::fft_trans(){
 
 double DataProcess::get_highest_Amplify_Freq(){
     double result_freq = 0.0;
-    double frequency_resolution = SAMPLE_RATE/frames_number;
+    double frequency_resolution = SAMPLE_RATE/(frames_number*2);
+
+    double max=0.0;
     for(int i=0;i<length_frequency_domian_data;i++){
-        if(frequency_domian_data[i][0]>FREQUENCY_DOMAIN_THRESHOLD){
-            std::cout<<"Frequency above "<<FREQUENCY_DOMAIN_THRESHOLD<<" is: "<<i*frequency_resolution<<std::endl;
+        double amp = sqrt(frequency_domian_data[i][0]*frequency_domian_data[i][0]+frequency_domian_data[i][1]*frequency_domian_data[i][1]);
+        if(amp > max){
+            max = amp;
         }
+
+        std::cout<<"the max amp freq in this buffer is: "<<max<<std::endl;
     }
 
     return result_freq;

@@ -1,7 +1,7 @@
 #ifndef DATA_PROCESS_H
 #define DATA_PROCESS_H
 
-#define FREQUENCY_DOMAIN_THRESHOLD 200000000
+#define FREQUENCY_DOMAIN_THRESHOLD 2000000000
 
 #include "i2s_mems_mic.h"
 #include <fftw3.h>
