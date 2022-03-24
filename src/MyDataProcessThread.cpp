@@ -15,15 +15,15 @@ void MyDataProcessThread::run(){
         std::unique_lock<std::mutex> lock(global_data_process_mutex);
         globale_data_process_cv.wait(lock,[]{return global_data_ready;});
         {
-            dataprocess.process();
+            dataprocess.fft_trans();
             global_data_ready = false;
 
-            int32_t *buffer_tmp;
-            buffer_tmp = global_pending_proc_audio_data;
-            for(int i=0;i<len_global_pending_proc_audio_data;i++){
-                out << *buffer_tmp << std::endl;
-                buffer_tmp++;
-            }
+            // int32_t *buffer_tmp;
+            // buffer_tmp = global_pending_proc_audio_data;
+            // for(int i=0;i<len_global_pending_proc_audio_data;i++){
+            //     out << *buffer_tmp << std::endl;
+            //     buffer_tmp++;
+            // }
         }
     }
 };
