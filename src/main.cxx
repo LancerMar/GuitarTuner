@@ -1,20 +1,27 @@
+//#include "window.h"
+
+#include <cstdint>
+#include <iostream>
+#include <QApplication>
+
+#include "App.h"
 #include "window.h"
 
-#include <iostream>
-#include <qwindowdefs.h>
-
 int main(int argc, char *argv[]) {
-    QApplication app(argc, argv);
+    QApplication a(argc, argv);   
+    App app;
+
+    app.setup();
+    app.run();
+    
+    return a.exec();
+    /*
+    QApplication a(argc, argv);
 
     //create the window
     Window window;
     window.show();
 
-    window.run();
-
-    window.startTimer(40);
-
-    return app.exec();
-
-
+    return a.exec();
+*/
 }

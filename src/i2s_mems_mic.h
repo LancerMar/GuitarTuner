@@ -12,8 +12,7 @@
 #include <thread>
 #include <mutex>
 
-//#include "DataProcess.h"
-#include "appcallback.h"
+#include "DriverCallback.h"
 
 #define frames_number 1024
 typedef int32_t samp_t;
@@ -52,7 +51,7 @@ public:
     /*
      * register callback
      */
-    void registercallback(Appcallback* cb);
+    void registercallback(DriverCallback* cb);
 
 private:
 
@@ -73,10 +72,10 @@ private:
     }
     */
     
-    Appcallback* callback;
+    DriverCallback* callback;
     //std::mutex readoutMtx;
     int rc;
-    char *buffer;/* 4 bytes/sample, 1 channels */ 
+    int *buffer;/* 4 bytes/sample, 1 channels */ 
     unsigned currentBufIdx = 0;
 };
 

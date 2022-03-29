@@ -1,9 +1,8 @@
 /* Use the newer ALSA API */
-#include "appcallback.h"
+#include "i2s_mems_mic.h"
 #include <cmath>
 #define ALSA_PCM_NEW_HW_PARAMS_API
 
-#include "i2s_mems_mic.h"
 int fptr;
 
 void I2Smic::open_pcm(){
@@ -73,7 +72,7 @@ void I2Smic::set_params(void) {
     /* Use a buffer large enough to hold period */
     snd_pcm_hw_params_get_period_size(params, &frames, 0); 
     size = frames * sizeof(samp_t);
-    buffer = (char *)malloc(size);
+    buffer = (int *)malloc(size);
  
     snd_pcm_hw_params_get_period_time(params, &val, 0);
     
@@ -84,10 +83,10 @@ void I2Smic::set_params(void) {
 void I2Smic::run(){
     int loops;
        
-    loops = 5000000 / val;
-
-    while (loops > 0) {
-        loops--;
+    loops = 1000000 / val;
+    int running = 1;
+    while (running) {
+        //loops--;
         rc = snd_pcm_readi(handle, buffer, frames);
 
         if (rc == -EPIPE) {
@@ -101,14 +100,16 @@ void I2Smic::run(){
         } else if (rc != (int)frames) {
             fprintf(stderr, "short read, read %d frames\n", rc);
         }
-
+        //buffer = callback->lpcallback(buffer);
         //callback here
-        hasSample(buffer[currentBufIdx], frames);
-
+        callback->fftData(buffer, frames);
+    
+        /*
         rc = write(1, buffer, size); // write to stdout
         if (rc != size)
             fprintf(stderr,
                 "short write: wrote %d bytes\n", rc); 
+                */
         
         /*
          * switching buffer
@@ -119,10 +120,9 @@ void I2Smic::run(){
         readoutMtx.unlock();
         */
     }
-    
 }
 
-void I2Smic::registercallback(Appcallback* cb) {
+void I2Smic::registercallback(DriverCallback* cb) {
     this->callback = cb;
 }
 /* 
