@@ -14,9 +14,12 @@
 #include <qwt/qwt_plot.h>
 #include <qwt/qwt_plot_curve.h>
 #include <QWidget>
+#include <alsa/seq_midi_event.h>
+#include <cstring>
+#include <qobjectdefs.h>
+#include <qpushbutton.h>
 
-#include <QBoxLayout>
-#include <QPushButton>
+
 
 /*
  * set frequency range
@@ -59,12 +62,12 @@ public:
     /*
      * Initialise GUI and sets up mic
      */
-    Window();
+    Window(double *);
 
     /*
      *  
      */
-    double* updateBuffer(double*);
+    void timerEvent(QTimerEvent*);
 
     /*
      * Destructor
@@ -95,7 +98,7 @@ private:
 
     double xData[plotDataSize];
     double yData[plotDataSize];
-   
+    double *buffer;
     void setE4();
     void setB3();
     void setG3();
@@ -103,8 +106,6 @@ private:
     void setA2();
     void setE2();
 
-private slots:
-    void update();
 };
 #endif
 

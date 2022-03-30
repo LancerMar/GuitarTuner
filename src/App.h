@@ -17,7 +17,6 @@ class App : public DriverCallback, public FftCallback{
         App();
         void fftData(int32_t*, int) override;
         int* lpData(int *) override;
-        void plotBuffer(double*) override;
         void setup();
         void run();
 

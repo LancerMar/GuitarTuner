@@ -11,6 +11,7 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g2 -ggdb")
 set(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 find_package(FFTW3)
@@ -23,6 +24,7 @@ add_executable(qt5
   lp.cpp  
   main.cxx
   window.cpp
+  MyThread.cpp
 )
 
 include_directories(${FFTW3_INCLUDE_DIRS})

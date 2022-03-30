@@ -5,11 +5,9 @@
 App::App() {
     fft = new FftClass();
     lp = new Lp(SAMPLE_RATE);
-    window = new Window();
+    window = new Window(fft->array);
 
-    window->show();
-    window->startTimer(DELAY);
-    //fft->show();
+   // window->show();
 }
 
 /*
@@ -33,11 +31,11 @@ void App::fftData(int32_t* buffer, int frames) {
 
 /*
  * plot frequency buffer data
- */
+ *
 void App::plotBuffer(double *arr) {
     window->updateBuffer(arr);
 }
-
+*/
 /*
  * setup driver params
  */

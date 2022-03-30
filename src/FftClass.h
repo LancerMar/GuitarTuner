@@ -41,10 +41,11 @@ public:
     void fill_buffer(int *);
     void update();
 
+    double array[513];
+
 private:
     double *in;
     fftw_complex *out;
-    double array[513];
 
     double *x;
     double *y;

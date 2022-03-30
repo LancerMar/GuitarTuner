@@ -1,23 +1,21 @@
 #include "window.h"
-#include "i2s_mems_mic.h"
-#include <alsa/seq_midi_event.h>
-#include <cstring>
-#include <qobjectdefs.h>
-#include <qpushbutton.h>
+#include <cmath>
+#include <iostream>
+#include <qcoreevent.h>
 #include <qtimer.h>
-#include <qwt/qwt_plot.h>
-#include <qwt/qwt_plot_curve.h>
-#include <qwt/qwt_text.h>
 
-Window::Window() {
+Window::Window(double *array) {
     
+    startTimer(1024);
+    buffer = array;
+    /*   
     counter = new QTimer(this);
     connect(counter,
             SIGNAL(timeout()),
             this,
             SLOT(update()));
     counter->start(DELAY);
-
+    */
     // initial random input data
     for(int i = 0; i < plotDataSize; i++) {
         xData[i] = i;
@@ -35,6 +33,11 @@ Window::Window() {
     plot2->setAxisTitle(QwtPlot::xBottom,"frequency");
     plot2->setAxisTitle(QwtPlot::yLeft,"amplititude");
     
+    plot1->replot();
+    plot1->show();
+    plot2->replot();
+    plot2->show();
+
     curve1 = new QwtPlotCurve;
     curve1->setSamples(xData, yData, plotDataSize);
     curve1->attach(plot1);
@@ -74,33 +77,18 @@ Window::Window() {
     hLayout->addLayout(v1Layout);
     hLayout->addLayout(v2Layout);
 
-
     setLayout(hLayout);
+    std::cout << "out" << std::endl;
 }
 
-
-/*
-void Window::run() {
-    i2s_mems->open_pcm();
-    i2s_mems->set_params();
-    i2s_mems->run();
-    startTimer(40);
-}
-*/
 /*
 Window::~Window(){
     i2s_mems->close_pcm();
 }
 */
-double* Window::updateBuffer(double *arr){
-    //if copy array
-    for(int i = 0 ; i< 513;i++) {
-        yData[i] = arr[i];
-    }
-}
-
-void Window::update() {
-    plot1->replot();
+void Window::timerEvent(QTimerEvent* event){
+    curve2->setSamples(xData, buffer, plotDataSize);
+    curve2->attach(plot2);
     plot2->replot();
 }
 

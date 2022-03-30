@@ -4,7 +4,7 @@
 class FftCallback {
     public:
         //plot frequency data buffer
-        virtual void plotBuffer(double *) = 0;
+       //virtual void plotBuffer(double *) = 0;
 };
 
 #endif

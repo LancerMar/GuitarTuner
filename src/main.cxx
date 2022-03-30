@@ -5,23 +5,13 @@
 #include <QApplication>
 
 #include "App.h"
-#include "window.h"
+#include "MyThread.h"
 
 int main(int argc, char *argv[]) {
-    QApplication a(argc, argv);   
-    App app;
-
-    app.setup();
-    app.run();
-    
-    return a.exec();
-    /*
     QApplication a(argc, argv);
+    MyFFtThread app;
+    app.start();
+    a.exec();
+    return 0;
 
-    //create the window
-    Window window;
-    window.show();
-
-    return a.exec();
-*/
 }

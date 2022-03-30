@@ -87,15 +87,12 @@ void FftClass::update(){
         mag = std::sqrt(out[i][0] * out[i][0] + out[i][1]*out[i][1]);
         //std::cout << mag << std::endl;
         array[i] = mag;
-        if (i == (n_out - 1)){
-            callback->plotBuffer(array); // callback here to transfer pointer
-        }
-        if (mag> yMax){
+        if (mag> yMax && i > 2){
             yMax=mag;
             max_fre = i*(SAMPLE_RATE / FFT_BUFFER_SIZE);
         }
     }
-    //std::cout << max_fre << std::endl;
+    std::cout << max_fre << std::endl;
 }
 
 FftClass::~FftClass(){
