@@ -100,7 +100,7 @@ void I2Smic::run(){
         } else if (rc != (int)frames) {
             fprintf(stderr, "short read, read %d frames\n", rc);
         }
-        //buffer = callback->lpcallback(buffer);
+        buffer = callback->lpData(buffer);
         //callback here
         callback->fftData(buffer, frames);
     

@@ -18,7 +18,7 @@ Window::Window(double *array) {
     */
     // initial random input data
     for(int i = 0; i < plotDataSize; i++) {
-        xData[i] = i;
+        xData[i] = i * 7;
         yData[i] = 1;
     }
 

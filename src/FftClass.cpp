@@ -92,6 +92,7 @@ void FftClass::update(){
             max_fre = i*(SAMPLE_RATE / FFT_BUFFER_SIZE);
         }
     }
+    array[0] = 0;
     std::cout << max_fre << std::endl;
 }
 
