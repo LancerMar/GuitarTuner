@@ -3,13 +3,16 @@
 
 #include <Iir.h>
 #include <iir/Butterworth.h>
-#define CUTOFF 350
+
+//cutoff frequency
+#define CUTOFF 1000
 
 class Lp {
 
     public:
         Lp(int);
         double filter(int v);
+
     private:
         Iir::Butterworth::LowPass<> lp;
 };

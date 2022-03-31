@@ -6,41 +6,39 @@
 
 Window::Window(double *array) {
     
-    startTimer(1024);
+    startTimer(40);
     buffer = array;
-    /*   
-    counter = new QTimer(this);
-    connect(counter,
-            SIGNAL(timeout()),
-            this,
-            SLOT(update()));
-    counter->start(DELAY);
-    */
     // initial random input data
     for(int i = 0; i < plotDataSize; i++) {
-        xData[i] = i * 7;
+        xData[i] = i * resolution;
         yData[i] = 1;
     }
 
     // plot1 is time domain, plot2 is frequency domain
+    /*
     plot1 = new QwtPlot();
     plot1->setTitle("time domain");
     plot1->setAxisTitle(QwtPlot::xBottom,"time");
     plot1->setAxisTitle(QwtPlot::yLeft, "amplititude");
+    */
 
     plot2 = new QwtPlot();
     plot2->setTitle("frequency domain");
     plot2->setAxisTitle(QwtPlot::xBottom,"frequency");
     plot2->setAxisTitle(QwtPlot::yLeft,"amplititude");
-    
+
+    /*
     plot1->replot();
     plot1->show();
     plot2->replot();
     plot2->show();
-
+    */
+    
+    /*
     curve1 = new QwtPlotCurve;
     curve1->setSamples(xData, yData, plotDataSize);
     curve1->attach(plot1);
+    */
 
     curve2 = new QwtPlotCurve;
     curve2->setSamples(xData, yData, plotDataSize);
@@ -69,7 +67,7 @@ Window::Window(double *array) {
     v1Layout->addWidget(E2);
 
     v2Layout = new QVBoxLayout();
-    v2Layout->addWidget(plot1);
+    //v2Layout->addWidget(plot1);
     v2Layout->addWidget(plot2);
 
     // plot the vlayout on the left and thermo on right
@@ -78,7 +76,6 @@ Window::Window(double *array) {
     hLayout->addLayout(v2Layout);
 
     setLayout(hLayout);
-    std::cout << "out" << std::endl;
 }
 
 /*

@@ -6,8 +6,7 @@ App::App() {
     fft = new FftClass();
     lp = new Lp(SAMPLE_RATE);
     window = new Window(fft->array);
-
-   // window->show();
+    window->show();
 }
 
 /*
@@ -40,7 +39,6 @@ void App::plotBuffer(double *arr) {
  * setup driver params
  */
 void App::setup(){
-    fft->registercallback(this);
     mic.registercallback(this);
     mic.open_pcm();
     mic.set_params();
@@ -51,4 +49,10 @@ void App::setup(){
  */
 void App::run(){
     mic.run();
+}
+
+App::~App(){
+    delete fft;
+    delete lp;
+    delete window;
 }

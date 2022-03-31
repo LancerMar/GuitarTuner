@@ -3,9 +3,10 @@
 #include <cmath>
 #define ALSA_PCM_NEW_HW_PARAMS_API
 
-int fptr;
 
 void I2Smic::open_pcm(){
+
+    //open PCM device
     rc = snd_pcm_open(&handle, pcm_name,
                    stream, open_mode);
     if (rc < 0) {
@@ -20,10 +21,12 @@ void I2Smic::open_pcm(){
 
 void I2Smic::set_params(void) {
     snd_pcm_hw_params_t *params;
+
+    /* allocate a hardware params obj  */
     snd_pcm_hw_params_alloca(&params);
     int err;
     
-    snd_pcm_hw_params_alloca(&params); 
+    //snd_pcm_hw_params_alloca(&params); 
     err = snd_pcm_hw_params_any(handle, params);
     if (err < 0) {
         fprintf(stderr,
@@ -31,7 +34,8 @@ void I2Smic::set_params(void) {
                 snd_strerror(rc));
         exit(1);
     }
-
+    
+    /* Interleaved mode */
     err = snd_pcm_hw_params_set_access(handle, params,
                         SND_PCM_ACCESS_RW_INTERLEAVED); 
     if (err < 0) {
@@ -50,19 +54,24 @@ void I2Smic::set_params(void) {
                 snd_strerror(err));
         exit(1);
     }
+
+    /* one channel (mono)*/
     err = snd_pcm_hw_params_set_channels(handle, params, hwparams.channels);
     if (err < 0) {
         fprintf(stderr, "Channels count non avaliable");
         exit(1);
     }
     
+    /* set sampling rate */
     err = snd_pcm_hw_params_set_rate_near(handle, params, &hwparams.rate, 0);
     assert(err >= 0);//dont understand it
     
+    /* set period size */
     frames = frames_number;
     err = snd_pcm_hw_params_set_period_size_near(handle, params, &frames, 0);
     assert(err >= 0);
-
+    
+    /* write parameters to the driver  */
     err = snd_pcm_hw_params(handle, params);
     if (err < 0) {
         fprintf(stderr, "unable to installl hw params: ");
@@ -73,11 +82,10 @@ void I2Smic::set_params(void) {
     snd_pcm_hw_params_get_period_size(params, &frames, 0); 
     size = frames * sizeof(samp_t);
     buffer = (int *)malloc(size);
- 
+    
+    /* get period time */
     snd_pcm_hw_params_get_period_time(params, &val, 0);
     
-    
-    //fptr = open("./sound.raw", O_RDWR);
 }
 
 void I2Smic::run(){
@@ -100,8 +108,9 @@ void I2Smic::run(){
         } else if (rc != (int)frames) {
             fprintf(stderr, "short read, read %d frames\n", rc);
         }
+
+        /* callback here, lowpass data and fft process */
         buffer = callback->lpData(buffer);
-        //callback here
         callback->fftData(buffer, frames);
     
         /*
@@ -122,14 +131,12 @@ void I2Smic::run(){
     }
 }
 
+/* register callback */
 void I2Smic::registercallback(DriverCallback* cb) {
     this->callback = cb;
 }
-/* 
-void I2Smic::start() {
-    dacthread = new std::thread(exec, this);
-}
-*/
+
+/* stop data acquisition */
 void I2Smic::close_pcm() {
     snd_pcm_drain(handle);
     snd_pcm_close(handle);

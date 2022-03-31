@@ -12,7 +12,6 @@
 #include <QMainWindow>
 
 #include "i2s_mems_mic.h"
-#include "FftCallback.h"
 
 #define FFT_BUFFER_SIZE 1024
 
@@ -26,11 +25,6 @@ public:
      */
     FftClass(int buffer_size = FFT_BUFFER_SIZE);
     
-    /*
-     * register callback
-     */
-    void registercallback(FftCallback* cb);
-
     /*
      * destructor:
      */
@@ -50,9 +44,6 @@ private:
     double *x;
     double *y;
     
-    FftCallback *callback;
-    QwtPlotCurve *fftCurve;
-    QwtPlot* fftPlot;
     double mag;
     int max_fre;
     int yMax;
