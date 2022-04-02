@@ -45,8 +45,8 @@ private:
     double *y;
     
     double mag;
+    double yMax;
     int max_fre;
-    int yMax;
     int num_samples;
     int n_out;
     int nFreqSamples;

@@ -9,7 +9,6 @@
 FftClass::FftClass(int buffer_size){
     num_samples=buffer_size;
     max_fre = 0;
-    yMax = 0;
 
     /* malloc a fft buffer */
     in = (double*)fftw_malloc(sizeof(double)*num_samples);
@@ -48,16 +47,17 @@ void FftClass::update(){
     //destroy plan
     fftw_destroy_plan(plan_forward);
     
+    yMax = 0.0;
     //print the output
     for(int i=0;i<n_out;i++)
-    {
+    {   
         /* only care about its magnitude */
-        mag = std::sqrt(out[i][0] * out[i][0] + out[i][1]*out[i][1]);
-        //std::cout << mag << std::endl;
+        mag = std::sqrt(out[i][0]*out[i][0] + out[i][1]*out[i][1]);
         array[i] = mag;
-        if (mag> yMax && i > 2){
+        if ((mag > yMax) &&  (i > 9)){
             yMax=mag;
-            max_fre = i*(SAMPLE_RATE / FFT_BUFFER_SIZE);
+
+            max_fre = i*((double)SAMPLE_RATE / FFT_BUFFER_SIZE);
         }
     }
     array[0] = 0;
