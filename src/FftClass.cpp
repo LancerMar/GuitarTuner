@@ -35,7 +35,7 @@ void FftClass::registercallback(FftCallback *cb){
 }
 */
 
-void FftClass::update(){
+double FftClass::update(){
 
     fftw_plan plan_forward;
 
@@ -63,6 +63,7 @@ void FftClass::update(){
     }
     array[0] = 0;
     std::cout << max_fre << std::endl;
+    return max_fre;
 }
 
 FftClass::~FftClass(){
