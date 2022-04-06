@@ -15,6 +15,9 @@ sudo pip3 install --upgrade adafruit-python-shell
 wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/i2smic.py
 sudo python3 i2smic.py
 ```
+```
+sudo ldconfig
+```
 You can choose to auto-load module and then reboot machine now. 
 
 # compile

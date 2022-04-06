@@ -89,12 +89,8 @@ void I2Smic::set_params(void) {
 }
 
 void I2Smic::run(){
-    int loops;
-       
-    loops = 1000000 / val;
     int running = 1;
     while (running) {
-        //loops--;
         rc = snd_pcm_readi(handle, buffer, frames);
 
         if (rc == -EPIPE) {
