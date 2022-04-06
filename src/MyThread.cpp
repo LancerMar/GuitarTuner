@@ -1,4 +1,5 @@
 #include "MyThread.h"
+
 #include <qapplication.h>
 
 void MyFFtThread::run() {

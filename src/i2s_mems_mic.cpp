@@ -1,6 +1,10 @@
 /* Use the newer ALSA API */
 #include "i2s_mems_mic.h"
+
 #include <cmath>
+
+#include "Global.h"
+
 #define ALSA_PCM_NEW_HW_PARAMS_API
 
 

@@ -1,7 +1,8 @@
+#include "FftClass.h"
+
 #include <cmath>
 #include <cstdint>
 
-#include "FftClass.h"
 
 /*
  * used for fft process
