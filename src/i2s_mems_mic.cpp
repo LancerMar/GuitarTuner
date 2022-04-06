@@ -122,11 +122,11 @@ void I2Smic::run(){
         /*
          * switching buffer
          */
-        /*
+        
         readoutMtx.lock();
         currentBufIdx = !currentBufIdx;
         readoutMtx.unlock();
-        */
+        
     }
 }
 
