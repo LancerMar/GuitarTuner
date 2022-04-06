@@ -93,8 +93,7 @@ void I2Smic::set_params(void) {
 }
 
 void I2Smic::run(){
-    int running = 1;
-    while (running) {
+    while (!global_program_exit) {
         rc = snd_pcm_readi(handle, buffer, frames);
 
         if (rc == -EPIPE) {
@@ -138,6 +137,7 @@ void I2Smic::registercallback(DriverCallback* cb) {
 
 /* stop data acquisition */
 void I2Smic::close_pcm() {
+    global_program_exit=true;
     snd_pcm_drain(handle);
     snd_pcm_close(handle);
     free(buffer);
