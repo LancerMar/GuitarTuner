@@ -8,7 +8,8 @@
 #define ALSA_PCM_NEW_HW_PARAMS_API
 
 
-void I2Smic::open_pcm(){
+int I2Smic::open_pcm(){
+    int open_pcm_result = 1;
 
     //open PCM device
     rc = snd_pcm_open(&handle, pcm_name,
@@ -17,14 +18,18 @@ void I2Smic::open_pcm(){
         fprintf(stderr,
                 "unable to open pcm device: %s\n",
                 snd_strerror(rc));
+        open_pcm_result=0;
         exit(1);
     }
+
+    return open_pcm_result;
     
 }
 
 
-void I2Smic::set_params(void) {
+int I2Smic::set_params(void) {
     snd_pcm_hw_params_t *params;
+    int set_params_result = 1;
 
     /* allocate a hardware params obj  */
     snd_pcm_hw_params_alloca(&params);
@@ -36,6 +41,7 @@ void I2Smic::set_params(void) {
         fprintf(stderr,
                "Broken configuration for this PCM: no configurations avaliable: %s",
                 snd_strerror(rc));
+        set_params_result = 0;
         exit(1);
     }
     
@@ -46,6 +52,7 @@ void I2Smic::set_params(void) {
         fprintf(stderr,
                 "Access type not available: %s",
                 snd_strerror(rc));
+        set_params_result = 0;
         exit(1);
     }
 
@@ -56,6 +63,7 @@ void I2Smic::set_params(void) {
         fprintf(stderr,
                 "Sample format non available: %s",
                 snd_strerror(err));
+        set_params_result = 0;
         exit(1);
     }
 
@@ -63,12 +71,13 @@ void I2Smic::set_params(void) {
     err = snd_pcm_hw_params_set_channels(handle, params, hwparams.channels);
     if (err < 0) {
         fprintf(stderr, "Channels count non avaliable");
+        set_params_result = 0;
         exit(1);
     }
     
     /* set sampling rate */
     err = snd_pcm_hw_params_set_rate_near(handle, params, &hwparams.rate, 0);
-    assert(err >= 0);//dont understand it
+    assert(err >= 0);
     
     /* set period size */
     frames = frames_number;
@@ -79,6 +88,7 @@ void I2Smic::set_params(void) {
     err = snd_pcm_hw_params(handle, params);
     if (err < 0) {
         fprintf(stderr, "unable to installl hw params: ");
+        set_params_result = 0;
         exit(1);
     }
 
@@ -87,7 +97,8 @@ void I2Smic::set_params(void) {
     
     /* get period time */
     snd_pcm_hw_params_get_period_time(params, &val, 0);
-    
+
+    return set_params_result;
 }
 
 void I2Smic::run(){

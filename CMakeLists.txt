@@ -17,6 +17,10 @@ find_package(Qt5 COMPONENTS Widgets REQUIRED)
 find_package(FFTW3)
 find_package(iir)
 
+add_subdirectory(test)
+enable_testing()
+add_test(NAME GuitarTunerTest COMMAND Test)
+
 set(SRC
     src/FftClass.cpp
     src/i2s_mems_mic.cpp

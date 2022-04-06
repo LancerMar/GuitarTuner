@@ -31,13 +31,13 @@ public:
     /*
      * open PCM device
      */
-    void open_pcm();
+    int open_pcm();
     
     /**
      * set parameters 
      *
      **/
-    void set_params(void);
+    int set_params(void);
     /**
      * close PCM device
      **/
