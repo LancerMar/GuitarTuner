@@ -77,7 +77,8 @@ private:
     DriverCallback* callback;
     int rc;
     std::mutex readoutMtx;
-    int32_t buffer[2][frames_number];
+    samp_t buffer[2][frames_number];
+    unsigned currentBufIdx = 0;
 };
 
 #endif
