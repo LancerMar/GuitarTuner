@@ -16,7 +16,6 @@
 
 //buffer size
 #define frames_number 1024
-typedef int32_t samp_t;
 
 static struct snd_params{
     snd_pcm_format_t format = SND_PCM_FORMAT_S32_LE;
@@ -69,15 +68,13 @@ private:
     snd_pcm_uframes_t frames; 
     unsigned int val;
     
-
-    int size;
     snd_pcm_hw_params_t *params;
     snd_pcm_info_t *info;
    
     DriverCallback* callback;
     int rc;
     std::mutex readoutMtx;
-    samp_t buffer[2][frames_number];
+    int buffer[2][frames_number];
     unsigned currentBufIdx = 0;
 };
 

@@ -84,8 +84,6 @@ void I2Smic::set_params(void) {
 
     /* Use a buffer large enough to hold period */
     snd_pcm_hw_params_get_period_size(params, &frames, 0); 
-    size = frames * sizeof(samp_t);
-    
     
     /* get period time */
     snd_pcm_hw_params_get_period_time(params, &val, 0);
@@ -94,7 +92,7 @@ void I2Smic::set_params(void) {
 
 void I2Smic::run(){
     while (!global_program_exit) {
-        rc = snd_pcm_readi(handle, buffer[currentBufIdx], frames);
+        rc = snd_pcm_readi(handle, &(buffer[currentBufIdx][0]), frames);
 
         if (rc == -EPIPE) {
             /* EPIPE means overrun */
@@ -109,8 +107,8 @@ void I2Smic::run(){
         }
 
         /* callback here, lowpass data and fft process */
-        buffer[currentBufIdx] = callback->lpData(buffer[currentBufIdx]);
-        callback->fftData(buffer[currentBufIdx], frames);
+        callback->lpData(&(buffer[currentBufIdx][0]));
+        callback->fftData(&(buffer[currentBufIdx][0]), frames);
     
         /*
         rc = write(1, buffer, size); // write to stdout

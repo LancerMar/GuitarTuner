@@ -24,7 +24,8 @@ set(SRC
     src/lp.cpp  
     src/main.cxx
     src/window.cpp
-    src/MyThread.cpp)
+    src/MyThread.cpp
+    src/Global.cpp)
 
 
 add_executable(guitartuner ${SRC})
