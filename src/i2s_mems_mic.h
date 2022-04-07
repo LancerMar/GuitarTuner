@@ -26,7 +26,7 @@ static struct snd_params{
 class I2Smic {
 
 public:
-    
+    int test_Test();
    
     /*
      * open PCM device

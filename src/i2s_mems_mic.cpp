@@ -8,6 +8,10 @@
 #define ALSA_PCM_NEW_HW_PARAMS_API
 
 
+int I2Smic::test_Test(){
+    return 1;
+}
+
 int I2Smic::open_pcm(){
     int open_pcm_result = 1;
 

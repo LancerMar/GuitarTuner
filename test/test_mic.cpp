@@ -7,10 +7,10 @@ I2Smic mic;
 
 BOOST_AUTO_TEST_CASE(OPEN_PCM_TEST)
 {
-    BOOST_CHECK_EQUAL(1, mic.open_pcm());
+    BOOST_CHECK_EQUAL(1, mic.test_Test());
 }
 
-BOOST_AUTO_TEST_CASE(SET_PCM_PARAMS_TEST)
-{
-    BOOST_CHECK_EQUAL(1, mic.set_params());
-}
+// BOOST_AUTO_TEST_CASE(SET_PCM_PARAMS_TEST)
+// {
+//     BOOST_CHECK_EQUAL(1, mic.set_params());
+// }

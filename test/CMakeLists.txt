@@ -3,8 +3,12 @@ include_directories (${GuitarTuner_SOURCE_DIR}/src
                     ${Boost_INCLUDE_DIRS}
                     )
 add_definitions (-DBOOST_TEST_DYN_LINK)
-add_executable (Test test_mic.cpp test_iir.cpp test_fft.cpp)
+add_executable (Test test_mic.cpp)
 target_link_libraries (Test
+                        Qt5::Widgets
+                        qwt-qt5
+                        source_test
+                        asound
                         ${Boost_FILESYSTEM_LIBRARY}
                         ${Boost_SYSTEM_LIBRARY}
                         ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
