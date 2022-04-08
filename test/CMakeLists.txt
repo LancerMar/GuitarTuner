@@ -5,14 +5,13 @@ include_directories (${GuitarTuner_SOURCE_DIR}/src
 add_definitions (-DBOOST_TEST_DYN_LINK)
 add_executable (Test test_mic.cpp)
 target_link_libraries (Test
-                        Qt5::Widgets
-                        qwt-qt5
                         source_test
-                        asound
+                        asound 
+                        ${CMAKE_THREAD_LIB_INIT}
                         ${Boost_FILESYSTEM_LIBRARY}
                         ${Boost_SYSTEM_LIBRARY}
                         ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
                         )
 
-add_test (NAME MyTest COMMAND Test)
+add_test (NAME GuitarTunerTest COMMAND Test)
 
