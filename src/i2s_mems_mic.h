@@ -16,7 +16,6 @@
 
 //buffer size
 #define frames_number 1024
-typedef int32_t samp_t;
 
 static struct snd_params{
     snd_pcm_format_t format = SND_PCM_FORMAT_S32_LE;
@@ -27,8 +26,6 @@ static struct snd_params{
 class I2Smic {
 
 public:
-    
-   
     /*
      * open PCM device
      */
@@ -60,6 +57,8 @@ public:
     ~I2Smic() {
         this->close_pcm();
     }
+
+    int get_rc();
 private:
 
     snd_pcm_t *handle;
@@ -69,14 +68,13 @@ private:
     snd_pcm_uframes_t frames; 
     unsigned int val;
     
-
-    int size;
     snd_pcm_hw_params_t *params;
     snd_pcm_info_t *info;
    
     DriverCallback* callback;
     int rc;
-    int *buffer;/* 4 bytes/sample, 1 channels */ 
+    std::mutex readoutMtx;
+    int buffer[2][frames_number];
     unsigned currentBufIdx = 0;
 };
 

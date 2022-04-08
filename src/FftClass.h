@@ -33,7 +33,7 @@ public:
 public:
     
     void fill_buffer(int *);
-    void update();
+    double update();
 
     double array[513];
 

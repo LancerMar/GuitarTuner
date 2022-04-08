@@ -1,11 +1,13 @@
 /* Use the newer ALSA API */
 #include "i2s_mems_mic.h"
+
 #include <cmath>
+
+#include "Global.h"
+
 #define ALSA_PCM_NEW_HW_PARAMS_API
 
-
 void I2Smic::open_pcm(){
-
     //open PCM device
     rc = snd_pcm_open(&handle, pcm_name,
                    stream, open_mode);
@@ -13,14 +15,18 @@ void I2Smic::open_pcm(){
         fprintf(stderr,
                 "unable to open pcm device: %s\n",
                 snd_strerror(rc));
+
         exit(1);
     }
+
+
     
 }
 
 
 void I2Smic::set_params(void) {
     snd_pcm_hw_params_t *params;
+
 
     /* allocate a hardware params obj  */
     snd_pcm_hw_params_alloca(&params);
@@ -32,6 +38,7 @@ void I2Smic::set_params(void) {
         fprintf(stderr,
                "Broken configuration for this PCM: no configurations avaliable: %s",
                 snd_strerror(rc));
+
         exit(1);
     }
     
@@ -42,6 +49,7 @@ void I2Smic::set_params(void) {
         fprintf(stderr,
                 "Access type not available: %s",
                 snd_strerror(rc));
+
         exit(1);
     }
 
@@ -52,6 +60,7 @@ void I2Smic::set_params(void) {
         fprintf(stderr,
                 "Sample format non available: %s",
                 snd_strerror(err));
+
         exit(1);
     }
 
@@ -59,12 +68,13 @@ void I2Smic::set_params(void) {
     err = snd_pcm_hw_params_set_channels(handle, params, hwparams.channels);
     if (err < 0) {
         fprintf(stderr, "Channels count non avaliable");
+
         exit(1);
     }
     
     /* set sampling rate */
     err = snd_pcm_hw_params_set_rate_near(handle, params, &hwparams.rate, 0);
-    assert(err >= 0);//dont understand it
+    assert(err >= 0);
     
     /* set period size */
     frames = frames_number;
@@ -80,22 +90,14 @@ void I2Smic::set_params(void) {
 
     /* Use a buffer large enough to hold period */
     snd_pcm_hw_params_get_period_size(params, &frames, 0); 
-    size = frames * sizeof(samp_t);
-    buffer = (int *)malloc(size);
     
     /* get period time */
     snd_pcm_hw_params_get_period_time(params, &val, 0);
-    
 }
 
 void I2Smic::run(){
-    int loops;
-       
-    loops = 1000000 / val;
-    int running = 1;
-    while (running) {
-        //loops--;
-        rc = snd_pcm_readi(handle, buffer, frames);
+    while (!global_program_exit) {
+        rc = snd_pcm_readi(handle, &(buffer[currentBufIdx][0]), frames);
 
         if (rc == -EPIPE) {
             /* EPIPE means overrun */
@@ -110,8 +112,8 @@ void I2Smic::run(){
         }
 
         /* callback here, lowpass data and fft process */
-        buffer = callback->lpData(buffer);
-        callback->fftData(buffer, frames);
+        callback->lpData(&(buffer[currentBufIdx][0]));
+        callback->fftData(&(buffer[currentBufIdx][0]), frames);
     
         /*
         rc = write(1, buffer, size); // write to stdout
@@ -123,12 +125,15 @@ void I2Smic::run(){
         /*
          * switching buffer
          */
-        /*
         readoutMtx.lock();
         currentBufIdx = !currentBufIdx;
         readoutMtx.unlock();
-        */
+        
     }
+}
+
+int I2Smic::get_rc(){
+    return this->rc;
 }
 
 /* register callback */
@@ -138,7 +143,8 @@ void I2Smic::registercallback(DriverCallback* cb) {
 
 /* stop data acquisition */
 void I2Smic::close_pcm() {
+    global_program_exit=true;
     snd_pcm_drain(handle);
     snd_pcm_close(handle);
-    free(buffer);
+    ///free(buffer);
 }
