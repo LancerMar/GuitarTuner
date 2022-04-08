@@ -4,7 +4,8 @@
 sudo apt-get -y update
 sudo apt-get -y upgrade
 
-sudo apt-get install libasound2-dev python3-pip libboost-test-dev libfftw3-dev
+sudo apt-get install libasound2-dev python3-pip libboost-test-dev libfftw3-dev qtdeclarative5-dev-tools libqwt-qt5-dev qtmultimedia5-dev
+
 ```
 Then get the driver
 
@@ -13,6 +14,9 @@ cd ~
 sudo pip3 install --upgrade adafruit-python-shell
 wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/i2smic.py
 sudo python3 i2smic.py
+```
+```
+sudo ldconfig
 ```
 You can choose to auto-load module and then reboot machine now. 
 

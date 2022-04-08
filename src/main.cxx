@@ -1,20 +1,17 @@
-#include "window.h"
+//#include "window.h"
 
+#include <cstdint>
 #include <iostream>
-#include <qwindowdefs.h>
+#include <QApplication>
+
+#include "App.h"
+#include "MyThread.h"
 
 int main(int argc, char *argv[]) {
-    QApplication app(argc, argv);
-
-    //create the window
-    Window window;
-    window.show();
-
-    window.run();
-
-    window.startTimer(40);
-
-    return app.exec();
-
+    QApplication a(argc, argv);
+    MyFFtThread app;
+    app.start();
+    a.exec();
+    return 0;
 
 }

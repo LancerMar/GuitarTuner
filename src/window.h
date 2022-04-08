@@ -5,70 +5,95 @@
 
 #include <QtCore/qglobal.h>
 #include <cstdint>
+#include <qboxlayout.h>
+#include <qmainwindow.h>
 #include <qobject.h>
+#include <qtimer.h>
+#include <qwidget.h>
+#include <qwt/qwt_text.h>
 #include <qwt/qwt_thermo.h>
 #include <qwt/qwt_plot.h>
 #include <qwt/qwt_plot_curve.h>
 #include <QWidget>
+#include <alsa/seq_midi_event.h>
+#include <cstring>
+#include <qobjectdefs.h>
+#include <qpushbutton.h>
 
-#include <QBoxLayout>
-#include <QPushButton>
+
+
+/*
+ * set frequency range
+ */
+#define DELAY 128
+
+#define E4MIN 325
+#define E4MAX 335
+#define B3MIN 240
+#define B3MAX 250
+#define G3MIN 190
+#define G3MAX 200
+#define D3MIN 140
+#define D3MAX 150
+#define A2MIN 105
+#define A2MAX 115
+#define E2MIN 75
+#define E2MAX 85
 
 class Window : public QWidget
 {
-    Q_OBJECT;//dont understand
-
-private:
-
-    class I2S_MEMS : public I2Smic {
-        public:
-            I2S_MEMS(Window* w) : window(*w) {}
-            virtual void hasSample(int32_t* buffer, int length) {
-                for(int i = 0; i < length; i++){
-                    window.addSample(buffer[i]);
-                }
-            }
-        private:
-            Window& window;//don't understand
-    }; 
+    Q_OBJECT;//qt global macro
 public:
 
     /*
      * Initialise GUI and sets up mic
      */
-    Window();
+    Window(double *);
 
     /*
      *  
      */
-    void run();
+    void timerEvent(QTimerEvent*);
 
     /*
      * Destructor
      */
-    ~Window();
+   // ~Window();
 
 //internal variable for this class
 private:
-    static constexpr int plotDataSize = 100;
+    static constexpr int plotDataSize = 513;
+    static constexpr double resolution = (double)SAMPLE_RATE / frames_number;
 
+    QTimer* counter;
 
-    QPushButton  *button;
-    QwtThermo    *thermo;
-    QwtPlot      *plot;
-    QwtPlotCurve *curve;
+    QPushButton  *E4;
+    QPushButton  *B3;
+    QPushButton  *G3;
+    QPushButton  *D3;
+    QPushButton  *A2;
+    QPushButton  *E2;
+    
+    //QwtPlot      *plot1;
+    QwtPlot      *plot2;
+    QwtPlotCurve *curve1;
+    QwtPlotCurve *curve2;
 
-    QVBoxLayout  *vLayout; // vertical layout
+    QVBoxLayout  *v1Layout;
+    QVBoxLayout  *v2Layout; // vertical layout
     QHBoxLayout  *hLayout; // horizontal layout
 
     double xData[plotDataSize];
-    double yData[plotDataSize];   
-    
-    void reset();
-    void addSample(int32_t);
-    void timerEvent(QTimerEvent *);
+    double yData[plotDataSize];
+    double *buffer;
 
-    I2S_MEMS* i2s_mems;
+    void setE4();
+    void setB3();
+    void setG3();
+    void setD3();
+    void setA2();
+    void setE2();
+
 };
 #endif
 
