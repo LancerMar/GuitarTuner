@@ -26,18 +26,16 @@ static struct snd_params{
 class I2Smic {
 
 public:
-    int test_Test();
-   
     /*
      * open PCM device
      */
-    int open_pcm();
+    void open_pcm();
     
     /**
      * set parameters 
      *
      **/
-    int set_params(void);
+    void set_params(void);
     /**
      * close PCM device
      **/
@@ -59,6 +57,8 @@ public:
     ~I2Smic() {
         this->close_pcm();
     }
+
+    int get_rc();
 private:
 
     snd_pcm_t *handle;

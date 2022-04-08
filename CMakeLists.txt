@@ -32,7 +32,7 @@ set(SRC
     src/MyThread.cpp
     src/Global.cpp)
 
-add_library(source_test src/i2s_mems_mic.cpp src/Global.cpp)
+add_library(source_test src/lp.cpp src/i2s_mems_mic.cpp src/Global.cpp)
 add_executable(guitartuner ${SRC})
 
 if(FFTW3_FOUND)

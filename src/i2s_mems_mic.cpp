@@ -7,14 +7,7 @@
 
 #define ALSA_PCM_NEW_HW_PARAMS_API
 
-
-int I2Smic::test_Test(){
-    return 1;
-}
-
-int I2Smic::open_pcm(){
-    int open_pcm_result = 1;
-
+void I2Smic::open_pcm(){
     //open PCM device
     rc = snd_pcm_open(&handle, pcm_name,
                    stream, open_mode);
@@ -22,18 +15,18 @@ int I2Smic::open_pcm(){
         fprintf(stderr,
                 "unable to open pcm device: %s\n",
                 snd_strerror(rc));
-        open_pcm_result=0;
+
         exit(1);
     }
 
-    return open_pcm_result;
+
     
 }
 
 
-int I2Smic::set_params(void) {
+void I2Smic::set_params(void) {
     snd_pcm_hw_params_t *params;
-    int set_params_result = 1;
+
 
     /* allocate a hardware params obj  */
     snd_pcm_hw_params_alloca(&params);
@@ -45,7 +38,7 @@ int I2Smic::set_params(void) {
         fprintf(stderr,
                "Broken configuration for this PCM: no configurations avaliable: %s",
                 snd_strerror(rc));
-        set_params_result = 0;
+
         exit(1);
     }
     
@@ -56,7 +49,7 @@ int I2Smic::set_params(void) {
         fprintf(stderr,
                 "Access type not available: %s",
                 snd_strerror(rc));
-        set_params_result = 0;
+
         exit(1);
     }
 
@@ -67,7 +60,7 @@ int I2Smic::set_params(void) {
         fprintf(stderr,
                 "Sample format non available: %s",
                 snd_strerror(err));
-        set_params_result = 0;
+
         exit(1);
     }
 
@@ -75,7 +68,7 @@ int I2Smic::set_params(void) {
     err = snd_pcm_hw_params_set_channels(handle, params, hwparams.channels);
     if (err < 0) {
         fprintf(stderr, "Channels count non avaliable");
-        set_params_result = 0;
+
         exit(1);
     }
     
@@ -92,7 +85,6 @@ int I2Smic::set_params(void) {
     err = snd_pcm_hw_params(handle, params);
     if (err < 0) {
         fprintf(stderr, "unable to installl hw params: ");
-        set_params_result = 0;
         exit(1);
     }
 
@@ -101,8 +93,6 @@ int I2Smic::set_params(void) {
     
     /* get period time */
     snd_pcm_hw_params_get_period_time(params, &val, 0);
-
-    return set_params_result;
 }
 
 void I2Smic::run(){
@@ -142,6 +132,10 @@ void I2Smic::run(){
     }
 }
 
+int I2Smic::get_rc(){
+    return this->rc;
+}
+
 /* register callback */
 void I2Smic::registercallback(DriverCallback* cb) {
     this->callback = cb;
@@ -152,5 +146,5 @@ void I2Smic::close_pcm() {
     global_program_exit=true;
     snd_pcm_drain(handle);
     snd_pcm_close(handle);
-    free(buffer);
+    ///free(buffer);
 }

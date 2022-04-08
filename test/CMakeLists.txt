@@ -7,6 +7,7 @@ add_executable (Test test_mic.cpp)
 target_link_libraries (Test
                         source_test
                         asound 
+                        iir
                         ${CMAKE_THREAD_LIB_INIT}
                         ${Boost_FILESYSTEM_LIBRARY}
                         ${Boost_SYSTEM_LIBRARY}
