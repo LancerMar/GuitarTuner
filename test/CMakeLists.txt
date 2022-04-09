@@ -1,4 +1,4 @@
-find_package (Boost COMPONENTS system filesystem unit_test_framework REQUIRED)
+find_package (Boost COMPONENTS unit_test_framework REQUIRED)
 include_directories (${GuitarTuner_SOURCE_DIR}/src
                     ${Boost_INCLUDE_DIRS}
                     )
