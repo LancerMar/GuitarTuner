@@ -20,7 +20,8 @@ find_package(iir)
 add_subdirectory(src)
 add_subdirectory(test)
 enable_testing()
-add_test(NAME GuitarTunerTest COMMAND Test)
+add_test(NAME DriverTest COMMAND Test)
+add_test(NAME IIRTest COMMAND IIR_TEST)
 
 set(SRC
     src/FftClass.cpp
@@ -32,7 +33,8 @@ set(SRC
     src/MyThread.cpp
     src/Global.cpp)
 
-add_library(source_test src/lp.cpp src/i2s_mems_mic.cpp src/Global.cpp)
+add_library(source_test src/i2s_mems_mic.cpp src/Global.cpp)
+add_library(iir_test src/lp.cpp)
 add_executable(guitartuner ${SRC})
 
 if(FFTW3_FOUND)
