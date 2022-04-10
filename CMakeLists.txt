@@ -17,11 +17,8 @@ find_package(Qt5 COMPONENTS Widgets REQUIRED)
 find_package(FFTW3)
 find_package(iir)
 
-add_subdirectory(src)
 add_subdirectory(test)
 enable_testing()
-add_test(NAME DriverTest COMMAND Test)
-add_test(NAME IIRTest COMMAND IIR_TEST)
 
 set(SRC
     src/FftClass.cpp
@@ -33,9 +30,15 @@ set(SRC
     src/MyThread.cpp
     src/Global.cpp)
 
-add_library(source_test src/i2s_mems_mic.cpp src/Global.cpp)
+add_library(driver_test src/i2s_mems_mic.cpp src/Global.cpp)
+add_library(fft_test src/FftClass.cpp)
 add_library(iir_test src/lp.cpp)
 add_executable(guitartuner ${SRC})
+
+add_test(NAME DriverTest COMMAND DRIVER_TEST)
+add_test(NAME IIRTest COMMAND IIR_TEST)
+add_test(NAME FFTTest COMMAND FFT_TEST)
+add_test(NAME ThreadTest COMMAND THREAD_TEST)
 
 if(FFTW3_FOUND)
     include_directories(${FFTW3_INCLUDE_DIRS})
