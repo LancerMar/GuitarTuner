@@ -92,6 +92,10 @@ https://www.sparkfun.com/datasheets/BreakoutBoards/I2SBUS.pdf
 
 https://cdn-learn.adafruit.com/downloads/pdf/adafruit-i2s-mems-microphone-breakout.pdf
 
+# Diagram
+## sequence diagram for data transfer
+![](materies/sequenceDiagram.PNG)
+
 ## FAQ
 ALSA Library : sound driver ; get data from sound card(Linux)
 

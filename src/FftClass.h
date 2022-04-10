@@ -3,13 +3,13 @@
 
 #include <iostream>
 #include <fftw3.h>
-#include <qmainwindow.h>
-#include <qobjectdefs.h>
-#include <qtimer.h>
+// #include <qmainwindow.h>
+// #include <qobjectdefs.h>
+// #include <qtimer.h>
 #include <stdint.h>
-#include <qwt/qwt_plot.h>
-#include <qwt/qwt_plot_curve.h>
-#include <QMainWindow>
+// #include <qwt/qwt_plot.h>
+// #include <qwt/qwt_plot_curve.h>
+// #include <QMainWindow>
 
 #include "i2s_mems_mic.h"
 

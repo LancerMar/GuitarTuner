@@ -7,7 +7,12 @@ BOOST_AUTO_TEST_CASE(IIR_TEST)
 {
     Lp *lp;
     lp = new Lp(8000);
-    BOOST_CHECK_EQUAL(0, 0);
+    lp->filter(12);
+    lp->filter(22);
+    lp->filter(5);
+    lp->filter(16);
+    //random test
+    BOOST_CHECK_EQUAL(11, lp->filter(4));
 
     delete lp;
 }
