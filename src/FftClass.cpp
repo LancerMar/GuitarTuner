@@ -73,7 +73,7 @@ FftClass::~FftClass(){
     delete []y;
 }
 
-/*
+/*!
  * fill data into fft buffer
  */
 void FftClass::fill_buffer(int* buffer_tmp){

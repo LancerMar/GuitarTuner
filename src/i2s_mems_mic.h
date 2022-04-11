@@ -64,7 +64,7 @@ private:
     snd_pcm_t *handle;
     const int open_mode = 0;
     const snd_pcm_stream_t stream = SND_PCM_STREAM_CAPTURE;
-    char const* pcm_name = "plughw:2";//sound device name
+    char const* pcm_name = "plughw:0";//sound device name
     snd_pcm_uframes_t frames; 
     unsigned int val;
     
