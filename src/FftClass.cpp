@@ -29,12 +29,6 @@ FftClass::FftClass(int buffer_size){
     }
 }
 
-/*
-void FftClass::registercallback(FftCallback *cb){
-    this->callback = cb;
-}
-*/
-
 double FftClass::update(){
 
     fftw_plan plan_forward;

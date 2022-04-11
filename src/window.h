@@ -3,9 +3,9 @@
 
 #include "i2s_mems_mic.h"
 
-#include <QtCore/qglobal.h>
-#include <cstdint>
+#include <QFrame>
 #include <qboxlayout.h>
+#include <QLabel>
 #include <qmainwindow.h>
 #include <qobject.h>
 #include <qtimer.h>
@@ -15,12 +15,8 @@
 #include <qwt/qwt_plot.h>
 #include <qwt/qwt_plot_curve.h>
 #include <QWidget>
-#include <alsa/seq_midi_event.h>
-#include <cstring>
 #include <qobjectdefs.h>
 #include <qpushbutton.h>
-
-
 
 /*
  * set frequency range
@@ -40,6 +36,7 @@
 #define E2MIN 75
 #define E2MAX 85
 
+
 class Window : public QWidget
 {
     Q_OBJECT;//qt global macro
@@ -48,7 +45,7 @@ public:
     /*
      * Initialise GUI and sets up mic
      */
-    Window(double *);
+    Window(double *, double*);
 
     /*
      *  
@@ -66,6 +63,7 @@ private:
     static constexpr double resolution = (double)SAMPLE_RATE / frames_number;
 
     QTimer* counter;
+    double* max;
 
     QPushButton  *E4;
     QPushButton  *B3;
@@ -78,14 +76,19 @@ private:
     QwtPlot      *plot2;
     QwtPlotCurve *curve1;
     QwtPlotCurve *curve2;
+    
+    QwtThermo    *thermo;
 
     QVBoxLayout  *v1Layout;
     QVBoxLayout  *v2Layout; // vertical layout
+    QVBoxLayout  *v3Layout;
     QHBoxLayout  *hLayout; // horizontal layout
 
     double xData[plotDataSize];
     double yData[plotDataSize];
     double *buffer;
+    
+    int fre_min=E4MIN, fre_max=E4MAX;
 
     void setE4();
     void setB3();
@@ -93,6 +96,8 @@ private:
     void setD3();
     void setA2();
     void setE2();
+
+    
 
 };
 #endif
