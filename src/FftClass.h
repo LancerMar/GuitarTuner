@@ -20,18 +20,20 @@ class FftClass{
  //   Q_OBJECT
 
 public:
-    /*
+    /*!
      * constructor:
      */
     FftClass(int buffer_size = FFT_BUFFER_SIZE);
     
-    /*
+    /*!
      * destructor:
      */
     ~FftClass();
 
 public:
-    
+     /*!
+     * fill the buffer
+     */
     void fill_buffer(int *);
     double update();
 
