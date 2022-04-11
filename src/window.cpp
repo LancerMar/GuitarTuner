@@ -10,7 +10,7 @@ Window::Window(double *array, double *max_fre) {
 
     QLabel *label = new QLabel(this);
     label->setStyleSheet("QLabel { background-color : yellow; }");
-    label->setText("red: not tuned! green: tuned!");
+    label->setText("red: too high! green: tuned! yellow: too loose!");
     thermo = new QwtThermo;
     thermo->setFillBrush( QBrush(Qt::red) );
     thermo->setScale(0,500);
@@ -82,16 +82,18 @@ void Window::timerEvent(QTimerEvent* event){
     plot2->replot();
 
     double value = *max;
-    //if(value < 500 && value > 0){
-        if(value> fre_min && value < fre_max){
-            thermo->setFillBrush(QBrush(Qt::green));
-            thermo->setValue(value);
-        }
-        else{
-            thermo->setFillBrush(QBrush(Qt::red));
-            thermo->setValue(value);
-        }
-   // }
+    if(value < fre_min && value > 0){
+        thermo->setFillBrush(QBrush(Qt::yellow));
+        thermo->setValue(value);
+    }
+    else if(value >= fre_min && value <= fre_max){
+        thermo->setFillBrush(QBrush(Qt::green));
+        thermo->setValue(value);
+    }
+    else if(value < 500){
+        thermo->setFillBrush(QBrush(Qt::red));
+        thermo->setValue(value);
+    }
 }
 
 
