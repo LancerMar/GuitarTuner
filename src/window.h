@@ -88,6 +88,8 @@ private:
     QwtThermo    *thermo;
     
     QLabel *label2;
+    QLabel *label3;
+
     QVBoxLayout  *v1Layout;
     QVBoxLayout  *v2Layout; // vertical layout
     QVBoxLayout  *v3Layout;

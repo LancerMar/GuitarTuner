@@ -1,7 +1,6 @@
 #include "window.h"
 #include <qlabel.h>
 #include <qpalette.h>
-#include <string>
 
 Window::Window(double *array, double *max_fre) {
     
@@ -10,11 +9,14 @@ Window::Window(double *array, double *max_fre) {
     this->max = max_fre;
 
     QLabel *label = new QLabel(this);
-    label->setStyleSheet("QLabel { background-color : yellow; }");
+    label->setStyleSheet("QLabel { background-color : white; }");
     label->setText("red: too high! green: tuned! yellow: too loose!");
 
     label2 = new QLabel(this);
-    label2->setStyleSheet("QLabel { background-color : yellow; }");
+    label2->setStyleSheet("QLabel { background-color : white; }");
+    
+    label3 = new QLabel(this);
+    label3->setStyleSheet("QLabel { background-color : white; }");
 
     thermo = new QwtThermo;
     thermo->setFillBrush( QBrush(Qt::red) );
@@ -64,8 +66,9 @@ Window::Window(double *array, double *max_fre) {
 
     v2Layout = new QVBoxLayout();
     v2Layout->addWidget(label);
-    v2Layout->addWidget(label2);
     v2Layout->addWidget(thermo);
+    v2Layout->addWidget(label2);
+    v2Layout->addWidget(label3);
     v2Layout->addWidget(LCD);
 
     v3Layout = new QVBoxLayout();
@@ -89,7 +92,7 @@ void Window::timerEvent(QTimerEvent* event){
     curve2->attach(plot2);
     plot2->replot();
 
-    label2->setText(QString::number(fre));
+    label2->setText("standard frequency: "+ QString::number(fre));
 
     double value = *max;
     if(value < fre_min && value > 0){
@@ -104,7 +107,12 @@ void Window::timerEvent(QTimerEvent* event){
         thermo->setFillBrush(QBrush(Qt::red));
         thermo->setValue(value);
     }
-    LCD->display(value - fre);
+    int a = value - fre;
+    LCD->display(a);
+    if (a > 0)
+        label3->setText("high");
+    else
+        label3->setText("low");
 
 }
 
