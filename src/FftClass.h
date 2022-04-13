@@ -36,6 +36,8 @@ public:
     double update();
 
     double array[513];
+    double max_fre;
+    double *max_fre_p = &max_fre;
 
 private:
     double *in;
@@ -46,7 +48,6 @@ private:
     
     double mag;
     double yMax;
-    int max_fre;
     int num_samples;
     int n_out;
     int nFreqSamples;

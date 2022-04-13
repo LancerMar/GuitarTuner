@@ -35,7 +35,7 @@ class App : public DriverCallback{
         I2Smic mic; //default-initialise object
         Lp *lp;
         Window *window;
-       
+    
         int data[FFT_BUFFER_SIZE];
 };
 

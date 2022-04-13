@@ -5,7 +5,7 @@
 App::App() {
     fft = new FftClass();
     lp = new Lp(SAMPLE_RATE);
-    window = new Window(fft->array);
+    window = new Window(fft->array, fft->max_fre_p);
     window->show();
 }
 
