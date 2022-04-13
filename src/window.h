@@ -86,7 +86,8 @@ private:
     QwtPlotCurve *curve2;
     
     QwtThermo    *thermo;
-
+    
+    QLabel label2;
     QVBoxLayout  *v1Layout;
     QVBoxLayout  *v2Layout; // vertical layout
     QVBoxLayout  *v3Layout;

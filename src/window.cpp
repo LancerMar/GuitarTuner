@@ -1,4 +1,6 @@
 #include "window.h"
+#include <qlabel.h>
+#include <qpalette.h>
 
 Window::Window(double *array, double *max_fre) {
     
@@ -9,13 +11,17 @@ Window::Window(double *array, double *max_fre) {
     QLabel *label = new QLabel(this);
     label->setStyleSheet("QLabel { background-color : yellow; }");
     label->setText("red: too high! green: tuned! yellow: too loose!");
+
+    QLabel *label2 = new QLabel(this);
+    label2->setStyleSheet("QLabel { background-color : yellow; }");
+
     thermo = new QwtThermo;
     thermo->setFillBrush( QBrush(Qt::red) );
     thermo->setScale(0,500);
     thermo->show();
     
     LCD = new QLCDNumber;
-    LCD->setSegmentStyle(QLCDNumber::Outline);
+    LCD->setPalette(Qt::red);
     /*
      *initial random input data
      */
