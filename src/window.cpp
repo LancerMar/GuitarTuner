@@ -1,6 +1,7 @@
 #include "window.h"
 #include <qlabel.h>
 #include <qpalette.h>
+#include <string>
 
 Window::Window(double *array, double *max_fre) {
     
@@ -12,7 +13,7 @@ Window::Window(double *array, double *max_fre) {
     label->setStyleSheet("QLabel { background-color : yellow; }");
     label->setText("red: too high! green: tuned! yellow: too loose!");
 
-    QLabel *label2 = new QLabel(this);
+    label2 = new QLabel(this);
     label2->setStyleSheet("QLabel { background-color : yellow; }");
 
     thermo = new QwtThermo;
@@ -63,6 +64,7 @@ Window::Window(double *array, double *max_fre) {
 
     v2Layout = new QVBoxLayout();
     v2Layout->addWidget(label);
+    v2Layout->addWidget(label2);
     v2Layout->addWidget(thermo);
     v2Layout->addWidget(LCD);
 
@@ -86,6 +88,8 @@ void Window::timerEvent(QTimerEvent* event){
     curve2->setSamples(xData, buffer, plotDataSize);
     curve2->attach(plot2);
     plot2->replot();
+
+    label2->setText(QString::number(fre));
 
     double value = *max;
     if(value < fre_min && value > 0){
