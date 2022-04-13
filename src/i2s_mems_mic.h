@@ -41,12 +41,12 @@ public:
      **/
     void close_pcm();
     
-    /*
+    /*!
      * start to obtain sound sample
      */
     void run();
     
-    /*
+    /*!
      * register callback
      */
     void registercallback(DriverCallback* cb);
