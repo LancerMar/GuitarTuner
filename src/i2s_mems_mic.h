@@ -51,7 +51,7 @@ public:
      */
     void registercallback(DriverCallback* cb);
     
-    /*
+    /*!
      * destructor
      */
     ~I2Smic() {
