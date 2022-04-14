@@ -123,7 +123,7 @@ For instructions on how to use the DrumPi application, see the [User Manual](htt
 
 ## Documentation
 
-[DrumPi Documentation](https://LancerMar.github.io/Guitartuner/html/index.html)
+[Guitartuner Documentation](https://lancermar.github.io/Guitartuner/html/index.html)
 
 ## Stretch Goals
 - Electric machine that could tune the guitar automatically
