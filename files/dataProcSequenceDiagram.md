@@ -1,17 +1,15 @@
 @startuml
-
-main -> myDriverThread : start driver thread
-myDriverThread -> myDriverThread : set parameters
-main -> myDataProcessThread : start process data thread
-
-loop
-    myDriverThread -> myDriverThread : read data from sensor
-    myDriverThread -> myDataProcessThread : data (call back)
-end
+main -> myFFTThread : start driver thread
+main -> UI : start UI thread
+myFFTThread -> myFFTThread : set parameters
 
 loop
-myDataProcessThread -> myDataProcessThread : FFT
-myDataProcessThread -> UI : Time and frequency \n domain data(callback)
+    myFFTThread -> myFFTThread : read data from sensor
+    myFFTThread -> myFFTThread : lowpass iir filter filter the  \r high freqency harmonics 
+    myFFTThread -> myFFTThread : FFT
+    myFFTThread -> UI : data: \r (data in frequency domain)\r (highest amplitude samples)
+    UI-> UI: refresh the UI
 end
+
 
 @enduml
