@@ -119,7 +119,7 @@ fill this
 ```
 ## Usage
 
-For instructions on how to use the DrumPi application, see the [User Manual](https://github.com/LancerMar/Guitartuner/wiki/User-Manual).
+For instructions on how to use the Guitartuner application, see the [User Manual](https://github.com/LancerMar/Guitartuner/wiki/User-Manual).
 
 ## Documentation
 
