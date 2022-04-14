@@ -108,4 +108,4 @@ display: recommended use QT
 install "Doxygen" :literate programme tool 
 
 # Document for Code
-[DOCUMENT](materies/codeDocumnet/html/index.html)
+[GUITARTUNER DOCUMENTATION](https://lancermar.github.io/GuitarTuner/materies/codeDocumnet/html/index.html)
