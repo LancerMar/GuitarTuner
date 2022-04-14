@@ -32,6 +32,7 @@ public:
      * All the memory applied for on the heap are released here, otherwise it will 
      * cause memory overflow, thereby reducing the stability of the program；
      * 
+
      */
     ~FftClass();
 
@@ -43,6 +44,7 @@ public:
      * 
      * @param int * Pointer to the first address of the audio data
      */
+
     void fill_buffer(int *);
 
     /*! execute the Fase fourier Transform and update the Data needed to update the 
@@ -53,6 +55,7 @@ public:
     double update();
 
     double array[513]; /*!< Stores per-sample data in the frequency domain */
+
 
 private:
     double *in; //audio data in time domain

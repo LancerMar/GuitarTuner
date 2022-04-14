@@ -72,7 +72,7 @@ class App : public DriverCallback{
         Lp *lp;
         // pointer to the UI class
         Window *window;
-       
+
         // origin audio data
         int data[FFT_BUFFER_SIZE];
 };

@@ -65,6 +65,7 @@ public:
     /*! destructor
      *
      * The method to close the mic will be called in this method
+
      */
     ~I2Smic() {
         this->close_pcm();
