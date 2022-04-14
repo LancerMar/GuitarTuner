@@ -37,6 +37,7 @@
                     <li><a href="#run-the-executable">Run the program</a>
                     <li><a href="#debug">Debug program</a>
                 </ul>
+            <li><a href="#running-tests">Running Tests</a>
         </ul>
     <li><a href="#Usage">Usage</a>
     <li><a href="#Documentation">Documentation</a>
@@ -82,34 +83,40 @@ sudo ldconfig
 ```
 
 #### Run the executable
-you can compile the release version of our project by using following command on RaspberryPi
+You can compile the release version of our project by using following command on RaspberryPi
 ```linux 
 mkdir release
 cd release/
 cmake -DCMAKE_BUILD_TYPE=Release ..
 make
 ```
-the **guitartuner** is the excutable file 
+The **guitartuner** is the excutable file 
 ```linux
 ./guitartuner
 ```
 
 #### Debug
-you can compile the debug version of our project by using following command on RaspberryPi
+You can compile the debug version of our project by using following command on RaspberryPi
 ``` linux
 mkdir debug
 cd debug/
 cmake -DCMAKE_BUILD_TYPE=Debug ..
 make
 ```
-the **guitartuner** is the excutable file 
+The **guitartuner** is the excutable file 
 
-you can use
+You can use
 ``` linux
 gdb -tui guitartuner
 ```
 to debug this program 
 
+### Running Tests
+To run the unit tests
+
+```
+fill this
+```
 
 # GuitarTuner
 Tune the each open string of Guitar to standard pitch.
