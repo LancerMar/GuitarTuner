@@ -117,6 +117,17 @@ To run the unit tests
 ```
 fill this
 ```
+## Usage
+
+For instructions on how to use the DrumPi application, see the [User Manual](https://github.com/LancerMar/Guitartuner/wiki/User-Manual).
+
+## Documentation
+
+[DrumPi Documentation](https://LancerMar.github.io/Guitartuner/html/index.html)
+
+## Stretch Goals
+- Electric machine that could tune the guitar automatically
+- More precise pitches detection, remove harmonics
 
 # GuitarTuner
 Tune the each open string of Guitar to standard pitch.
