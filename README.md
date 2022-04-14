@@ -13,7 +13,7 @@
 
 <p align="center">
     <a href="https://github.com/LancerMar/GuitarTuner/graphs/contributors" alt="Contributors">
-        <img src="https://img.shiellds.io/github/contributors/LancerMar/Guitartuner.svg" /></a>
+        <img src="https://img.shields.io/github/contributors/LancerMar/Guitartuner.svg" /></a>
 </p>
 # Installation
 
