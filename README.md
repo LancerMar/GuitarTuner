@@ -32,7 +32,7 @@
         <ul>
             <li><a href="#assembly-and-soldering">Assembly and Soldering</a>
             <li><a href="#raspberry-pi-for-wiring">Raspberry pi for wiring</a>
-            <li><a href="#Running-Tests">Running Tests</a>
+            <li><a href="#installation">Installation</a>
         </ul>
     <li><a href="#Usage">Usage</a>
     <li><a href="#Documentation">Documentation</a>
@@ -77,7 +77,7 @@ sudo apt-get install qtdeclarative5-dev-tools libqwt-qt5-dev qtmultimedia5-dev
 sudo ldconfig
 ```
 
-## run the executable
+#### run the executable
 you can compile the release version of our project by using following command on RaspberryPi
 ```linux 
 mkdir release
@@ -90,7 +90,7 @@ the **guitartuner** is the excutable file
 ./guitartuner
 ```
 
-## Debug
+#### Debug
 you can compile the debug version of our project by using following command on RaspberryPi
 ``` linux
 mkdir debug
