@@ -3,6 +3,12 @@
     <a href = "https://github.com/LancerMar/GuitarTuner">
         <img src="/files/guitar.png" alt="Logo" height="300">
     </a>
+
+    <p align="center">A QT gui application that helps you tune your guitar</p>
+</p>
+
+<p align="center">
+    <a href="https://www.youtube.com">Youtube link</a>
 </p>
 # Installation
 
