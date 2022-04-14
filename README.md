@@ -121,7 +121,7 @@ to debug this program
 To run the unit tests
 
 ```
-fill this
+make test
 ```
 ## Usage
 
