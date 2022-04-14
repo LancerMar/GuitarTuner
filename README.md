@@ -30,8 +30,8 @@
         </ul>
     <li><a href="#Quick-Start">Quick Start</a>
         <ul>
-            <li><a href="#Assembly and Soldering">Assembly and Soldering</a>
-            <li><a href="#Raspberry pi for wiring">Raspberry pi for wiring</a>
+            <li><a href="#assembly-and-soldering">Assembly and Soldering</a>
+            <li><a href="#raspberry-pi-for-wiring">Raspberry pi for wiring</a>
             <li><a href="#Running-Tests">Running Tests</a>
         </ul>
     <li><a href="#Usage">Usage</a>
