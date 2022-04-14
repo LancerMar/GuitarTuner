@@ -39,8 +39,15 @@
     <li><a href="#Stretch-Goals">Stretch Goals</a>
 </ul>
             
+## About
+Guitartuner is a easy to run tuning application. It easily helps you tune your guitar with the help of a simple GUI.
 
-# Installation
+### Functionality
+ - Real-time standard tuning
+ - Showing pitch frequency
+### Hardware
+ - Raspberry pi model 4b
+ - [I2s microphone] (https://www.adafruit.com/product/3421) 
 
 
 ```
