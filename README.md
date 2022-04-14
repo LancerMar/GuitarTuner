@@ -16,6 +16,10 @@
         <img src="https://img.shields.io/github/contributors/LancerMar/Guitartuner.svg" /></a>
     <a href="https://github.com/LancerMar/GuitarTuner/issues" alt="Issues">
         <img src="https://img.shields.io/github/issues/LancerMar/Guitartuner.svg" /></a>
+    <a href="https://github.com/LancerMar/Guitartuner/blob/main/LICENSE" alt="License">
+        <img src="https://img.shields.io/github/license/LancerMar/Guitartuner.svg" /></a>
+    <a href="https://github.com/LancerMar/Guitartuner/releases" alt="Tag">
+        <img src="https://img.shields.io/github/v/release/LancerMar/Guitartuner.svg?color=blue&include_prereleases" alt="build status"></a>
 </p>
 # Installation
 
