@@ -53,35 +53,27 @@ Guitartuner is a easy to run tuning application. It easily helps you tune your g
 ### Assembly and Soldering
 [more details can be found here!](https://learn.adafruit.com/adafruit-i2s-mems-microphone-breakout/assembly)
 ### Rasperry pi for wiring 
-[more datails](https://learn.adafruit.com/adafruit-i2s-mems-microphone-breakout/raspberry-pi-wiring-test), remember this is mono mic based.
+[more datails](https://learn.adafruit.com/adafruit-i2s-mems-microphone-breakout/raspberry-pi-wiring-test), remember this is mono mic based project.
 ### Installation
+follow the following steps
 
-```
-sudo apt-get -y update
-sudo apt-get -y upgrade
+1.Install the driver for i2s mic, [link](https://learn.adafruit.com/adafruit-i2s-mems-microphone-breakout/raspberry-pi-wiring-test), after the wiring section.
 
-sudo apt-get install libasound2-dev python3-pip libboost-test-dev libfftw3-dev qtdeclarative5-dev-tools libqwt-qt5-dev qtmultimedia5-dev
+2.Install several dependenceis.
+    - asound module 
+    - fftw module
+    - Qt module
+```
+sudo apt-get install libasound2-dev python3-pip libboost-test-dev 
+sudo apt-get install libfftw3-dev 
+sudo apt-get install qtdeclarative5-dev-tools libqwt-qt5-dev qtmultimedia5-dev
+```
 
-```
-Then get the driver
-
-```
-cd ~
-sudo pip3 install --upgrade adafruit-python-shell
-wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/i2smic.py
-sudo python3 i2smic.py
-```
+3. configure dynamic linker run-time bindings
 ```
 sudo ldconfig
 ```
-You can choose to auto-load module and then reboot machine now. 
 
-# compile
-Release mode and Debug mode can be used to complie this project
-## Installation
-before compile this project you should :
-
-1. Install [FFTW](http://www.fftw.org/download.html) manually
 ## Release
 you can compile the release version of our project by using following command on RaspberryPi
 ``` linux
