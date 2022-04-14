@@ -81,6 +81,12 @@ sudo apt-get install qtdeclarative5-dev-tools libqwt-qt5-dev qtmultimedia5-dev
 ```
 sudo ldconfig
 ```
+clone this project
+
+```linux
+git clone https://github.com/LancerMar/GuitarTuner
+cd GuitarTuner
+```
 
 #### Run the executable
 You can compile the release version of our project by using following command on RaspberryPi
@@ -90,7 +96,7 @@ cd release/
 cmake -DCMAKE_BUILD_TYPE=Release ..
 make
 ```
-The **guitartuner** is the excutable file 
+The **guitartuner** is the excutable file, run it.
 ```linux
 ./guitartuner
 ```
