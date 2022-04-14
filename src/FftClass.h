@@ -37,7 +37,7 @@ public:
     void fill_buffer(int *);
     double update();
 
-    double array[513];
+    double array[513]; /*!< Stores per-sample data in the frequency domain */
 
 private:
     double *in;

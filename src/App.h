@@ -12,30 +12,68 @@
 class App : public DriverCallback{
 
     public:
-        /* constructor */
+        /*!
+        * this is the constructor of Application class , this constructor Initialize
+        * the FFT processing class, IIR processing class and  Init the UI
+        */
         App();
 
-        /* implement fft process function */
-        void fftData(int32_t*, int) override;
+        /*!
+        * FFT processor
+        *
+        * This function is used to Fourier transform the audio data
+        *
+        * @param int* Pointer to the first address of the audio data to be processed
+        * @param int The length of the audio data to be processed
+        */
+        void fftData(int*, int) override;
 
-        /* implement lowpass data function*/
-        int* lpData(int *) override;
+        /*!
+        * IIR filter
+        * 
+        * This function is used to iir filter the audio data
+        *
+        * @param int* Pointer to the first address of the audio data to be processed
+        */
+        int* lpData(int* ) override;
 
-        /* setup application */
+        /*!
+        * driver setup
+        *
+        * This function is used to  call the driver class's setup method to properly 
+        * connect the mic
+        * including register the callback function; open the data read and write channel 
+        * of mic; Set data channel parameters to mic
+        */
         void setup();
 
-        /* start application */
+        /*!
+        * receiving data
+        *
+        * This function is used to start the continuously process of recieving data from 
+        * the mic. Should be called separately in a thread to prevent blocking the execution 
+        * of the main process task
+        */
         void run();
         
-        /* destructor */
+        /*!
+        * destructor
+        *
+        * All the memory applied for on the heap needs to be released here, otherwise it will 
+        * cause memory overflow, thereby reducing the stability of the program
+        */
         ~App();
 
     private:
-        FftClass *fft;
+        // pointer to the fft class
+        FftClass *fft; 
         I2Smic mic; //default-initialise object
+        // pointer to the iir filter class
         Lp *lp;
+        // pointer to the UI class
         Window *window;
        
+        // origin audio data
         int data[FFT_BUFFER_SIZE];
 };
 
