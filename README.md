@@ -49,6 +49,12 @@ Guitartuner is a easy to run tuning application. It easily helps you tune your g
  - Raspberry pi model 4b
  - [I2s microphone](https://www.adafruit.com/product/3421) 
 
+## Quick Start Guide
+### Assembly and Soldering
+[more details can be found here!](https://learn.adafruit.com/adafruit-i2s-mems-microphone-breakout/assembly)
+### Rasperry pi for wiring 
+[more datails](https://learn.adafruit.com/adafruit-i2s-mems-microphone-breakout/raspberry-pi-wiring-test), remember this is mono mic based.
+### Installation
 
 ```
 sudo apt-get -y update
