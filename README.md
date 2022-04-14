@@ -51,18 +51,18 @@ Guitartuner is a easy to run tuning application. It easily helps you tune your g
 
 ## Quick Start Guide
 ### Assembly and Soldering
-[more details can be found here!](https://learn.adafruit.com/adafruit-i2s-mems-microphone-breakout/assembly)
+[More details can be found here!](https://learn.adafruit.com/adafruit-i2s-mems-microphone-breakout/assembly)
 ### Rasperry pi for wiring 
-[more datails](https://learn.adafruit.com/adafruit-i2s-mems-microphone-breakout/raspberry-pi-wiring-test), remember this is mono mic based project.
+[More datails](https://learn.adafruit.com/adafruit-i2s-mems-microphone-breakout/raspberry-pi-wiring-test), remember this is mono mic based project.
 ### Installation
-follow the following steps
+Follow the following steps
 
 1. Install the driver for i2s mic, [link](https://learn.adafruit.com/adafruit-i2s-mems-microphone-breakout/raspberry-pi-wiring-test), after the wiring section.
 
 2. Install several dependenceis.
 
  - asound module 
- - fftw module
+ - fftw3 module
  - Qt module
 
 ```
@@ -77,15 +77,18 @@ sudo apt-get install qtdeclarative5-dev-tools libqwt-qt5-dev qtmultimedia5-dev
 sudo ldconfig
 ```
 
-## Release
+## run the executable
 you can compile the release version of our project by using following command on RaspberryPi
-``` linux
+```c++ 
 mkdir release
 cd release/
 cmake -DCMAKE_BUILD_TYPE=Release ..
 make
 ```
 the **guitartuner** is the excutable file 
+```
+./guitartuner
+```
 
 ## Debug
 you can compile the debug version of our project by using following command on RaspberryPi
