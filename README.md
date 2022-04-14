@@ -1,4 +1,7 @@
+<h1 align="center">Guitartuner</h1>
+
 # Installation
+
 
 ```
 sudo apt-get -y update
