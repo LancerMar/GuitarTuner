@@ -57,19 +57,22 @@ Guitartuner is a easy to run tuning application. It easily helps you tune your g
 ### Installation
 follow the following steps
 
-1.Install the driver for i2s mic, [link](https://learn.adafruit.com/adafruit-i2s-mems-microphone-breakout/raspberry-pi-wiring-test), after the wiring section.
+1. Install the driver for i2s mic, [link](https://learn.adafruit.com/adafruit-i2s-mems-microphone-breakout/raspberry-pi-wiring-test), after the wiring section.
 
-2.Install several dependenceis.
-    - asound module 
-    - fftw module
-    - Qt module
+2. Install several dependenceis.
+
+ - asound module 
+ - fftw module
+ - Qt module
+
 ```
 sudo apt-get install libasound2-dev python3-pip libboost-test-dev 
 sudo apt-get install libfftw3-dev 
 sudo apt-get install qtdeclarative5-dev-tools libqwt-qt5-dev qtmultimedia5-dev
 ```
 
-3. configure dynamic linker run-time bindings
+3. Configure dynamic linker run-time bindings
+
 ```
 sudo ldconfig
 ```
