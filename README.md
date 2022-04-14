@@ -66,6 +66,11 @@ Follow the following steps
 
 2. Install several dependenceis.
 
+```
+sudo apt-get -y update
+sudo apt-get -y upgrade
+```
+and then install these modules
  - asound module 
  - fftw3 module
  - Qt module
