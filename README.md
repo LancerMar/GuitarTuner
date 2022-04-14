@@ -30,8 +30,8 @@
         </ul>
     <li><a href="#Quick-Start">Quick Start</a>
         <ul>
-            <li><a href="#Installation">Installation</a>
-            <li><a href="#Startup">Startup</a>
+            <li><a href="#Assembly and Soldering">Assembly and Soldering</a>
+            <li><a href="#Raspberry pi for wiring">Raspberry pi for wiring</a>
             <li><a href="#Running-Tests">Running Tests</a>
         </ul>
     <li><a href="#Usage">Usage</a>
@@ -52,7 +52,7 @@ Guitartuner is a easy to run tuning application. It easily helps you tune your g
 ## Quick Start Guide
 ### Assembly and Soldering
 [More details can be found here!](https://learn.adafruit.com/adafruit-i2s-mems-microphone-breakout/assembly)
-### Rasperry pi for wiring 
+### Raspberry pi for wiring 
 [More datails](https://learn.adafruit.com/adafruit-i2s-mems-microphone-breakout/raspberry-pi-wiring-test), remember this is mono mic based project.
 ### Installation
 Follow the following steps
@@ -79,14 +79,14 @@ sudo ldconfig
 
 ## run the executable
 you can compile the release version of our project by using following command on RaspberryPi
-```c++ 
+```linux 
 mkdir release
 cd release/
 cmake -DCMAKE_BUILD_TYPE=Release ..
 make
 ```
 the **guitartuner** is the excutable file 
-```
+```linux
 ./guitartuner
 ```
 
