@@ -10,6 +10,11 @@
 <p align="center">
     <a href="https://www.youtube.com">Youtube link</a>
 </p>
+
+<p align="center">
+    <a href="https://github.com/LancerMar/GuitarTuner/graphs/contributors" alt="Contributors">
+        <img src="https://img.shiellds.io/github/contributors/LancerMar/Guitartuner.svg" /></a>
+</p>
 # Installation
 
 
