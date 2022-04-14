@@ -1,4 +1,8 @@
 <h1 align="center">Guitartuner</h1>
+<p align="center">
+    <a href = "https://github.com/LancerMar/GuitarTuner">
+        <img src="/images/guituner.jpg" alt="Logo" height="300">
+    </a>
 
 # Installation
 
