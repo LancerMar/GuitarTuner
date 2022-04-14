@@ -1,0 +1,109 @@
+\hypertarget{class_app}{}\doxysection{App Class Reference}
+\label{class_app}\index{App@{App}}
+
+
+{\ttfamily \#include $<$App.\+h$>$}
+
+Inheritance diagram for App\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_app}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_app_acb8cbf3e285b91d0170ffe87df5989c5}{App}} ()
+\item 
+void \mbox{\hyperlink{class_app_a6dd9d2c3e2d67a31e881f857dff20c83}{fft\+Data}} (int $\ast$, int) override
+\item 
+int $\ast$ \mbox{\hyperlink{class_app_ab8f3e33b49c078db98b6fe497e82240e}{lp\+Data}} (int $\ast$) override
+\item 
+void \mbox{\hyperlink{class_app_ae98e8cafc7608395f626cc20cd9c7c11}{setup}} ()
+\item 
+void \mbox{\hyperlink{class_app_ae09dc71078b64c56c673b1ad1d25b5d1}{run}} ()
+\item 
+\mbox{\hyperlink{class_app_a34f1f253b1cef5f4ecbac66eaf6964ec}{$\sim$\+App}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_app_acb8cbf3e285b91d0170ffe87df5989c5}\label{class_app_acb8cbf3e285b91d0170ffe87df5989c5}} 
+\index{App@{App}!App@{App}}
+\index{App@{App}!App@{App}}
+\doxysubsubsection{\texorpdfstring{App()}{App()}}
+{\footnotesize\ttfamily App\+::\+App (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+this is the constructor of Application class , this constructor Initialize the FFT processing class, IIR processing class and Init the UI \mbox{\Hypertarget{class_app_a34f1f253b1cef5f4ecbac66eaf6964ec}\label{class_app_a34f1f253b1cef5f4ecbac66eaf6964ec}} 
+\index{App@{App}!````~App@{$\sim$App}}
+\index{````~App@{$\sim$App}!App@{App}}
+\doxysubsubsection{\texorpdfstring{$\sim$App()}{~App()}}
+{\footnotesize\ttfamily App\+::$\sim$\+App (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+destructor
+
+All the memory applied for on the heap are released here, otherwise it will cause memory overflow, thereby reducing the stability of the program 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_app_a6dd9d2c3e2d67a31e881f857dff20c83}\label{class_app_a6dd9d2c3e2d67a31e881f857dff20c83}} 
+\index{App@{App}!fftData@{fftData}}
+\index{fftData@{fftData}!App@{App}}
+\doxysubsubsection{\texorpdfstring{fftData()}{fftData()}}
+{\footnotesize\ttfamily void App\+::fft\+Data (\begin{DoxyParamCaption}\item[{int $\ast$}]{buffer,  }\item[{int}]{frames }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+FFT processor
+
+This function is used to fast Fourier transform the audio data
+
+
+\begin{DoxyParams}{Parameters}
+{\em int$\ast$} & Pointer to the first address of the audio data to be processed \\
+\hline
+{\em int} & The length of the audio data to be processed \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_driver_callback_a91606c51d355b37604c690525a119586}{Driver\+Callback}}.
+
+\mbox{\Hypertarget{class_app_ab8f3e33b49c078db98b6fe497e82240e}\label{class_app_ab8f3e33b49c078db98b6fe497e82240e}} 
+\index{App@{App}!lpData@{lpData}}
+\index{lpData@{lpData}!App@{App}}
+\doxysubsubsection{\texorpdfstring{lpData()}{lpData()}}
+{\footnotesize\ttfamily int $\ast$ App\+::lp\+Data (\begin{DoxyParamCaption}\item[{int $\ast$}]{buffer\+\_\+tmp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+IIR filter
+
+This function is used to iir filter the audio data
+
+
+\begin{DoxyParams}{Parameters}
+{\em int$\ast$} & Pointer to the first address of the audio data to be processed \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_driver_callback_ae0f3fb20a8a5f595d4b430e95afbb41c}{Driver\+Callback}}.
+
+\mbox{\Hypertarget{class_app_ae09dc71078b64c56c673b1ad1d25b5d1}\label{class_app_ae09dc71078b64c56c673b1ad1d25b5d1}} 
+\index{App@{App}!run@{run}}
+\index{run@{run}!App@{App}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void App\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+receiving data
+
+This function is used to start the continuously process of recieving data from the mic. Should be called separately in a thread to prevent blocking the execution of the main process task \mbox{\Hypertarget{class_app_ae98e8cafc7608395f626cc20cd9c7c11}\label{class_app_ae98e8cafc7608395f626cc20cd9c7c11}} 
+\index{App@{App}!setup@{setup}}
+\index{setup@{setup}!App@{App}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void App\+::setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+driver setup
+
+This function is used to call the driver class\textquotesingle{}s setup method to properly connect the mic including register the callback function; open the data read and write channel of mic; Set data channel parameters to mic 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Glasgow/\+CSEcaurse/realtime/project/\+Guitar\+Tuner/src/\mbox{\hyperlink{_app_8h}{App.\+h}}\item 
+D\+:/\+Glasgow/\+CSEcaurse/realtime/project/\+Guitar\+Tuner/src/\mbox{\hyperlink{_app_8cpp}{App.\+cpp}}\end{DoxyCompactItemize}

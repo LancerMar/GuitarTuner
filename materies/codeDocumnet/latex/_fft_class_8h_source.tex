@@ -1,0 +1,52 @@
+\hypertarget{_fft_class_8h_source}{}\doxysection{Fft\+Class.\+h}
+\label{_fft_class_8h_source}\index{D:/Glasgow/CSEcaurse/realtime/project/GuitarTuner/src/FftClass.h@{D:/Glasgow/CSEcaurse/realtime/project/GuitarTuner/src/FftClass.h}}
+\mbox{\hyperlink{_fft_class_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef FFT\_CLASS\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define FFT\_CLASS\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <fftw3.h>}}
+\DoxyCodeLine{6 \textcolor{comment}{// \#include <qmainwindow.h>}}
+\DoxyCodeLine{7 \textcolor{comment}{// \#include <qobjectdefs.h>}}
+\DoxyCodeLine{8 \textcolor{comment}{// \#include <qtimer.h>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{10 \textcolor{comment}{// \#include <qwt/qwt\_plot.h>}}
+\DoxyCodeLine{11 \textcolor{comment}{// \#include <qwt/qwt\_plot\_curve.h>}}
+\DoxyCodeLine{12 \textcolor{comment}{// \#include <QMainWindow>}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{i2s__mems__mic_8h}{i2s\_mems\_mic.h}}"{}}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#define FFT\_BUFFER\_SIZE 1024}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{class }\mbox{\hyperlink{class_fft_class}{FftClass}}\{}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{public}:}
+\DoxyCodeLine{28     \mbox{\hyperlink{class_fft_class_a52938e8fdf37642d98300f8f6563c045}{FftClass}}(\textcolor{keywordtype}{int} buffer\_size = \mbox{\hyperlink{_fft_class_8h_a5baf9b675388dc65c6fcd88d63ea6d58}{FFT\_BUFFER\_SIZE}});}
+\DoxyCodeLine{29     }
+\DoxyCodeLine{36     \mbox{\hyperlink{class_fft_class_aa791bb5fbd85d73756e52154b2491867}{\string~FftClass}}();}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{keyword}{public}:}
+\DoxyCodeLine{46     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_fft_class_a686f1022b5052ecbf435b2701e7d3f26}{fill\_buffer}}(\textcolor{keywordtype}{int} *);}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{53     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_fft_class_aef111694bd6059127a23c5dcd6451808}{update}}();}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{keywordtype}{double} \mbox{\hyperlink{class_fft_class_ad3db96b523bf85b1c131d122ad1f976e}{array}}[513]; }
+\DoxyCodeLine{57 \textcolor{keyword}{private}:}
+\DoxyCodeLine{58     \textcolor{keywordtype}{double} *in; \textcolor{comment}{//audio data in time domain}}
+\DoxyCodeLine{59     fftw\_complex *out; \textcolor{comment}{// audio data in frequency domain}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keywordtype}{double} *x; \textcolor{comment}{//<not used>}}
+\DoxyCodeLine{62     \textcolor{keywordtype}{double} *y; \textcolor{comment}{//<not used>}}
+\DoxyCodeLine{63     }
+\DoxyCodeLine{64     \textcolor{keywordtype}{double} mag; \textcolor{comment}{//magnitude of audio data in frequency domain}}
+\DoxyCodeLine{65     \textcolor{keywordtype}{double} yMax; \textcolor{comment}{// the maxium amplitude samples}}
+\DoxyCodeLine{66     \textcolor{keywordtype}{int} max\_fre; \textcolor{comment}{// the maxium amplitude samples(frequency)}}
+\DoxyCodeLine{67     \textcolor{keywordtype}{int} num\_samples;}
+\DoxyCodeLine{68     \textcolor{keywordtype}{int} n\_out; \textcolor{comment}{//the number of samples in the output of fast fourier Transform}}
+\DoxyCodeLine{69     \textcolor{keywordtype}{int} nFreqSamples; \textcolor{comment}{//the number of samples in frequency domain}}
+\DoxyCodeLine{70 \};}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#endif }}
+
+\end{DoxyCode}

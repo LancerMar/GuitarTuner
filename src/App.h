@@ -21,7 +21,7 @@ class App : public DriverCallback{
         /*!
         * FFT processor
         *
-        * This function is used to Fourier transform the audio data
+        * This function is used to fast Fourier transform the audio data
         *
         * @param int* Pointer to the first address of the audio data to be processed
         * @param int The length of the audio data to be processed
@@ -59,7 +59,7 @@ class App : public DriverCallback{
         /*!
         * destructor
         *
-        * All the memory applied for on the heap needs to be released here, otherwise it will 
+        * All the memory applied for on the heap are released here, otherwise it will 
         * cause memory overflow, thereby reducing the stability of the program
         */
         ~App();
