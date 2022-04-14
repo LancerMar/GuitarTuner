@@ -81,7 +81,7 @@ sudo apt-get install qtdeclarative5-dev-tools libqwt-qt5-dev qtmultimedia5-dev
 ```
 sudo ldconfig
 ```
-clone this project
+4. clone this project
 
 ```linux
 git clone https://github.com/LancerMar/GuitarTuner
