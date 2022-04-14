@@ -106,3 +106,6 @@ FFtw 3 lib : FFT Processing library
 display: recommended use QT 
 
 install "Doxygen" :literate programme tool 
+
+# Document for Code
+[GUITARTUNER DOCUMENTATION](https://lancermar.github.io/GuitarTuner/materies/codeDocumnet/html/index.html)

@@ -1,0 +1,95 @@
+\hypertarget{window_8h_source}{}\doxysection{window.\+h}
+\label{window_8h_source}\index{D:/Glasgow/CSEcaurse/realtime/project/GuitarTuner/src/window.h@{D:/Glasgow/CSEcaurse/realtime/project/GuitarTuner/src/window.h}}
+\mbox{\hyperlink{window_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef WINDOW\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define WINDOW\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{i2s__mems__mic_8h}{i2s\_mems\_mic.h}}"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <QtCore/qglobal.h>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <qboxlayout.h>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <qmainwindow.h>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <qobject.h>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <qtimer.h>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <qwidget.h>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <qwt/qwt\_text.h>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <qwt/qwt\_thermo.h>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <qwt/qwt\_plot.h>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <qwt/qwt\_plot\_curve.h>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <QWidget>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <alsa/seq\_midi\_event.h>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <cstring>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <qobjectdefs.h>}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <qpushbutton.h>}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{comment}{/*}}
+\DoxyCodeLine{26 \textcolor{comment}{ * set frequency range}}
+\DoxyCodeLine{27 \textcolor{comment}{ */}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#define DELAY 128}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#define E4MIN 325}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#define E4MAX 335}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#define B3MIN 240}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#define B3MAX 250}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#define G3MIN 190}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#define G3MAX 200}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#define D3MIN 140}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#define D3MAX 150}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define A2MIN 105}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#define A2MAX 115}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#define E2MIN 75}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#define E2MAX 85}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{keyword}{class }\mbox{\hyperlink{class_window}{Window}} : \textcolor{keyword}{public} QWidget}
+\DoxyCodeLine{44 \{}
+\DoxyCodeLine{45     Q\_OBJECT; }
+\DoxyCodeLine{46 \textcolor{keyword}{public}:}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{56     \mbox{\hyperlink{class_window_a4f4fd08535fdeb1993a4c9a024545260}{Window}}(\textcolor{keywordtype}{double} *);}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{64     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_window_a3656e486c467d9d7c7933812fb4b8f57}{timerEvent}}(QTimerEvent*);}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \textcolor{comment}{//internal variable for this class}}
+\DoxyCodeLine{68 \textcolor{keyword}{private}:}
+\DoxyCodeLine{69     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} plotDataSize = 513;}
+\DoxyCodeLine{70     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} resolution = (double)\mbox{\hyperlink{i2s__mems__mic_8h_a4b76a0c2859cfd819a343a780070ee2b}{SAMPLE\_RATE}} / \mbox{\hyperlink{i2s__mems__mic_8h_a7ed3f7b6a56165fe7909839f1f459c3c}{frames\_number}};}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     QTimer* counter;}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74     QPushButton  *E4;}
+\DoxyCodeLine{75     QPushButton  *B3;}
+\DoxyCodeLine{76     QPushButton  *G3;}
+\DoxyCodeLine{77     QPushButton  *D3;}
+\DoxyCodeLine{78     QPushButton  *A2;}
+\DoxyCodeLine{79     QPushButton  *E2;}
+\DoxyCodeLine{80     }
+\DoxyCodeLine{81     \textcolor{comment}{//QwtPlot      *plot1;}}
+\DoxyCodeLine{82     QwtPlot      *plot2;}
+\DoxyCodeLine{83     QwtPlotCurve *curve1;}
+\DoxyCodeLine{84     QwtPlotCurve *curve2;}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     QVBoxLayout  *v1Layout;}
+\DoxyCodeLine{87     QVBoxLayout  *v2Layout; \textcolor{comment}{// vertical layout}}
+\DoxyCodeLine{88     QHBoxLayout  *hLayout; \textcolor{comment}{// horizontal layout}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90     \textcolor{keywordtype}{double} xData[plotDataSize];}
+\DoxyCodeLine{91     \textcolor{keywordtype}{double} yData[plotDataSize];}
+\DoxyCodeLine{92     \textcolor{keywordtype}{double} *buffer;}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94     \textcolor{keywordtype}{void} setE4();}
+\DoxyCodeLine{95     \textcolor{keywordtype}{void} setB3();}
+\DoxyCodeLine{96     \textcolor{keywordtype}{void} setG3();}
+\DoxyCodeLine{97     \textcolor{keywordtype}{void} setD3();}
+\DoxyCodeLine{98     \textcolor{keywordtype}{void} setA2();}
+\DoxyCodeLine{99     \textcolor{keywordtype}{void} setE2();}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101 \};}
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{103 }
+
+\end{DoxyCode}

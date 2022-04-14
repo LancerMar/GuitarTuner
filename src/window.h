@@ -45,23 +45,27 @@
 
 class Window : public QWidget
 {
-    Q_OBJECT;//qt global macro
+    Q_OBJECT; /*!< qt global macro */
 public:
+    /*!
+    * constructor
+    * 
+    * Initialise the UI
+    *
+    * @param double* The first address pointer of the array of audio 
+    * data in the frequency domain
+    */
+    Window(double *);
 
-    /*
-     * Initialise GUI and sets up mic
-     */
-    Window(double *, double*);
 
-    /*
+    /*! QT's timer trigger event
      *  
+     * Trigger data refresh and UI refresh every 40ms
+     * 
+     *  @param QTimerEvent* QT's timer events
      */
     void timerEvent(QTimerEvent*);
 
-    /*
-     * Destructor
-     */
-   // ~Window();
 
 //internal variable for this class
 private:

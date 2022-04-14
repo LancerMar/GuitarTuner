@@ -1,0 +1,92 @@
+\hypertarget{class_fft_class}{}\doxysection{Fft\+Class Class Reference}
+\label{class_fft_class}\index{FftClass@{FftClass}}
+
+
+{\ttfamily \#include $<$Fft\+Class.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fft_class_a52938e8fdf37642d98300f8f6563c045}{Fft\+Class}} (int buffer\+\_\+size=\mbox{\hyperlink{_fft_class_8h_a5baf9b675388dc65c6fcd88d63ea6d58}{FFT\+\_\+\+BUFFER\+\_\+\+SIZE}})
+\item 
+\mbox{\hyperlink{class_fft_class_aa791bb5fbd85d73756e52154b2491867}{$\sim$\+Fft\+Class}} ()
+\item 
+void \mbox{\hyperlink{class_fft_class_a686f1022b5052ecbf435b2701e7d3f26}{fill\+\_\+buffer}} (int $\ast$)
+\item 
+double \mbox{\hyperlink{class_fft_class_aef111694bd6059127a23c5dcd6451808}{update}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_fft_class_ad3db96b523bf85b1c131d122ad1f976e}{array}} \mbox{[}513\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_fft_class_a52938e8fdf37642d98300f8f6563c045}\label{class_fft_class_a52938e8fdf37642d98300f8f6563c045}} 
+\index{FftClass@{FftClass}!FftClass@{FftClass}}
+\index{FftClass@{FftClass}!FftClass@{FftClass}}
+\doxysubsubsection{\texorpdfstring{FftClass()}{FftClass()}}
+{\footnotesize\ttfamily Fft\+Class\+::\+Fft\+Class (\begin{DoxyParamCaption}\item[{int}]{buffer\+\_\+size = {\ttfamily \mbox{\hyperlink{_fft_class_8h_a5baf9b675388dc65c6fcd88d63ea6d58}{FFT\+\_\+\+BUFFER\+\_\+\+SIZE}}} }\end{DoxyParamCaption})}
+
+constructor\+:
+
+Initialize all the data that needs to be used in the Fast Fourier transform
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & The data length of the data to be processed by the Fast Fourier Transform \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_fft_class_aa791bb5fbd85d73756e52154b2491867}\label{class_fft_class_aa791bb5fbd85d73756e52154b2491867}} 
+\index{FftClass@{FftClass}!````~FftClass@{$\sim$FftClass}}
+\index{````~FftClass@{$\sim$FftClass}!FftClass@{FftClass}}
+\doxysubsubsection{\texorpdfstring{$\sim$FftClass()}{~FftClass()}}
+{\footnotesize\ttfamily Fft\+Class\+::$\sim$\+Fft\+Class (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+destructor\+:
+
+All the memory applied for on the heap are released here, otherwise it will cause memory overflow, thereby reducing the stability of the program； 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_fft_class_a686f1022b5052ecbf435b2701e7d3f26}\label{class_fft_class_a686f1022b5052ecbf435b2701e7d3f26}} 
+\index{FftClass@{FftClass}!fill\_buffer@{fill\_buffer}}
+\index{fill\_buffer@{fill\_buffer}!FftClass@{FftClass}}
+\doxysubsubsection{\texorpdfstring{fill\_buffer()}{fill\_buffer()}}
+{\footnotesize\ttfamily void Fft\+Class\+::fill\+\_\+buffer (\begin{DoxyParamCaption}\item[{int $\ast$}]{buffer\+\_\+tmp }\end{DoxyParamCaption})}
+
+fill the buffer
+
+Put the audio data collected in real time into the array to be fast Fourier transformed
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & $\ast$ Pointer to the first address of the audio data \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_fft_class_aef111694bd6059127a23c5dcd6451808}\label{class_fft_class_aef111694bd6059127a23c5dcd6451808}} 
+\index{FftClass@{FftClass}!update@{update}}
+\index{update@{update}!FftClass@{FftClass}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily double Fft\+Class\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+execute the Fase fourier Transform and update the Data needed to update the UI
+
+\begin{DoxyReturn}{Returns}
+double The largest value of amplitude in the current spectrum 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_fft_class_ad3db96b523bf85b1c131d122ad1f976e}\label{class_fft_class_ad3db96b523bf85b1c131d122ad1f976e}} 
+\index{FftClass@{FftClass}!array@{array}}
+\index{array@{array}!FftClass@{FftClass}}
+\doxysubsubsection{\texorpdfstring{array}{array}}
+{\footnotesize\ttfamily double Fft\+Class\+::array\mbox{[}513\mbox{]}}
+
+Stores per-\/sample data in the frequency domain 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Glasgow/\+CSEcaurse/realtime/project/\+Guitar\+Tuner/src/\mbox{\hyperlink{_fft_class_8h}{Fft\+Class.\+h}}\item 
+D\+:/\+Glasgow/\+CSEcaurse/realtime/project/\+Guitar\+Tuner/src/\mbox{\hyperlink{_fft_class_8cpp}{Fft\+Class.\+cpp}}\end{DoxyCompactItemize}
