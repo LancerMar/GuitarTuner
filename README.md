@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-    <a href="https://www.youtube.com">Youtube link</a>
+    <a href="https://www.youtube.com/watch?v=Mex_W0Kkss0">Youtube link</a>
 </p>
 
 <p align="center">
@@ -74,6 +74,7 @@ and then install these modules
  - asound module 
  - fftw3 module
  - Qt module
+ - iir filter module
 
 ```
 sudo apt-get install libasound2-dev python3-pip libboost-test-dev 
