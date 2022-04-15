@@ -17,6 +17,6 @@ BOOST_AUTO_TEST_CASE(PCM_SET_PARAMS_TEST)
     I2Smic mic;
     mic.open_pcm();
     mic.set_params();
-    //std::cout<<"rc_result: "<<mic.get_rc()<<std::endl;
+    std::cout<<"rc_result: "<<mic.get_rc()<<std::endl;
     BOOST_CHECK_EQUAL(0, mic.get_rc());
 }

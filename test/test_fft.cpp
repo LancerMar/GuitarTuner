@@ -14,7 +14,7 @@ BOOST_AUTO_TEST_CASE(FFT_TEST)
     }
 
     fft->fill_buffer(buffer);
-    BOOST_CHECK_EQUAL(3265, fft->update());
+    BOOST_CHECK_EQUAL(3265.625, fft->update());
     
     delete fft;
 }

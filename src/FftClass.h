@@ -55,7 +55,8 @@ public:
     double update();
 
     double array[513]; /*!< Stores per-sample data in the frequency domain */
-
+    double max_fre;
+    double *max_fre_p = &max_fre;
 
 private:
     double *in; //audio data in time domain
@@ -66,7 +67,7 @@ private:
     
     double mag; //magnitude of audio data in frequency domain
     double yMax; // the maxium amplitude samples
-    int max_fre; // the maxium amplitude samples(frequency)
+
     int num_samples;
     int n_out; //the number of samples in the output of fast fourier Transform
     int nFreqSamples; //the number of samples in frequency domain

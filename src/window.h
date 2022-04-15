@@ -55,7 +55,7 @@ public:
     * @param double* The first address pointer of the array of audio 
     * data in the frequency domain
     */
-    Window(double *);
+    Window(double *, double*);
 
 
     /*! QT's timer trigger event
