@@ -26,33 +26,46 @@ static struct snd_params{
 class I2Smic {
 
 public:
-    /*
-     * open PCM device
+    /*! open PCM device
+     * 
+     * open the data read and write channel of mic;
      */
     void open_pcm();
     
-    /**
-     * set parameters 
+    /*! set parameters 
      *
-     **/
+     * Set data channel parameters to mic
+     */
     void set_params(void);
-    /**
-     * close PCM device
-     **/
+    /*! close PCM device
+     * 
+     * important: When the program ends or the driver class 
+     * is destructed, this method must be called to close the 
+     * data channel of mic, otherwise it will cause unpredictable 
+     * errors
+     */
     void close_pcm();
     
     /*!
-     * start to obtain sound sample
+     * obtain sound sample
+     * 
+     * Continuously obtain audio data, and call the callback 
+     * function to perform real-time iir filtering and Fast 
+     * Fourier transformation on the data
      */
     void run();
     
-    /*!
-     * register callback
+    /*! register callback
+     *
+     * External classes can register callback functions to the
+     * driver class through this method
      */
     void registercallback(DriverCallback* cb);
     
-    /*!
-     * destructor
+    /*! destructor
+     *
+     * The method to close the mic will be called in this method
+
      */
     ~I2Smic() {
         this->close_pcm();
@@ -64,7 +77,7 @@ private:
     snd_pcm_t *handle;
     const int open_mode = 0;
     const snd_pcm_stream_t stream = SND_PCM_STREAM_CAPTURE;
-    char const* pcm_name = "plughw:2";//sound device name
+    char const* pcm_name = "plughw:1";//sound device name
     snd_pcm_uframes_t frames; 
     unsigned int val;
     

@@ -1,0 +1,47 @@
+\hypertarget{class_driver_callback}{}\doxysection{Driver\+Callback Class Reference}
+\label{class_driver_callback}\index{DriverCallback@{DriverCallback}}
+
+
+{\ttfamily \#include $<$Driver\+Callback.\+h$>$}
+
+Inheritance diagram for Driver\+Callback\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_driver_callback}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_driver_callback_a91606c51d355b37604c690525a119586}{fft\+Data}} (int $\ast$, int)=0
+\item 
+virtual int $\ast$ \mbox{\hyperlink{class_driver_callback_ae0f3fb20a8a5f595d4b430e95afbb41c}{lp\+Data}} (int $\ast$)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_driver_callback_a91606c51d355b37604c690525a119586}\label{class_driver_callback_a91606c51d355b37604c690525a119586}} 
+\index{DriverCallback@{DriverCallback}!fftData@{fftData}}
+\index{fftData@{fftData}!DriverCallback@{DriverCallback}}
+\doxysubsubsection{\texorpdfstring{fftData()}{fftData()}}
+{\footnotesize\ttfamily virtual void Driver\+Callback\+::fft\+Data (\begin{DoxyParamCaption}\item[{int $\ast$}]{,  }\item[{int}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+This virtual method is used to fast Fourier transform the raw data and output the frequency domain data 
+
+Implemented in \mbox{\hyperlink{class_app_a6dd9d2c3e2d67a31e881f857dff20c83}{App}}.
+
+\mbox{\Hypertarget{class_driver_callback_ae0f3fb20a8a5f595d4b430e95afbb41c}\label{class_driver_callback_ae0f3fb20a8a5f595d4b430e95afbb41c}} 
+\index{DriverCallback@{DriverCallback}!lpData@{lpData}}
+\index{lpData@{lpData}!DriverCallback@{DriverCallback}}
+\doxysubsubsection{\texorpdfstring{lpData()}{lpData()}}
+{\footnotesize\ttfamily virtual int $\ast$ Driver\+Callback\+::lp\+Data (\begin{DoxyParamCaption}\item[{int $\ast$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+This virtual method is used to iir filter the raw data in realtime 
+
+Implemented in \mbox{\hyperlink{class_app_ab8f3e33b49c078db98b6fe497e82240e}{App}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Glasgow/\+CSEcaurse/realtime/project/\+Guitar\+Tuner/src/\mbox{\hyperlink{_driver_callback_8h}{Driver\+Callback.\+h}}\end{DoxyCompactItemize}

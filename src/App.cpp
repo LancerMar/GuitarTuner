@@ -21,9 +21,9 @@ int* App::lpData(int *buffer_tmp){
 }
 
 /*
- * fft process data(why frame?)
+ * fft process data
  */
-void App::fftData(int32_t* buffer, int frames) {
+void App::fftData(int* buffer, int frames) {
     fft->fill_buffer(buffer);
     fft->update();
 }
