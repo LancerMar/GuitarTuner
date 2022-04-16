@@ -140,7 +140,7 @@ make test
 For instructions on how to use the Guitartuner application, see the [User Manual](https://github.com/LancerMar/Guitartuner/wiki/User-Manual).
 
 # Document for Code
-[GUITARTUNER DOCUMENTATION](https://lancermar.github.io/GuitarTuner/materies/codeDocumnet/html/index.html)
+[GUITARTUNER DOCUMENTATION](https://lancermar.github.io/GuitarTuner/docs/html/index.html)
 ## Stretch Goals
 - Electric machine that could tune the guitar automatically
 - More precise pitches detection, remove harmonics
