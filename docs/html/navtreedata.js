@@ -25,22 +25,24 @@
 var NAVTREE =
 [
   [ "GuitarTuner", "index.html", [
-    [ "dataProcSequenceDiagram", "md__d___glasgow__c_s_ecaurse_realtime_project__guitar_tuner_materies_data_proc_sequence_diagram.html", null ],
-    [ "Installation", "md__d___glasgow__c_s_ecaurse_realtime_project__guitar_tuner__r_e_a_d_m_e.html", [
-      [ "compile", "md__d___glasgow__c_s_ecaurse_realtime_project__guitar_tuner__r_e_a_d_m_e.html#autotoc_md1", [
-        [ "Installation", "md__d___glasgow__c_s_ecaurse_realtime_project__guitar_tuner__r_e_a_d_m_e.html#autotoc_md2", null ],
-        [ "Release", "md__d___glasgow__c_s_ecaurse_realtime_project__guitar_tuner__r_e_a_d_m_e.html#autotoc_md3", null ],
-        [ "Debug", "md__d___glasgow__c_s_ecaurse_realtime_project__guitar_tuner__r_e_a_d_m_e.html#autotoc_md4", null ]
-      ] ],
-      [ "GuitarTuner", "md__d___glasgow__c_s_ecaurse_realtime_project__guitar_tuner__r_e_a_d_m_e.html#autotoc_md5", [
-        [ "Introduction", "md__d___glasgow__c_s_ecaurse_realtime_project__guitar_tuner__r_e_a_d_m_e.html#autotoc_md6", null ],
-        [ "Flow chart", "md__d___glasgow__c_s_ecaurse_realtime_project__guitar_tuner__r_e_a_d_m_e.html#autotoc_md7", null ],
-        [ "References", "md__d___glasgow__c_s_ecaurse_realtime_project__guitar_tuner__r_e_a_d_m_e.html#autotoc_md8", null ],
-        [ "Sensor References", "md__d___glasgow__c_s_ecaurse_realtime_project__guitar_tuner__r_e_a_d_m_e.html#autotoc_md9", null ]
-      ] ],
-      [ "Diagram", "md__d___glasgow__c_s_ecaurse_realtime_project__guitar_tuner__r_e_a_d_m_e.html#autotoc_md10", [
-        [ "sequence diagram for data transfer", "md__d___glasgow__c_s_ecaurse_realtime_project__guitar_tuner__r_e_a_d_m_e.html#autotoc_md11", null ],
-        [ "FAQ", "md__d___glasgow__c_s_ecaurse_realtime_project__guitar_tuner__r_e_a_d_m_e.html#autotoc_md12", null ]
+    [ "README", "md__d___glasgow__c_s_ecaurse_realtime_project__guitar_tuner__r_e_a_d_m_e.html", [
+      [ "Document for Code", "md__d___glasgow__c_s_ecaurse_realtime_project__guitar_tuner__r_e_a_d_m_e.html#autotoc_md12", [
+        [ "Contents", "md__d___glasgow__c_s_ecaurse_realtime_project__guitar_tuner__r_e_a_d_m_e.html#autotoc_md0", null ],
+        [ "About", "md__d___glasgow__c_s_ecaurse_realtime_project__guitar_tuner__r_e_a_d_m_e.html#autotoc_md1", [
+          [ "Functionality", "md__d___glasgow__c_s_ecaurse_realtime_project__guitar_tuner__r_e_a_d_m_e.html#autotoc_md2", null ],
+          [ "Hardware", "md__d___glasgow__c_s_ecaurse_realtime_project__guitar_tuner__r_e_a_d_m_e.html#autotoc_md3", null ]
+        ] ],
+        [ "Quick Start", "md__d___glasgow__c_s_ecaurse_realtime_project__guitar_tuner__r_e_a_d_m_e.html#autotoc_md4", [
+          [ "Assembly and Soldering", "md__d___glasgow__c_s_ecaurse_realtime_project__guitar_tuner__r_e_a_d_m_e.html#autotoc_md5", null ],
+          [ "Raspberry pi for wiring", "md__d___glasgow__c_s_ecaurse_realtime_project__guitar_tuner__r_e_a_d_m_e.html#autotoc_md6", null ],
+          [ "Installation", "md__d___glasgow__c_s_ecaurse_realtime_project__guitar_tuner__r_e_a_d_m_e.html#autotoc_md7", [
+            [ "Run the executable", "md__d___glasgow__c_s_ecaurse_realtime_project__guitar_tuner__r_e_a_d_m_e.html#autotoc_md8", null ],
+            [ "Debug", "md__d___glasgow__c_s_ecaurse_realtime_project__guitar_tuner__r_e_a_d_m_e.html#autotoc_md9", null ]
+          ] ],
+          [ "Running Tests", "md__d___glasgow__c_s_ecaurse_realtime_project__guitar_tuner__r_e_a_d_m_e.html#autotoc_md10", null ]
+        ] ],
+        [ "Usage", "md__d___glasgow__c_s_ecaurse_realtime_project__guitar_tuner__r_e_a_d_m_e.html#autotoc_md11", null ],
+        [ "Stretch Goals", "md__d___glasgow__c_s_ecaurse_realtime_project__guitar_tuner__r_e_a_d_m_e.html#autotoc_md13", null ]
       ] ]
     ] ],
     [ "Classes", "annotated.html", [

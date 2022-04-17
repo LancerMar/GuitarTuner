@@ -107,37 +107,42 @@ $(document).ready(function(){initNavTree('_fft_class_8h_source.html',''); initRe
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_function" href="class_fft_class.html#a52938e8fdf37642d98300f8f6563c045">FftClass</a>(<span class="keywordtype">int</span> buffer_size = <a class="code hl_define" href="_fft_class_8h.html#a5baf9b675388dc65c6fcd88d63ea6d58">FFT_BUFFER_SIZE</a>);</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_function" href="class_fft_class.html#aa791bb5fbd85d73756e52154b2491867">~FftClass</a>();</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_fft_class.html#a686f1022b5052ecbf435b2701e7d3f26">fill_buffer</a>(<span class="keywordtype">int</span> *);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="class_fft_class.html#aef111694bd6059127a23c5dcd6451808">update</a>();</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="class_fft_class.html#ad3db96b523bf85b1c131d122ad1f976e">   55</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="class_fft_class.html#ad3db96b523bf85b1c131d122ad1f976e">array</a>[513]; </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">double</span> *in; <span class="comment">//audio data in time domain</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    fftw_complex *out; <span class="comment">// audio data in frequency domain</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_function" href="class_fft_class.html#aa791bb5fbd85d73756e52154b2491867">~FftClass</a>();</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_fft_class.html#a686f1022b5052ecbf435b2701e7d3f26">fill_buffer</a>(<span class="keywordtype">int</span> *);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="class_fft_class.html#aef111694bd6059127a23c5dcd6451808">update</a>();</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="class_fft_class.html#ad3db96b523bf85b1c131d122ad1f976e">   57</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="class_fft_class.html#ad3db96b523bf85b1c131d122ad1f976e">array</a>[513]; </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="class_fft_class.html#aa95b44687e7cadf91aaa4f3629f8b7d4">   58</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="class_fft_class.html#aa95b44687e7cadf91aaa4f3629f8b7d4">max_fre</a>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="class_fft_class.html#a00c5b3bf9926a8c447a9e26cc8dd4961">   59</a></span>    <span class="keywordtype">double</span> *<a class="code hl_variable" href="class_fft_class.html#a00c5b3bf9926a8c447a9e26cc8dd4961">max_fre_p</a> = &amp;<a class="code hl_variable" href="class_fft_class.html#aa95b44687e7cadf91aaa4f3629f8b7d4">max_fre</a>;</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">double</span> *x; <span class="comment">//&lt;not used&gt;</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">double</span> *y; <span class="comment">//&lt;not used&gt;</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">double</span> mag; <span class="comment">//magnitude of audio data in frequency domain</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">double</span> yMax; <span class="comment">// the maxium amplitude samples</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordtype">int</span> max_fre; <span class="comment">// the maxium amplitude samples(frequency)</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordtype">int</span> num_samples;</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordtype">int</span> n_out; <span class="comment">//the number of samples in the output of fast fourier Transform</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordtype">int</span> nFreqSamples; <span class="comment">//the number of samples in frequency domain</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>};</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="preprocessor">#endif </span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">double</span> *in; <span class="comment">//audio data in time domain</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    fftw_complex *out; <span class="comment">// audio data in frequency domain</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">double</span> *x; <span class="comment">//&lt;not used&gt;</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordtype">double</span> *y; <span class="comment">//&lt;not used&gt;</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordtype">double</span> mag; <span class="comment">//magnitude of audio data in frequency domain</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordtype">double</span> yMax; <span class="comment">// the maxium amplitude samples</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">int</span> num_samples;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">int</span> n_out; <span class="comment">//the number of samples in the output of fast fourier Transform</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">int</span> nFreqSamples; <span class="comment">//the number of samples in frequency domain</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>};</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="preprocessor">#endif </span></div>
 <div class="ttc" id="a_fft_class_8h_html_a5baf9b675388dc65c6fcd88d63ea6d58"><div class="ttname"><a href="_fft_class_8h.html#a5baf9b675388dc65c6fcd88d63ea6d58">FFT_BUFFER_SIZE</a></div><div class="ttdeci">#define FFT_BUFFER_SIZE</div><div class="ttdef"><b>Definition:</b> FftClass.h:16</div></div>
 <div class="ttc" id="aclass_fft_class_html"><div class="ttname"><a href="class_fft_class.html">FftClass</a></div><div class="ttdef"><b>Definition:</b> FftClass.h:18</div></div>
+<div class="ttc" id="aclass_fft_class_html_a00c5b3bf9926a8c447a9e26cc8dd4961"><div class="ttname"><a href="class_fft_class.html#a00c5b3bf9926a8c447a9e26cc8dd4961">FftClass::max_fre_p</a></div><div class="ttdeci">double * max_fre_p</div><div class="ttdef"><b>Definition:</b> FftClass.h:59</div></div>
 <div class="ttc" id="aclass_fft_class_html_a52938e8fdf37642d98300f8f6563c045"><div class="ttname"><a href="class_fft_class.html#a52938e8fdf37642d98300f8f6563c045">FftClass::FftClass</a></div><div class="ttdeci">FftClass(int buffer_size=FFT_BUFFER_SIZE)</div><div class="ttdef"><b>Definition:</b> FftClass.cpp:10</div></div>
-<div class="ttc" id="aclass_fft_class_html_a686f1022b5052ecbf435b2701e7d3f26"><div class="ttname"><a href="class_fft_class.html#a686f1022b5052ecbf435b2701e7d3f26">FftClass::fill_buffer</a></div><div class="ttdeci">void fill_buffer(int *)</div><div class="ttdef"><b>Definition:</b> FftClass.cpp:79</div></div>
-<div class="ttc" id="aclass_fft_class_html_aa791bb5fbd85d73756e52154b2491867"><div class="ttname"><a href="class_fft_class.html#aa791bb5fbd85d73756e52154b2491867">FftClass::~FftClass</a></div><div class="ttdeci">~FftClass()</div><div class="ttdef"><b>Definition:</b> FftClass.cpp:69</div></div>
-<div class="ttc" id="aclass_fft_class_html_ad3db96b523bf85b1c131d122ad1f976e"><div class="ttname"><a href="class_fft_class.html#ad3db96b523bf85b1c131d122ad1f976e">FftClass::array</a></div><div class="ttdeci">double array[513]</div><div class="ttdef"><b>Definition:</b> FftClass.h:55</div></div>
-<div class="ttc" id="aclass_fft_class_html_aef111694bd6059127a23c5dcd6451808"><div class="ttname"><a href="class_fft_class.html#aef111694bd6059127a23c5dcd6451808">FftClass::update</a></div><div class="ttdeci">double update()</div><div class="ttdef"><b>Definition:</b> FftClass.cpp:38</div></div>
+<div class="ttc" id="aclass_fft_class_html_a686f1022b5052ecbf435b2701e7d3f26"><div class="ttname"><a href="class_fft_class.html#a686f1022b5052ecbf435b2701e7d3f26">FftClass::fill_buffer</a></div><div class="ttdeci">void fill_buffer(int *)</div><div class="ttdef"><b>Definition:</b> FftClass.cpp:73</div></div>
+<div class="ttc" id="aclass_fft_class_html_aa791bb5fbd85d73756e52154b2491867"><div class="ttname"><a href="class_fft_class.html#aa791bb5fbd85d73756e52154b2491867">FftClass::~FftClass</a></div><div class="ttdeci">~FftClass()</div><div class="ttdef"><b>Definition:</b> FftClass.cpp:63</div></div>
+<div class="ttc" id="aclass_fft_class_html_aa95b44687e7cadf91aaa4f3629f8b7d4"><div class="ttname"><a href="class_fft_class.html#aa95b44687e7cadf91aaa4f3629f8b7d4">FftClass::max_fre</a></div><div class="ttdeci">double max_fre</div><div class="ttdef"><b>Definition:</b> FftClass.h:58</div></div>
+<div class="ttc" id="aclass_fft_class_html_ad3db96b523bf85b1c131d122ad1f976e"><div class="ttname"><a href="class_fft_class.html#ad3db96b523bf85b1c131d122ad1f976e">FftClass::array</a></div><div class="ttdeci">double array[513]</div><div class="ttdef"><b>Definition:</b> FftClass.h:57</div></div>
+<div class="ttc" id="aclass_fft_class_html_aef111694bd6059127a23c5dcd6451808"><div class="ttname"><a href="class_fft_class.html#aef111694bd6059127a23c5dcd6451808">FftClass::update</a></div><div class="ttdeci">double update()</div><div class="ttdef"><b>Definition:</b> FftClass.cpp:32</div></div>
 <div class="ttc" id="ai2s__mems__mic_8h_html"><div class="ttname"><a href="i2s__mems__mic_8h.html">i2s_mems_mic.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

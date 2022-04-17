@@ -107,6 +107,10 @@ Public Member Functions</h2></td></tr>
 Public Attributes</h2></td></tr>
 <tr class="memitem:ad3db96b523bf85b1c131d122ad1f976e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fft_class.html#ad3db96b523bf85b1c131d122ad1f976e">array</a> [513]</td></tr>
 <tr class="separator:ad3db96b523bf85b1c131d122ad1f976e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa95b44687e7cadf91aaa4f3629f8b7d4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fft_class.html#aa95b44687e7cadf91aaa4f3629f8b7d4">max_fre</a></td></tr>
+<tr class="separator:aa95b44687e7cadf91aaa4f3629f8b7d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00c5b3bf9926a8c447a9e26cc8dd4961"><td class="memItemLeft" align="right" valign="top">double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fft_class.html#a00c5b3bf9926a8c447a9e26cc8dd4961">max_fre_p</a> = &amp;<a class="el" href="class_fft_class.html#aa95b44687e7cadf91aaa4f3629f8b7d4">max_fre</a></td></tr>
+<tr class="separator:a00c5b3bf9926a8c447a9e26cc8dd4961"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a52938e8fdf37642d98300f8f6563c045" name="a52938e8fdf37642d98300f8f6563c045"></a>
@@ -174,10 +178,11 @@ Public Attributes</h2></td></tr>
 <p >Put the audio data collected in real time into the array to be fast Fourier transformed</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">int</td><td>* Pointer to the first address of the audio data </td></tr>
+    <tr><td class="paramname">int</td><td>* Pointer to the first address of the audio data</td></tr>
   </table>
   </dd>
 </dl>
+<p>fill data into fft buffer </p>
 
 </div>
 </div>
@@ -213,6 +218,34 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p >Stores per-sample data in the frequency domain </p>
+
+</div>
+</div>
+<a id="aa95b44687e7cadf91aaa4f3629f8b7d4" name="aa95b44687e7cadf91aaa4f3629f8b7d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa95b44687e7cadf91aaa4f3629f8b7d4">&#9670;&nbsp;</a></span>max_fre</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double FftClass::max_fre</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a00c5b3bf9926a8c447a9e26cc8dd4961" name="a00c5b3bf9926a8c447a9e26cc8dd4961"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00c5b3bf9926a8c447a9e26cc8dd4961">&#9670;&nbsp;</a></span>max_fre_p</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double* FftClass::max_fre_p = &amp;<a class="el" href="class_fft_class.html#aa95b44687e7cadf91aaa4f3629f8b7d4">max_fre</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

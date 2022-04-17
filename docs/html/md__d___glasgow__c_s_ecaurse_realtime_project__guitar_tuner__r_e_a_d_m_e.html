@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>GuitarTuner: Installation</title>
+<title>GuitarTuner: README</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -82,83 +82,137 @@ $(document).ready(function(){initNavTree('md__d___glasgow__c_s_ecaurse_realtime_
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">Installation </div></div>
+  <div class="headertitle"><div class="title">README </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><div class="fragment"><div class="line">sudo apt-get -y update</div>
-<div class="line">sudo apt-get -y upgrade</div>
-<div class="line"> </div>
-<div class="line">sudo apt-get install libasound2-dev python3-pip libboost-test-dev libfftw3-dev qtdeclarative5-dev-tools libqwt-qt5-dev qtmultimedia5-dev</div>
-</div><!-- fragment --><p> Then get the driver</p>
-<div class="fragment"><div class="line">cd ~</div>
-<div class="line">sudo pip3 install --upgrade adafruit-python-shell</div>
-<div class="line">wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/i2smic.py</div>
-<div class="line">sudo python3 i2smic.py</div>
-</div><!-- fragment --> <div class="fragment"><div class="line">sudo ldconfig</div>
-</div><!-- fragment --><p> You can choose to auto-load module and then reboot machine now.</p>
-<h1><a class="anchor" id="autotoc_md1"></a>
-compile</h1>
-<p >Release mode and Debug mode can be used to complie this project </p>
-<h2><a class="anchor" id="autotoc_md2"></a>
-Installation</h2>
-<p >before compile this project you should :</p>
+<div class="textblock"><h1 align="center">Guitartuner</h1>
+<p  align="center"></p>
+<p  align="center"><a href="https://github.com/LancerMar/GuitarTuner"><img src="/files/guitar.png" alt="Logo" height="300" class="inline"/> </a> </p>
+<p >A QT gui application that helps you tune your guitar</p>
+<p  align="center"></p>
+<p ><a href="https://www.youtube.com/watch?v=Mex_W0Kkss0">Youtube</a> &#160; &#160; <a href="https://www.bilibili.com/video/BV1RY4y1e7MV?pop_share=1">Bilibili</a> </p>
+<p  align="center"></p>
+<p  align="center"></p>
+<p  align="center"></p>
+<p ><a href="https://github.com/LancerMar/GuitarTuner/graphs/contributors" alt="Contributors"><img src="https://img.shields.io/github/contributors/LancerMar/Guitartuner.svg" alt="" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/LancerMar/GuitarTuner/issues" alt="Issues"><img src="https://img.shields.io/github/issues/LancerMar/Guitartuner.svg" alt="" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/LancerMar/Guitartuner/blob/main/LICENSE" alt="License"><img src="https://img.shields.io/github/license/LancerMar/Guitartuner.svg" alt="" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/LancerMar/Guitartuner/releases" alt="Tag"><img src="https://img.shields.io/github/v/release/LancerMar/Guitartuner.svg?color=blue&amp;include_prereleases" alt="build status" style="pointer-events: none;" class="inline"/></a> </p>
+<h2><a class="anchor" id="autotoc_md0"></a>
+Contents</h2>
+<ul>
+<li>
+<a href="#About">About</a> <ul>
+<li>
+<a href="#Functionality">Functionality</a> </li>
+<li>
+<a href="#Hardware">Hardware</a> </li>
+</ul>
+</li>
+<li>
+<a href="#Quick-Start">Quick Start</a> <ul>
+<li>
+<a href="#assembly-and-soldering">Assembly and Soldering</a> </li>
+<li>
+<a href="#raspberry-pi-for-wiring">Raspberry pi for wiring</a> </li>
+<li>
+<a href="#installation">Installation</a> <ul>
+<li>
+<a href="#run-the-executable">Run the program</a> </li>
+<li>
+<a href="#debug">Debug program</a> </li>
+</ul>
+</li>
+<li>
+<a href="#running-tests">Running Tests</a> </li>
+</ul>
+</li>
+<li>
+<a href="#Usage">Usage</a> </li>
+<li>
+<a href="#Documentation">Documentation</a> </li>
+<li>
+<a href="#Stretch-Goals">Stretch Goals</a> </li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1"></a>
+About</h2>
+<p >Guitartuner is a easy to run tuning application. It easily helps you tune your guitar with the help of a simple GUI.</p>
+<h3><a class="anchor" id="autotoc_md2"></a>
+Functionality</h3>
+<ul>
+<li>Real-time standard tuning</li>
+<li>Showing pitch frequency </li>
+</ul>
+<h3><a class="anchor" id="autotoc_md3"></a>
+Hardware</h3>
+<ul>
+<li>Raspberry pi model 4b</li>
+<li><a href="https://www.adafruit.com/product/3421">I2s microphone</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md4"></a>
+Quick Start</h2>
+<h3><a class="anchor" id="autotoc_md5"></a>
+Assembly and Soldering</h3>
+<p ><a href="https://learn.adafruit.com/adafruit-i2s-mems-microphone-breakout/assembly">More details can be found here!</a> </p>
+<h3><a class="anchor" id="autotoc_md6"></a>
+Raspberry pi for wiring</h3>
+<p ><a href="https://learn.adafruit.com/adafruit-i2s-mems-microphone-breakout/raspberry-pi-wiring-test">More datails</a>, remember this is mono mic based project. </p>
+<h3><a class="anchor" id="autotoc_md7"></a>
+Installation</h3>
+<p >Follow the following steps</p>
 <ol type="1">
-<li>Install <a href="http://www.fftw.org/download.html">FFTW</a> manually </li>
+<li>Install the driver for i2s mic, <a href="https://learn.adafruit.com/adafruit-i2s-mems-microphone-breakout/raspberry-pi-wiring-test">link</a>, after the wiring section.</li>
+<li>Install several dependenceis.</li>
 </ol>
-<h2><a class="anchor" id="autotoc_md3"></a>
-Release</h2>
-<p >you can compile the release version of our project by using following command on RaspberryPi </p><div class="fragment"><div class="line">mkdir release</div>
+<div class="fragment"><div class="line">sudo apt-get -y update</div>
+<div class="line">sudo apt-get -y upgrade</div>
+</div><!-- fragment --><p> and then install these modules</p><ul>
+<li>asound module</li>
+<li>fftw3 module</li>
+<li>Qt module</li>
+<li>iir filter module</li>
+</ul>
+<div class="fragment"><div class="line">sudo apt-get install libasound2-dev python3-pip libboost-test-dev </div>
+<div class="line">sudo apt-get install libfftw3-dev </div>
+<div class="line">sudo apt-get install qtdeclarative5-dev-tools libqwt-qt5-dev qtmultimedia5-dev</div>
+</div><!-- fragment --><ol type="1">
+<li>Configure dynamic linker run-time bindings</li>
+</ol>
+<div class="fragment"><div class="line">sudo ldconfig</div>
+</div><!-- fragment --><ol type="1">
+<li>clone this project</li>
+</ol>
+<div class="fragment"><div class="line">git clone https://github.com/LancerMar/GuitarTuner</div>
+<div class="line">cd GuitarTuner</div>
+</div><!-- fragment --><h4><a class="anchor" id="autotoc_md8"></a>
+Run the executable</h4>
+<p >You can compile the release version of our project by using following command on RaspberryPi </p><div class="fragment"><div class="line">mkdir release</div>
 <div class="line">cd release/</div>
 <div class="line">cmake -DCMAKE_BUILD_TYPE=Release ..</div>
 <div class="line">make</div>
-</div><!-- fragment --><p> the <b>guitartuner</b> is the excutable file</p>
-<h2><a class="anchor" id="autotoc_md4"></a>
-Debug</h2>
-<p >you can compile the debug version of our project by using following command on RaspberryPi </p><div class="fragment"><div class="line">mkdir debug</div>
+</div><!-- fragment --><p> The <b>guitartuner</b> is the excutable file, run it. </p><div class="fragment"><div class="line">./guitartuner</div>
+</div><!-- fragment --><h4><a class="anchor" id="autotoc_md9"></a>
+Debug</h4>
+<p >You can compile the debug version of our project by using following command on RaspberryPi </p><div class="fragment"><div class="line">mkdir debug</div>
 <div class="line">cd debug/</div>
 <div class="line">cmake -DCMAKE_BUILD_TYPE=Debug ..</div>
 <div class="line">make</div>
-</div><!-- fragment --><p> the <b>guitartuner</b> is the excutable file</p>
-<p >you can use </p><div class="fragment"><div class="line">gdb -tui guitartuner</div>
+</div><!-- fragment --><p> The <b>guitartuner</b> is the excutable file</p>
+<p >You can use </p><div class="fragment"><div class="line">gdb -tui guitartuner</div>
 </div><!-- fragment --><p> to debug this program</p>
-<h1><a class="anchor" id="autotoc_md5"></a>
-GuitarTuner</h1>
-<p >Tune the each open string of Guitar to standard pitch.</p>
-<h2><a class="anchor" id="autotoc_md6"></a>
-Introduction</h2>
-<p >After using guitar for a long time, the string of the guitar will easily to be loose.The loose strings will cause the guitar string to be out of tune. In that way, we need a tuner to help us to redjust the string of each string.</p>
-<p >The most convenient way to retune the guitar is to adjust each string when they are open. The standard frequency of each string is presented.</p>
-<p >We run our software on <b>Raspberry Pi MOdel 4b</b>, and connect <b>a I2S microphone</b> on it. In that way we can receive the sound of guitar and analyse them in real-time. <br  />
-</p>
-<h2><a class="anchor" id="autotoc_md7"></a>
-Flow chart</h2>
-<h2><a class="anchor" id="autotoc_md8"></a>
-References</h2>
-<p >Use standard microphone get the real-time voice singnal of guitar，it help guitar users to calibrate the tones of each string.</p>
-<p >According to Equal temperament(12 Equal temperament(12-TET)), we use 440Hz as our reference pitch, we got open tunings of each string. <img src="standardTuning.PNG" alt="" class="inline"/></p>
-<p >Calculation Method:</p>
-<p >Open string 1 E4 440.0000 / 2 ^ ( 5 / 12 ) = 329.6276 Hz</p>
-<p >Open string 2 B3 440.0000 / 2 ^ ( 10 / 12 ) = 246.9417 Hz</p>
-<p >Open string 3 G3 440.0000 / 2 ^ ( 14 / 12 ) = 195.9977 Hz</p>
-<p >Open string 4 D3 440.0000 / 2 ^ ( 19 / 12 ) = 146.8324 Hz</p>
-<p >Open string 5 A2 440.0000 / 2 ^ ( 24 / 12 ) = 110.0000 Hz</p>
-<p >Open string 6 E2 440.0000 / 2 ^ ( 29 / 12 ) = 82.4069 Hz</p>
-<h2><a class="anchor" id="autotoc_md9"></a>
-Sensor References</h2>
-<p ><a href="https://www.sparkfun.com/datasheets/BreakoutBoards/I2SBUS.pdf">https://www.sparkfun.com/datasheets/BreakoutBoards/I2SBUS.pdf</a></p>
-<p ><a href="https://cdn-learn.adafruit.com/downloads/pdf/adafruit-i2s-mems-microphone-breakout.pdf">https://cdn-learn.adafruit.com/downloads/pdf/adafruit-i2s-mems-microphone-breakout.pdf</a></p>
-<h1><a class="anchor" id="autotoc_md10"></a>
-Diagram</h1>
-<h2><a class="anchor" id="autotoc_md11"></a>
-sequence diagram for data transfer</h2>
-<p ><img src="materies/sequenceDiagram.PNG" alt="" class="inline"/></p>
-<h2><a class="anchor" id="autotoc_md12"></a>
-FAQ</h2>
-<p >ALSA Library : sound driver ; get data from sound card(Linux)</p>
-<p >arecord : can read the source, it`s helpful to write our own driver</p>
-<p >FFtw 3 lib : FFT Processing library</p>
-<p >display: recommended use QT</p>
-<p >install "Doxygen" :literate programme tool </p>
+<h3><a class="anchor" id="autotoc_md10"></a>
+Running Tests</h3>
+<p >To run the unit tests</p>
+<div class="fragment"><div class="line">make test</div>
+</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md11"></a>
+Usage</h2>
+<p >For instructions on how to use the Guitartuner application, see the <a href="https://github.com/LancerMar/Guitartuner/wiki/User-Manual">User Manual</a>.</p>
+<h1><a class="anchor" id="autotoc_md12"></a>
+Document for Code</h1>
+<p ><a href="https://lancermar.github.io/GuitarTuner/docs/html/index.html">GUITARTUNER DOCUMENTATION</a> </p>
+<h2><a class="anchor" id="autotoc_md13"></a>
+Stretch Goals</h2>
+<ul>
+<li>Electric machine that could tune the guitar automatically</li>
+<li>More precise pitches detection, remove harmonics </li>
+</ul>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
