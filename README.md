@@ -139,7 +139,7 @@ make test
 
 For instructions on how to use the Guitartuner application, see the [User Manual](https://github.com/LancerMar/Guitartuner/wiki/User-Manual).
 
-## Document for Code
+## Documentation
 [GUITARTUNER DOCUMENTATION](https://lancermar.github.io/GuitarTuner/docs/html/index.html)
 ## Stretch Goals
 - Electric machine that could tune the guitar automatically
