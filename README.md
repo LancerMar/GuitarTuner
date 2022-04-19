@@ -99,6 +99,18 @@ sudo ldconfig
 git clone https://github.com/LancerMar/GuitarTuner
 cd GuitarTuner
 ```
+#### Before compiling
+you need to use command
+```linux
+arecord -l
+```
+to find which card your sensor connected on your raspberry Pi
+
+after that ,you can open **the i2s_mems_mic.h** find this line
+```
+char const* pcm_name = "plughw:1";//sound device name
+```
+make sure the number in **"plughw:1"** is your card number. For example, if your card number is "card 0" , then you should change **"plughw:1"** to **"plughw:0"** , in that way, after compiling , the program can run successfully
 
 #### Run the executable
 You can compile the release version of our project by using following command on RaspberryPi
