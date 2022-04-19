@@ -83,7 +83,7 @@ and then install these modules
  - iir filter module
 
 ```
-sudo apt-get install libasound2-dev python3-pip libboost-test-dev 
+sudo apt-get install libasound2-dev python3-pip libboost-all-dev 
 sudo apt-get install libfftw3-dev 
 sudo apt-get install qtdeclarative5-dev-tools libqwt-qt5-dev qtmultimedia5-dev
 ```
